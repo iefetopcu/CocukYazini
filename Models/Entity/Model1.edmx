@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cocukyaziniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categorytable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="isaktif" Type="int" />
+        </EntityType>
+        <EntityType Name="comenttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postid" Type="bigint" />
+          <Property Name="comenttitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="comentcontent" Type="varchar(max)" Nullable="false" />
+          <Property Name="whowrote" Type="varchar(max)" Nullable="false" />
+          <Property Name="userid" Type="bigint" />
+          <Property Name="isaktif" Type="int" />
+          <Property Name="comenttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="contacttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contacttitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contactcontent" Type="varchar(max)" Nullable="false" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="whowrote" Type="varchar(max)" Nullable="false" />
+          <Property Name="userid" Type="bigint" />
+          <Property Name="isaktif" Type="int" />
+          <Property Name="contacttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="monthtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="monthname" Type="varchar(max)" Nullable="false" />
+          <Property Name="datetime" Type="datetime" />
+          <Property Name="monthphotourl" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="posttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="posttitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="postcontent" Type="varchar(max)" Nullable="false" />
+          <Property Name="categoryid" Type="bigint" />
+          <Property Name="userid" Type="bigint" />
+          <Property Name="whowrote" Type="varchar" MaxLength="100" />
+          <Property Name="previewphoto" Type="nvarchar" MaxLength="250" />
+          <Property Name="postphoto" Type="nvarchar" MaxLength="250" />
+          <Property Name="isaktif" Type="int" />
+          <Property Name="posttime" Type="datetime" />
+          <Property Name="monthid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="slidertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sliderpath" Type="varchar(max)" />
+          <Property Name="sliderurl" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="usertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usersurname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usermail" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="userphoto" Type="nvarchar" MaxLength="250" />
+          <Property Name="authority" Type="int" />
+          <Property Name="isaktif" Type="int" />
+        </EntityType>
+        <Association Name="FK_comenttable_posttable">
+          <End Role="posttable" Type="Self.posttable" Multiplicity="0..1" />
+          <End Role="comenttable" Type="Self.comenttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posttable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comenttable">
+              <PropertyRef Name="postid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comenttable_usertable">
+          <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+          <End Role="comenttable" Type="Self.comenttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comenttable">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contacttable_usertable">
+          <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+          <End Role="contacttable" Type="Self.contacttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacttable">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posttable_categorytable">
+          <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorytable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posttable_monthtable">
+          <End Role="monthtable" Type="Self.monthtable" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monthtable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="monthid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posttable_usertable">
+          <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cocukyaziniModelStoreContainer">
+          <EntitySet Name="categorytable" EntityType="Self.categorytable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comenttable" EntityType="Self.comenttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contacttable" EntityType="Self.contacttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="monthtable" EntityType="Self.monthtable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="posttable" EntityType="Self.posttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
+            <End Role="posttable" EntitySet="posttable" />
+            <End Role="comenttable" EntitySet="comenttable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comenttable_usertable" Association="Self.FK_comenttable_usertable">
+            <End Role="usertable" EntitySet="usertable" />
+            <End Role="comenttable" EntitySet="comenttable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contacttable_usertable" Association="Self.FK_contacttable_usertable">
+            <End Role="usertable" EntitySet="usertable" />
+            <End Role="contacttable" EntitySet="contacttable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
+            <End Role="categorytable" EntitySet="categorytable" />
+            <End Role="posttable" EntitySet="posttable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
+            <End Role="monthtable" EntitySet="monthtable" />
+            <End Role="posttable" EntitySet="posttable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">
+            <End Role="usertable" EntitySet="usertable" />
+            <End Role="posttable" EntitySet="posttable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cocukyaziniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="categorytable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isaktif" Type="Int32" />
+          <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_categorytable" FromRole="categorytable" ToRole="posttable" />
+        </EntityType>
+        <EntityType Name="comenttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postid" Type="Int64" />
+          <Property Name="comenttitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comentcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="whowrote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userid" Type="Int64" />
+          <Property Name="isaktif" Type="Int32" />
+          <Property Name="comenttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="posttable" Relationship="Self.FK_comenttable_posttable" FromRole="comenttable" ToRole="posttable" />
+          <NavigationProperty Name="usertable" Relationship="Self.FK_comenttable_usertable" FromRole="comenttable" ToRole="usertable" />
+        </EntityType>
+        <EntityType Name="contacttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contacttitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="whowrote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userid" Type="Int64" />
+          <Property Name="isaktif" Type="Int32" />
+          <Property Name="contacttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="usertable" Relationship="Self.FK_contacttable_usertable" FromRole="contacttable" ToRole="usertable" />
+        </EntityType>
+        <EntityType Name="monthtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="monthname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="monthphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_monthtable" FromRole="monthtable" ToRole="posttable" />
+        </EntityType>
+        <EntityType Name="posttable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="posttitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="categoryid" Type="Int64" />
+          <Property Name="userid" Type="Int64" />
+          <Property Name="whowrote" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="previewphoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="postphoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="isaktif" Type="Int32" />
+          <Property Name="posttime" Type="DateTime" Precision="3" />
+          <Property Name="monthid" Type="Int64" />
+          <NavigationProperty Name="categorytable" Relationship="Self.FK_posttable_categorytable" FromRole="posttable" ToRole="categorytable" />
+          <NavigationProperty Name="comenttables" Relationship="Self.FK_comenttable_posttable" FromRole="posttable" ToRole="comenttable" />
+          <NavigationProperty Name="monthtable" Relationship="Self.FK_posttable_monthtable" FromRole="posttable" ToRole="monthtable" />
+          <NavigationProperty Name="usertable" Relationship="Self.FK_posttable_usertable" FromRole="posttable" ToRole="usertable" />
+        </EntityType>
+        <EntityType Name="slidertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sliderpath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sliderurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="usertable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usersurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usermail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userphoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="authority" Type="Int32" />
+          <Property Name="isaktif" Type="Int32" />
+          <NavigationProperty Name="comenttables" Relationship="Self.FK_comenttable_usertable" FromRole="usertable" ToRole="comenttable" />
+          <NavigationProperty Name="contacttables" Relationship="Self.FK_contacttable_usertable" FromRole="usertable" ToRole="contacttable" />
+          <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_usertable" FromRole="usertable" ToRole="posttable" />
+        </EntityType>
+        <Association Name="FK_posttable_categorytable">
+          <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorytable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="categoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comenttable_posttable">
+          <End Role="posttable" Type="Self.posttable" Multiplicity="0..1" />
+          <End Role="comenttable" Type="Self.comenttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posttable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comenttable">
+              <PropertyRef Name="postid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comenttable_usertable">
+          <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+          <End Role="comenttable" Type="Self.comenttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comenttable">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contacttable_usertable">
+          <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+          <End Role="contacttable" Type="Self.contacttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacttable">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posttable_monthtable">
+          <End Role="monthtable" Type="Self.monthtable" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monthtable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="monthid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posttable_usertable">
+          <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cocukyaziniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categorytables" EntityType="Self.categorytable" />
+          <EntitySet Name="comenttables" EntityType="Self.comenttable" />
+          <EntitySet Name="contacttables" EntityType="Self.contacttable" />
+          <EntitySet Name="monthtables" EntityType="Self.monthtable" />
+          <EntitySet Name="posttables" EntityType="Self.posttable" />
+          <EntitySet Name="slidertables" EntityType="Self.slidertable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="usertables" EntityType="Self.usertable" />
+          <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
+            <End Role="categorytable" EntitySet="categorytables" />
+            <End Role="posttable" EntitySet="posttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
+            <End Role="posttable" EntitySet="posttables" />
+            <End Role="comenttable" EntitySet="comenttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comenttable_usertable" Association="Self.FK_comenttable_usertable">
+            <End Role="usertable" EntitySet="usertables" />
+            <End Role="comenttable" EntitySet="comenttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contacttable_usertable" Association="Self.FK_contacttable_usertable">
+            <End Role="usertable" EntitySet="usertables" />
+            <End Role="contacttable" EntitySet="contacttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
+            <End Role="monthtable" EntitySet="monthtables" />
+            <End Role="posttable" EntitySet="posttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">
+            <End Role="usertable" EntitySet="usertables" />
+            <End Role="posttable" EntitySet="posttables" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cocukyaziniModelStoreContainer" CdmEntityContainer="cocukyaziniEntities">
+          <EntitySetMapping Name="categorytables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.categorytable">
+              <MappingFragment StoreEntitySet="categorytable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comenttables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.comenttable">
+              <MappingFragment StoreEntitySet="comenttable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="postid" ColumnName="postid" />
+                <ScalarProperty Name="comenttitle" ColumnName="comenttitle" />
+                <ScalarProperty Name="comentcontent" ColumnName="comentcontent" />
+                <ScalarProperty Name="whowrote" ColumnName="whowrote" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+                <ScalarProperty Name="comenttime" ColumnName="comenttime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacttables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.contacttable">
+              <MappingFragment StoreEntitySet="contacttable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="contacttitle" ColumnName="contacttitle" />
+                <ScalarProperty Name="contactcontent" ColumnName="contactcontent" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="whowrote" ColumnName="whowrote" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+                <ScalarProperty Name="contacttime" ColumnName="contacttime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="monthtables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.monthtable">
+              <MappingFragment StoreEntitySet="monthtable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="monthname" ColumnName="monthname" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="monthphotourl" ColumnName="monthphotourl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posttables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.posttable">
+              <MappingFragment StoreEntitySet="posttable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="posttitle" ColumnName="posttitle" />
+                <ScalarProperty Name="postcontent" ColumnName="postcontent" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="whowrote" ColumnName="whowrote" />
+                <ScalarProperty Name="previewphoto" ColumnName="previewphoto" />
+                <ScalarProperty Name="postphoto" ColumnName="postphoto" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+                <ScalarProperty Name="posttime" ColumnName="posttime" />
+                <ScalarProperty Name="monthid" ColumnName="monthid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="slidertables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.slidertable">
+              <MappingFragment StoreEntitySet="slidertable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sliderpath" ColumnName="sliderpath" />
+                <ScalarProperty Name="sliderurl" ColumnName="sliderurl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="cocukyaziniModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.usertable">
+              <MappingFragment StoreEntitySet="usertable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="usersurname" ColumnName="usersurname" />
+                <ScalarProperty Name="usermail" ColumnName="usermail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userphoto" ColumnName="userphoto" />
+                <ScalarProperty Name="authority" ColumnName="authority" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,54 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "Dosyaadi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<style>
+    .container {
+        margin-left: 200px;
+    }
+
+    .kategoritablo tr th {
+        color: black;
+        width: 200px;
+        height: 50px;
+    }
+
+    .kategoriler {
+        height: 35px;
+        border-bottom: 1px solid;
+        border-color: dodgerblue;
+    }
+</style>
+
+<div class="container">
+    <h4>Dosya Adı</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>Dosya Adı</th>
+            <th>Tarihi</th>
+            <th>İşlem</th>
+
+        </tr>
+        <tbody>
+            @foreach (var dosya in Model)
+            {
+                <tr class="kategoriler">
+                    <td>@dosya.monthname</td>
+                    <td>@dosya.datetime</td>
+
+                    <td>
+                        <a href="@Url.Action("DosyaUpdate", "Admin" , new {id = dosya.id})">
+                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                            <a href="@Url.Action("DosyaAdiSil", "Admin" , new {id = dosya.id})" onclick="return confirm('Bu Dosyayı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br /><br />
+    <a href="@Url.Action("YeniDosyaAdi", "Admin")"> <button class="btn btn-info">Yeni Dosya Ekle</button></a>
+</div>

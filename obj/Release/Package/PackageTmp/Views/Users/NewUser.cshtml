@@ -1,0 +1,51 @@
+﻿@model CocukYazini.Models.Entity.usertable
+@{
+    ViewBag.Title = "Yeni Kullanıcı";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    #yenikullanici{
+        
+        margin-left:200px;
+        
+    }
+    label{
+            width:200px;
+        }
+</style>
+    <div id="yenikullanici">
+        <br />
+        <h4>Yeni Kullanıcı</h4>
+        <hr />
+        <form method="post" enctype="multipart/form-data">
+            <label>Kullanıcı Adı</label>
+            <input type="text" name="username" required="required" /><br />
+            <label>Kullanıcı Soyadı</label>
+            <input type="text" name="usersurname" required="required" /><br />
+            <label>Kullanıcı E-Mail</label>
+            <input type="email" name="usermail" required="required" /><br />
+            <label>Kullanıcı Şifresi</label>
+            <input type="password" name="password" required="required" /><br />
+            <label>Kullanıcı Fotoğrafı</label>
+            <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" /><br />
+                                                                                            <label>Yetki</label>
+            <select name="authority">
+                <option value="1">Admin</option>
+                <option value="2">Kullanıcı</option>
+
+            </select><br /><br />
+            <label>Durum</label>
+            <select name="isaktif">
+                <option value="1">Aktif Üye</option>
+                <option value="2">Pasif Üye</option>
+
+            </select>
+            <div style="margin-top: 15px">
+                <label></label> <button class="btn btn-info">Üye Ekle</button>
+            </div>
+
+        </form>
+
+    </div>
+

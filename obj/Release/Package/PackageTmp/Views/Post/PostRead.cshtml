@@ -1,0 +1,20 @@
+﻿@model CocukYazini.Models.Entity.posttable
+@{
+    ViewBag.Title = "Post Oku";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .postread{
+        margin-left:200px;
+    }
+</style>
+    <div class="postread">
+        <h4>@Model.posttitle</h4>
+        <hr />
+        <img src="@Model.postphoto" />
+        @Html.Raw(Model.postcontent)
+        <h5>@Model.posttime</h5>
+        <h5>@Model.usertable.username @Model.usertable.usersurname</h5>
+    </div>
+
+

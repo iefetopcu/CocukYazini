@@ -1,0 +1,58 @@
+﻿@using CocukYazini.Models.Entity
+@model List<posttable>
+@{
+    ViewBag.Title = "İçerikler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .container {
+        margin-left: 200px;
+    }
+
+    .table-bordered tr th {
+        color: black;
+        width: 200px;
+        height: 50px;
+    }
+</style>
+
+<div class="container">
+    <h4>İçerik</h4>
+    <hr />
+
+
+    <table class="table table-bordered">
+        <tr>
+           
+            <td>Başlık</td>
+            <td>Kim Yazmış</td>
+            <td>Paylaşım zamanı</td>
+            <td>İŞLEM</td>
+
+        </tr>
+        <tbody>
+            @foreach (var post in Model)
+            {
+                <tr>
+                    
+                    <td>@post.posttitle</td>
+                    <td>@post.usertable.username @post.usertable.usersurname</td>
+                    <td>@post.posttime</td>
+                    <td>
+                        <a href="@Url.Action("PostRead", "Post" , new {id = post.id})">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <a href="@Url.Action("PostUpdate", "Post" , new {id = post.id})">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a href="@Url.Action("Sil", "Post" , new {id = post.id})" onclick="return confirm('Bu İçeriği Silmek İstediğinize Emin Misiniz? Eğer Bu İçeriği Silerseniz İçeriğe Ait Yorumlarda Silinecektir.')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br /><br />
+    <a href="@Url.Action("NewPost", "Post")"> <button class="btn btn-info">Yeni İçerik Ekle</button></a>
+
+</div>
+

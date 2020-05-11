@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cocukyaziniModelStoreContainer" CdmEntityContainer="cocukyaziniEntities">
+    <EntitySetMapping Name="categorytables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.categorytable">
+        <MappingFragment StoreEntitySet="categorytable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comenttables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.comenttable">
+        <MappingFragment StoreEntitySet="comenttable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="postid" ColumnName="postid" />
+          <ScalarProperty Name="comenttitle" ColumnName="comenttitle" />
+          <ScalarProperty Name="comentcontent" ColumnName="comentcontent" />
+          <ScalarProperty Name="whowrote" ColumnName="whowrote" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+          <ScalarProperty Name="comenttime" ColumnName="comenttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacttables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.contacttable">
+        <MappingFragment StoreEntitySet="contacttable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contacttitle" ColumnName="contacttitle" />
+          <ScalarProperty Name="contactcontent" ColumnName="contactcontent" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="whowrote" ColumnName="whowrote" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+          <ScalarProperty Name="contacttime" ColumnName="contacttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="monthtables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.monthtable">
+        <MappingFragment StoreEntitySet="monthtable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="monthname" ColumnName="monthname" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="monthphotourl" ColumnName="monthphotourl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="posttables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.posttable">
+        <MappingFragment StoreEntitySet="posttable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="posttitle" ColumnName="posttitle" />
+          <ScalarProperty Name="postcontent" ColumnName="postcontent" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="whowrote" ColumnName="whowrote" />
+          <ScalarProperty Name="previewphoto" ColumnName="previewphoto" />
+          <ScalarProperty Name="postphoto" ColumnName="postphoto" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+          <ScalarProperty Name="posttime" ColumnName="posttime" />
+          <ScalarProperty Name="monthid" ColumnName="monthid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="slidertables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.slidertable">
+        <MappingFragment StoreEntitySet="slidertable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sliderpath" ColumnName="sliderpath" />
+          <ScalarProperty Name="sliderurl" ColumnName="sliderurl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="cocukyaziniModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usertables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.usertable">
+        <MappingFragment StoreEntitySet="usertable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="usersurname" ColumnName="usersurname" />
+          <ScalarProperty Name="usermail" ColumnName="usermail" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userphoto" ColumnName="userphoto" />
+          <ScalarProperty Name="authority" ColumnName="authority" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

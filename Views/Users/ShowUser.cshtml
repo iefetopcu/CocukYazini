@@ -1,0 +1,77 @@
+﻿@model CocukYazini.Models.Entity.usertable
+@{
+    ViewBag.Title = "Kullanıcı Güncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    #userupdate {
+        margin-left: 200px;
+    }
+
+    label {
+        width: 200px;
+    }
+</style>
+
+<div id="userupdate">
+    <br />
+    <h4>Kullanıcı Düzenle</h4>
+    <hr />
+
+
+    @using (Html.BeginForm("UpdateUser", "Users", FormMethod.Post , new { enctype = "multipart/form-data" }))
+
+    {
+
+
+
+        <div class="form-control-static">
+            <label></label>
+            <img src="@Model.userphoto" height="200px;" /><br />
+            <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" /><br />
+            <label>Kullanıcı Numarası</label>
+            @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })
+            <br />
+            <label>Kullanıcı E-Mail</label>
+            @Html.TextBoxFor(m => m.usermail, new { @required = "required" })
+            <br />
+            <label>Kullanıcı Şifresi</label>
+            @Html.TextBoxFor(m => m.password, new { @required = "required", @type = "password" })
+            <br />
+            <label>Kullanıcı Adı</label>
+            @Html.TextBoxFor(m => m.username, new { @required = "required" })
+            <br />
+            <label>Kullanıcı Soyadı</label>
+            @Html.TextBoxFor(m => m.usersurname, new { @required = "required" })
+            <br />
+
+            <label>Kullanıcı Durumu</label>
+
+            <select name="isaktif">
+                <option value="1">Aktif Üye</option>
+                <option value="2">Pasif Üye</option>
+
+            </select>
+            <br />
+
+            <label>Kullanıcı Yetkisi</label>
+
+
+            <select name="authority">
+                <option value="1">Admin</option>
+                <option value="2">Kullanıcı</option>
+
+            </select>
+
+
+        </div>
+        
+        <div style="margin-top: 15px">
+            <label></label><button class="btn btn-info">Güncelle</button>
+        </div>
+
+
+    }
+
+
+    </div>

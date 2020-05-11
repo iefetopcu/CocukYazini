@@ -1,0 +1,81 @@
+﻿@model CocukYazini.Models.Entity.contacttable
+@{
+    ViewBag.Title = "Mesaj Oku";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    #mesajoku{
+        margin-left:200px;
+    }
+    label{
+        padding-bottom:3px;
+        width:130px;
+        border-bottom:solid 1px;
+        border-color: dodgerblue;
+    }
+</style>
+    <div id="mesajoku"><br />
+        <h4>Gelen Mesaj</h4>
+        <hr />
+        <div>
+            <label>Mesaj Numarası </label>:
+            @Html.ValueFor(m => m.id)
+
+            <label style="margin-left:100px;">Mesaj Başlığı</label>:
+            @Html.ValueFor(m => m.contacttitle)<hr />
+
+            <label>Mesaj İçeriği</label>:
+            @Html.ValueFor(m => m.contactcontent)<br /><br /><br /><br /><hr />
+
+            <label>E-Mail</label>
+            @Html.ValueFor(m => m.email)
+
+            @if (@Html.ValueFor(m => m.userid) == null)
+            {
+                <label>Mesaj Sahibi</label>
+                @Html.ValueFor(m => m.whowrote)
+
+            }
+            else
+            {
+                <label style="margin-left:100px;">Mesaj Sahibi</label>
+                @Html.ValueFor(m => m.usertable.username) @Html.ValueFor(m => m.usertable.usersurname)
+
+            }
+
+
+            <label style="margin-left:100px;">Mesaj Zamanı</label>
+            @Html.ValueFor(m => m.contacttime)<br /><br />
+            <label>Mesaj Durumu</label>:
+            @if (Model.isaktif == 1)
+            {
+                <td>Okunmamış Mesaj</td>
+            }
+
+            else
+            {
+                <td style="color:darkred;">Oknumuş Mesaj</td>
+            }
+
+            <br />
+            <br />
+
+
+            @if (Model.isaktif == 1)
+            {
+        <a href="@Url.Action("ReadedMessage", "Messages" , new {id = Model.id})"> <button class="btn btn-info">Okundu Olarak İşaretle</button></a>
+            }
+
+            else
+            {
+        <a href="@Url.Action("UnreadMessage", "Messages" , new {id = Model.id})"> <button class="btn btn-info">Okunmadı Olarak İşaretle</button></a>
+            }
+            
+
+
+
+        </div>
+    </div>
+
+

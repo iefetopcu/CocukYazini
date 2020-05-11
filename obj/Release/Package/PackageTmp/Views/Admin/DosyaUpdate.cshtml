@@ -1,0 +1,52 @@
+﻿@model CocukYazini.Models.Entity.monthtable
+@{
+    ViewBag.Title = "DosyaUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<style>
+    #userupdate {
+        margin-left: 200px;
+    }
+
+    label {
+        width: 200px;
+    }
+</style>
+
+<div id="userupdate">
+    <br />
+    <h4>Dosya Düzenle</h4>
+    <hr />
+    
+
+    @using (Html.BeginForm("DosyaGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {
+
+
+
+<div class="form-control-static">
+    <label></label>
+    <img src="@Model.monthphotourl" height="200px;" /><br />
+    <input type="file" name="monthphotourl" id="monthphotourl" style="margin-left:200px;" /><br />
+    <label>Dosya ID</label>
+    @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })<br />
+    <label>Dosya Adı</label>
+    @Html.TextBoxFor(m => m.monthname, new { @required = "required" })
+    <br />
+
+</div>
+
+        <div style="margin-top: 15px">
+            <label></label><button class="btn btn-info">Güncelle</button> 
+        </div>
+
+
+    }
+    
+
+
+</div>

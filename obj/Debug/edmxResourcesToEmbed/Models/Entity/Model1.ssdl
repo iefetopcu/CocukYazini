@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cocukyaziniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categorytable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryname" Type="varchar" MaxLength="50" />
+    <Property Name="isaktif" Type="int" />
+  </EntityType>
+  <EntityType Name="comenttable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="postid" Type="bigint" />
+    <Property Name="comenttitle" Type="varchar" MaxLength="100" />
+    <Property Name="comentcontent" Type="varchar(max)" />
+    <Property Name="whowrote" Type="varchar(max)" />
+    <Property Name="userid" Type="bigint" />
+    <Property Name="isaktif" Type="int" />
+    <Property Name="comenttime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="contacttable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contacttitle" Type="varchar" MaxLength="100" />
+    <Property Name="contactcontent" Type="varchar(max)" />
+    <Property Name="email" Type="varchar(max)" />
+    <Property Name="whowrote" Type="varchar(max)" />
+    <Property Name="userid" Type="bigint" />
+    <Property Name="isaktif" Type="int" />
+    <Property Name="contacttime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="monthtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="monthname" Type="varchar(max)" />
+    <Property Name="datetime" Type="datetime" />
+    <Property Name="monthphotourl" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="posttable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="posttitle" Type="varchar" MaxLength="100" />
+    <Property Name="postcontent" Type="varchar(max)" />
+    <Property Name="categoryid" Type="bigint" />
+    <Property Name="userid" Type="bigint" />
+    <Property Name="whowrote" Type="varchar" MaxLength="100" />
+    <Property Name="previewphoto" Type="nvarchar" MaxLength="250" />
+    <Property Name="postphoto" Type="nvarchar" MaxLength="250" />
+    <Property Name="isaktif" Type="int" />
+    <Property Name="posttime" Type="datetime" />
+    <Property Name="monthid" Type="bigint" />
+  </EntityType>
+  <EntityType Name="slidertable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sliderpath" Type="varchar(max)" />
+    <Property Name="sliderurl" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="usertable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="usersurname" Type="varchar" MaxLength="50" />
+    <Property Name="usermail" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="userphoto" Type="nvarchar" MaxLength="250" />
+    <Property Name="authority" Type="int" />
+    <Property Name="isaktif" Type="int" />
+  </EntityType>
+  <Association Name="FK_comenttable_posttable">
+    <End Role="posttable" Type="Self.posttable" Multiplicity="0..1" />
+    <End Role="comenttable" Type="Self.comenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="posttable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comenttable">
+        <PropertyRef Name="postid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_comenttable_usertable">
+    <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+    <End Role="comenttable" Type="Self.comenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usertable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comenttable">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_contacttable_usertable">
+    <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+    <End Role="contacttable" Type="Self.contacttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usertable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contacttable">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_posttable_categorytable">
+    <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
+    <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorytable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posttable">
+        <PropertyRef Name="categoryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_posttable_monthtable">
+    <End Role="monthtable" Type="Self.monthtable" Multiplicity="0..1" />
+    <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monthtable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posttable">
+        <PropertyRef Name="monthid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_posttable_usertable">
+    <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
+    <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usertable">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posttable">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cocukyaziniModelStoreContainer">
+    <EntitySet Name="categorytable" EntityType="Self.categorytable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comenttable" EntityType="Self.comenttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contacttable" EntityType="Self.contacttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="monthtable" EntityType="Self.monthtable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="posttable" EntityType="Self.posttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
+      <End Role="posttable" EntitySet="posttable" />
+      <End Role="comenttable" EntitySet="comenttable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comenttable_usertable" Association="Self.FK_comenttable_usertable">
+      <End Role="usertable" EntitySet="usertable" />
+      <End Role="comenttable" EntitySet="comenttable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_contacttable_usertable" Association="Self.FK_contacttable_usertable">
+      <End Role="usertable" EntitySet="usertable" />
+      <End Role="contacttable" EntitySet="contacttable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
+      <End Role="categorytable" EntitySet="categorytable" />
+      <End Role="posttable" EntitySet="posttable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
+      <End Role="monthtable" EntitySet="monthtable" />
+      <End Role="posttable" EntitySet="posttable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">
+      <End Role="usertable" EntitySet="usertable" />
+      <End Role="posttable" EntitySet="posttable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

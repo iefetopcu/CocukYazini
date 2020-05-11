@@ -1,0 +1,62 @@
+﻿@using CocukYazini.Models.Entity
+@model List<categorytable>
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .container{
+        margin-left:200px;
+    }
+     .kategoritablo tr th{
+        color:black;
+        width:200px;
+        height:50px;
+        
+    }
+     .kategoriler {
+         
+        height:35px;
+        border-bottom: 1px solid;
+        border-color: dodgerblue;
+    }
+</style>
+
+<div class="container">
+    <h4>Kategori</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            
+            <th>Kategori Adı</th>
+            <th>Aktif Mi ?</th>
+            <th>İşlem</th>
+
+        </tr>
+        <tbody>
+            @foreach (var ktgr in Model)
+            {
+            <tr class="kategoriler">
+                
+                <td>@ktgr.categoryname</td>
+                @if (ktgr.isaktif == 1)
+                {
+                    <td>Aktif Kategori</td>
+                }
+
+                else
+                {
+                    <td style="color:darkred;">Pasif Kategori</td>
+                }
+
+                <td>
+                    <a href="@Url.Action("CategoryGetir", "Category" , new {id = ktgr.id})"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("Sil", "Category" , new {id = ktgr.id})" onclick="return confirm('Bu Kategoriyi Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <br /><br />
+    <a href="@Url.Action("NewCategory", "Category")"> <button class="btn btn-info">Yeni Kategori Ekle</button></a>
+</div>

@@ -1,0 +1,94 @@
+﻿@model CocukYazini.Models.Entity.posttable
+@{
+    ViewBag.Title = "Yeni İçerik";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    #postnew {
+        margin-left: 200px;
+    }
+
+    label {
+        width: 200px;
+    }
+</style>
+<script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+
+<div id="postnew" >
+    <br />
+    <h4>Yeni İçerik Ekle</h4>
+    <hr />
+    <form method="post" enctype="multipart/form-data">
+        <label>Başlık</label>
+        <input type="text" name="posttitle" required="required" class="form-control-static" /><br /><br />
+        <label>İçerik</label><br />
+
+        <textarea name="postcontent"></textarea><br /><br />
+        <script>
+            CKEDITOR.replace('postcontent');
+        </script>
+
+        <label>Kategori Seç</label>
+        @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat)<br />
+        <label>Dosya Adı Seç</label>
+        @Html.DropDownListFor(m => m.monthid, (List<SelectListItem>)ViewBag.mon)
+    
+        <br />
+        <label>İçerik Fotoğrafı</label>
+        <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" required="required" /><br />
+        <label>Küçük Fotoğraf</label>
+        <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" required="required" /><h6>(Küçük fotoğraf yüksekliği 150 genişliği 200 px veya katları olmalıdır.)</h6><br />
+        <label></label>
+        <select name="isaktif">
+            <option value="1">Aktif İçerik</option>
+            <option value="2">Pasif İçerik</option>
+
+        </select><br />
+        <br />
+        <label></label>
+        <input type="text" id="datepicker" name="posttime" required="required"><br />
+        <label>Kim Yazdı?</label>
+        @Html.DropDownListFor(m => m.userid, (List<SelectListItem>)ViewBag.usr)
+
+
+        <div style="margin-top: 15px">
+            <label></label> <button class="btn btn-info">İçerik Ekle</button>
+        </div>
+
+    </form>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var dateNow = new Date();
+
+            $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            }).datepicker('setDate', new Date());
+            ;
+        });
+    </script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

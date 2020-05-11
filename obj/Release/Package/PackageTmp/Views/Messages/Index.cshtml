@@ -1,0 +1,116 @@
+﻿@using CocukYazini.Models.Entity
+@model List<contacttable>
+@{
+    ViewBag.Title = "Mesajlar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .mesajtablo tr th{
+        color:black;
+        width:200px;
+        height:50px;
+        
+    }
+    #mesajsayfasi{
+        margin-left:200px;
+    }
+
+    .mesajlar {
+        height:35px;
+        border-bottom: 1px solid;
+        border-color: dodgerblue;
+    }
+    
+</style>
+<div id="mesajsayfasi">
+    <h4>Mesajlar</h4>
+    <hr />
+    <h4>Okunmamış Mesajlar</h4>
+    <hr />
+    <table class="mesajtablo">
+        <tr>
+            <th>Mesaj No</th>
+            <th>Mesaj Başlığı</th>
+
+            <th>Kim Yazmış</th>
+            <th>Mesaj Zamanı</th>
+            <th>Oku</th>
+        </tr>
+        <tbody>
+
+
+            @foreach (var msjlr in Model)
+            {
+                if (msjlr.isaktif == 1)
+                {
+                    <tr class="mesajlar">
+                        <th>@msjlr.id
+                        <td>@msjlr.contacttitle</td>
+                        @if (msjlr.userid != null)
+                        {
+                            <td>@msjlr.usertable.username @msjlr.usertable.usersurname</td>
+                        }
+                        else
+                        {
+                            <td>@msjlr.whowrote</td>
+                        }
+
+                        <td>@msjlr.contacttime</td>
+                        <td>
+                            <a href="@Url.Action("MessageRead", "Messages" , new {id = msjlr.id})">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="@Url.Action("Sil", "Messages" , new {id = msjlr.id})" onclick="return confirm('Bu Mesajı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table><br /><br />
+    <h4>Okunmuş Mesajlar</h4>
+    <hr />
+    <table class="mesajtablo">
+        <tr>
+            <th>Mesaj No</th>
+            <th>Mesaj Başlığı</th>
+
+            <th>Kim Yazmış</th>
+            <th>Mesaj Zamanı</th>
+            <th>Oku</th>
+        </tr>
+        <tbody>
+
+
+            @foreach (var msjlr in Model)
+            {
+                if (msjlr.isaktif == 2)
+                {
+                    <tr class="mesajlar">
+                        <th>@msjlr.id
+                        <td>@msjlr.contacttitle</td>
+                        @if (msjlr.userid != null)
+                        {
+                            <td>@msjlr.usertable.username @msjlr.usertable.usersurname</td>
+                        }
+                        else
+                        {
+                            <td>@msjlr.whowrote</td>
+                        }
+
+                        <td>@msjlr.contacttime</td>
+                        <td>
+                            <a href="@Url.Action("MessageRead", "Messages" , new {id = msjlr.id})">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="@Url.Action("Sil", "Messages" , new {id = msjlr.id})" onclick="return confirm('Bu Mesajı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+</div>
+
+

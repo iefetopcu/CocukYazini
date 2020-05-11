@@ -1,0 +1,128 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "Admin Panel Bilgi Ekranı";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    .container {
+        margin:auto;
+        margin-left: 200px;
+        
+        
+    }
+
+    .kategoritablo tr th {
+        color: black;
+        width: 200px;
+        height: 50px;
+    }
+
+    #kullanicilar {
+        text-align:center;
+        border: solid 1px;
+        border-color: cyan;
+        width: 400px;
+        height: 150px;
+        float: left;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    #kategori {
+        text-align: center;
+        border: solid 1px;
+        border-color: brown;
+        width: 400px;
+        height: 150px;
+        float: left;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    #icerik {
+        text-align: center;
+        border: solid 1px;
+        border-color: chartreuse;
+        width: 400px;
+        height: 150px;
+        float: left;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    #mesajlar {
+        text-align: center;
+        border: solid 1px;
+        border-color: darkorange;
+        width: 400px;
+        height: 150px;
+        float: left;
+        padding: 10px;
+        margin: 10px;
+    }
+    .hizlilinkler{
+        
+        width:800px;
+        
+    }
+    .hizlilinkler h4{
+        margin-top:20px;
+        
+    }
+    .hizlilinkler a{
+        margin-left:15px;
+        color:darkgoldenrod;
+        
+    }
+    .hizlilinkler a:hover{
+        color:goldenrod;
+        text-decoration:none;
+    }
+</style>
+
+<div class="container">
+    <h3>> > Bilgi Ekranı</h3>
+    <hr />
+
+    <div id="kullanicilar">
+        <h4><i>Kullanıcı Sayısı :</i>@ViewBag.kullanicilar </h4>
+        <h4><i>Aktif Kullanıcı : </i>@ViewBag.kullaniciaktif </h4>
+        <h4><i style=" color: red; ">Yasaklı Kullanıcı : </i>@ViewBag.kullanicipasif </h4>
+
+    </div>
+
+    <div id="icerik">
+        <h4><i>İçerik Sayısı : </i>@ViewBag.icerikler</i></h4>
+        <h4><i>Aktif İçerik :</i>@ViewBag.postaktif</h4>
+        <h4><i style="color:red;">Pasif Kategori : </i>@ViewBag.postpasif</h4>
+
+    </div>
+    <div id="kategori">
+        <h4><i>Kategori Sayısı :</i>@ViewBag.kategoriler</h4>
+        <h4><i>Aktif Kategori :</i>@ViewBag.kategoriaktif</h4>
+        <h4><i style="color:red;">Pasif Kategori : </i>@ViewBag.kategoripasif</h4>
+
+
+    </div>
+    <div id="mesajlar">
+        <h4><i>Mesaj Sayısı :</i> @ViewBag.mesajlar</h4>
+        <h4><i style="color:red;">Okunmamış Mesaj : </i>@ViewBag.mesajokunmamis </h4>
+        <h4><i>Okunmuş Mesaj : </i>@ViewBag.mesajokunmus </h4>
+        </div>
+    
+    <div class="hizlilinkler">
+
+        <h4>Hızlı İşlemler</h4>
+        <hr />
+        <a href="@Url.Action("NewPost", "Post")">Yeni İçerik Ekle</a>
+        <a href="@Url.Action("NewUser", "Users")">Yeni Kullanıcı Ekle</a>
+        <a href="@Url.Action("NewCategory", "Category")">Yeni Kategori Ekle</a>
+        <a href="@Url.Action("Dosyaadi", "Admin")">Yeni Dosya Adı'ı Ekle</a>
+        <a href="@Url.Action("Slider", "Admin")">Slider'ı Düzenle</a>
+
+
+
+    </div>    
+
+</div>
+
