@@ -31,6 +31,7 @@ namespace CocukYazini.Models.Entity
         public virtual DbSet<monthtable> monthtables { get; set; }
         public virtual DbSet<posttable> posttables { get; set; }
         public virtual DbSet<slidertable> slidertables { get; set; }
+        public virtual DbSet<sorusturma> sorusturmas { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<usertable> usertables { get; set; }
     }

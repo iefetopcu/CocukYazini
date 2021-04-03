@@ -11,9 +11,9 @@ namespace CocukYazini.Controllers
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if(filterContext.HttpContext.Session["kullaniciadi"] != null)
+            if(filterContext.HttpContext.Session["MySessionUser"] != null)
             {
-                var session = (usertable)filterContext.HttpContext.Session["kullaniciadi"];
+                var session = (usertable)filterContext.HttpContext.Session["MySessionUser"];
                 if (session.authority == 1)// session acan kullanicilarin eger 1 degilse giris yapamaz. giris yapmak istemedikleri controller'a bu baseController'dan turetirsen is cozulur.
                 { 
                     base.OnActionExecuting(filterContext);

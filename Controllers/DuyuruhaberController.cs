@@ -4,13 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CocukYazini.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace CocukYazini.Controllers
 {
     public class DuyuruhaberController : Controller
     {
         cocukyaziniEntities db = new cocukyaziniEntities();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
 
         {
             // aktif olan ve kategorisine göre döndürme işlemi yapar.
@@ -19,8 +21,24 @@ namespace CocukYazini.Controllers
                            orderby s.posttime descending
                            select s;
 
+            var degerler2 = degerler.ToPagedList(sayfa, 10);
 
-            return View(degerler);
+            return View(degerler2);
+
+        }
+
+        public ActionResult IndexEN(int sayfa = 1)
+
+        {
+            // aktif olan ve kategorisine göre döndürme işlemi yapar.
+            var degerler = from s in db.posttables
+                           where s.isaktif == 3 && s.categoryid == 6
+                           orderby s.posttime descending
+                           select s;
+
+            var degerler2 = degerler.ToPagedList(sayfa, 10);
+
+            return View(degerler2);
 
         }
     }

@@ -4,9 +4,26 @@
 }
 
 <style>
-    .box{
-        width:100%!important;
-        
+    @@media screen only screen and (max-width: 600px) {
+        .nomobile {
+            visibility: hidden;
+            clear: both;
+            float: right;
+            margin: 5px auto;
+            width: 22%;
+            height: auto;
+            display: none;
+        }
+
+        .mobilslider {
+            height: 300px!important;
+        }
+    }
+
+    
+
+    .box {
+        width: 100% !important;
     }
     .box > .icon {
         text-align: center;
@@ -22,7 +39,8 @@
             border: 8px solid white;
             line-height: 88px;
             border-radius: 50%;
-            background: #428bca;
+            /*background: #428bca;*/
+            background-color:dimgray;
             vertical-align: middle;
         }
 
@@ -32,7 +50,7 @@
             }
 
         .box > .icon:hover > .image > i {
-            color: white !important;
+            color: white!important;
         }
 
         .box > .icon > .info {
@@ -105,6 +123,8 @@
         float:left;
         width:200px!important;
     }
+
+
 </style>
 
 <!--Slider-->
@@ -120,7 +140,7 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/Photos/menu/slider.png" class="d-block w-100" alt="...">
+            <img src="~/Photos/menu/sabit.png" class="d-block w-100" alt="...">
         </div>
         @foreach (var sliderpost in Model)
         {
@@ -146,7 +166,7 @@
     <!-- row 3 -->
     
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2">
+            <div class="hidden-xs hidden-sm hidden-md col-lg-2 col-xl-2 ">
                 <div class="mb-5">
                     <!-- Boxes de Acoes -->
                     <div class="box">
@@ -157,7 +177,7 @@
                                 <p>
                                     Çocuk yazınlarına dair tematik araştırma ve inceleme yazıları
                                 </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Dosya")"><h4><i class="fa fa-folder-open"></i> Okumaya Başla</h4></a>
+                                <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Home")"><h4><i class="fa fa-folder-open"></i> Okumaya Başla</h4></a>
 
                             </div>
                         </div>
@@ -174,7 +194,7 @@
                                 <p>
                                     Eleştirel kitap tanıtımları, inceleme ve değerlendirme metinleri
                                 </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Kritik")"><h4><i class="fa fa-book"></i> Okumaya Başla</h4></a>
+                                <a class="btn btn-secondary" href="@Url.Action("Index", "Kritik")"><h4><i class="fa fa-book"></i> Okumaya Başla</h4></a>
 
                             </div>
                         </div>
@@ -191,7 +211,7 @@
                                 <p>
                                     Eleştirel film ve dizi okumaları
                                 </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Sinemasal")"><h4><i class="fa fa-film"></i> Okumaya Başla</h4></a>
+                                <a class="btn btn-secondary" href="@Url.Action("Index", "Sinemasal")"><h4><i class="fa fa-film"></i> Okumaya Başla</h4></a>
 
                             </div>
                         </div>
@@ -210,7 +230,7 @@
 
 
                                 </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Sorusturma")"><h4><i class="fa fa-search"></i> Okumaya Başla</h4></a>
+                                <a class="btn btn-secondary" href="@Url.Action("Index", "Sorusturma")"><h4><i class="fa fa-search"></i> Okumaya Başla</h4></a>
 
                             </div>
                         </div>
@@ -227,7 +247,7 @@
                                 <p>
                                     Yazar, yayıncı, editör ve çevirmen söyleşileri
                                 </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Roportaj")"><h4><i class="fa fa-microphone"></i> Okumaya Başla</h4></a>
+                                <a class="btn btn-secondary" href="@Url.Action("Index", "Roportaj")"><h4><i class="fa fa-microphone"></i> Okumaya Başla</h4></a>
 
                             </div>
                         </div>
@@ -246,7 +266,7 @@
                                 <p>
                                     Çocuğa dair güncel haberler ve duyurular
                                 </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Duyuruhaber")"><h4><i class="fa fa-bullhorn"></i> Duyurulara Bak</h4></a>
+                                <a class="btn btn-secondary" href="@Url.Action("Index", "Duyuruhaber")"><h4><i class="fa fa-bullhorn"></i> Duyurulara Bak</h4></a>
 
                             </div>
                         </div>
@@ -255,30 +275,7 @@
 
                     <div class="space"></div>
                 </div>
-                <div class="mb-5">
-                    <!-- Boxes de Acoes -->
-                    <div class="box">
-                        <div class="icon">
-                            <div class="image"><i class="fa fa-archive"></i></div>
-                            <div class="info">
-                                <h3 class="title">EN</h3>
-                                <p>
-                                    Critical essays on children’s literature
-                                </p>
-                                <a class="btn btn-info" href="@Url.Action("Index", "Arsiv")">
-                                    <h4>
-                                        <i class="fa fa-archive"></i>
-                                        Start Reading
-                                    </h4>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="space"></div>
-                </div>
+               
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 ">
                 @{Html.RenderAction("homepost", "Partial");}

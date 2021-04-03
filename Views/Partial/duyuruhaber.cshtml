@@ -1,0 +1,18 @@
+﻿@using CocukYazini.Models.Entity
+@using CocukYazini.App_Code
+
+@foreach (var footerhaber in Model)
+{
+    <div class="media">
+        <div class="media-left">
+
+        </div>
+        <div class="media-body">
+            <a href="@Url.Action("PostRead", "Home", new {id = footerhaber.id,baslik=Seo.AdresDuzenle(footerhaber.posttitle)})" class="footerurl"><span><h4>@footerhaber.posttitle</h4></span></a>
+
+            <span><h4 style="color:dimgrey">@footerhaber.categorytable.categoryname</h4></span>
+            <i><span><b>@footerhaber.usertable.username @footerhaber.usertable.usersurname</b></span><br /></i>
+        </div>
+    </div>
+
+}

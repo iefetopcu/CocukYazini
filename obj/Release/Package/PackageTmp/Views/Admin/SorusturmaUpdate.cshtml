@@ -1,0 +1,64 @@
+﻿@model CocukYazini.Models.Entity.sorusturma
+@{
+    ViewBag.Title = "SorusturmaUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    #userupdate {
+        margin-left: 200px;
+    }
+
+    label {
+        width: 200px;
+    }
+</style>
+
+<div id="userupdate">
+    <br />
+    <h4>Soruşturma Düzenle</h4>
+    <hr />
+
+
+    @using (Html.BeginForm("SorusturmaGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {
+
+
+
+        <div class="form-control-static">
+            <label></label>
+            <img src="@Model.sorusturmaphotourl" height="200px;" /><br />
+            <input type="file" name="sorusturmaphotourl" id="sorusturmaphotourl" style="margin-left:200px;" /><br />
+            <label>Dosya ID</label>
+            @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })<br />
+            <label>Dosya Adı</label>
+            @Html.TextBoxFor(m => m.sorusturmaname, new { @required = "required" })
+            <br />
+            <label>Tarih</label>
+            <input type="text" id="datepicker" name="datetime" required="required" value="@Model.datetime"><br />
+        </div>
+
+        <div style="margin-top: 15px">
+            <label></label><button class="btn btn-info">Güncelle</button>
+        </div>
+
+
+    }
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+        $(function () {
+
+
+            $("#datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            }).datepicker();
+            ;
+        });
+    </script>
+
+</div>
+

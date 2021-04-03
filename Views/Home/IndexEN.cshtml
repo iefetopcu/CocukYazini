@@ -1,0 +1,291 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "Children's Literature";
+    ViewBag.Description = "Children's Literature";
+    Layout = "~/Views/Shared/_Layout - EN.cshtml";
+}
+
+<style>
+    @@media screen only screen and (max-width: 600px) {
+        .nomobile {
+            visibility: hidden;
+            clear: both;
+            float: right;
+            margin: 5px auto;
+            width: 22%;
+            height: auto;
+            display: none;
+        }
+
+        .mobilslider {
+            height: 300px !important;
+        }
+    }
+
+
+
+    .box {
+        width: 100% !important;
+    }
+
+        .box > .icon {
+            text-align: center;
+            position: relative;
+        }
+
+            .box > .icon > .image {
+                position: relative;
+                z-index: 2;
+                margin: auto;
+                width: 88px;
+                height: 88px;
+                border: 8px solid white;
+                line-height: 88px;
+                border-radius: 50%;
+                /*background: #428bca;*/
+                background-color: dimgray;
+                vertical-align: middle;
+            }
+
+                .box > .icon > .image > i {
+                    font-size: 36px !important;
+                    color: #fff !important;
+                }
+
+            .box > .icon:hover > .image > i {
+                color: white !important;
+            }
+
+            .box > .icon > .info {
+                margin-top: -24px;
+                background: rgba(0, 0, 0, 0.04);
+                border: 1px solid #e0e0e0;
+                padding: 15px 0 10px 0;
+            }
+
+                .box > .icon > .info > h3.title {
+                    font-family: sans-serif !important;
+                    font-size: 16px;
+                    color: #222;
+                    font-weight: 500;
+                    margin-top: 20px;
+                }
+
+                .box > .icon > .info > p {
+                    font-family: sans-serif !important;
+                    font-size: 13px;
+                    color: #666;
+                    line-height: 1.5em;
+                    padding: 20px;
+                    height: 70px;
+                }
+
+            .box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a {
+                color: #222;
+            }
+
+            .box > .icon > .info > .more a {
+                font-family: sans-serif !important;
+                font-size: 12px;
+                color: #222;
+                line-height: 12px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+            .box > .icon:hover > .info > .more > a {
+                color: #fff;
+                padding: 6px 8px;
+                background-color: #63B76C;
+            }
+
+        .box .space {
+            height: 30px;
+        }
+
+    .modal-header-primary {
+        color: #fff;
+        padding: 9px 15px;
+        border-bottom: 1px solid #eee;
+        background-color: #428bca;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .homepartial {
+        float: left;
+    }
+
+    .homestatik {
+        float: left;
+        width: 200px !important;
+    }
+</style>
+
+<!--Slider-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Photos/menu/sabit.png" class="d-block w-100" alt="...">
+        </div>
+        @foreach (var sliderpost in Model)
+        {
+            <div class="carousel-item">
+                <a href="@sliderpost.sliderurl"><img src="@sliderpost.sliderpath" class="d-block w-100" alt="..."></a>
+            </div>
+        }
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<!-- Container-->
+<div class="container-fluid">
+    <!-- row 3 -->
+
+    <div class="row">
+        <div class="hidden-xs hidden-sm hidden-md col-lg-2 col-xl-2 ">
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-folder-open"></i></div>
+                        <div class="info">
+                            <h3 class="title">Agenda</h3>
+                            <p>
+                                Thematic researches and reviews on children's literature
+                            </p>
+                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Dosya")"><h4><i class="fa fa-folder-open"></i> Read</h4></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-book"></i></div>
+                        <div class="info">
+                            <h3 class="title">Critique</h3>
+                            <p>
+                                Critical book reviews and analysis
+                            </p>
+                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Kritik")"><h4><i class="fa fa-book"></i> Read</h4></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-film"></i></div>
+                        <div class="info">
+                            <h3 class="title">Cinema</h3>
+                            <p>
+                                Critical reviews on film and TV series
+                            </p>
+                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Sinemasal")"><h4><i class="fa fa-film"></i> Read</h4></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-search"></i></div>
+                        <div class="info">
+                            <h3 class="title">Inquiry</h3>
+                            <p>
+                                Inquiries on key issues of children's literature
+
+
+                            </p>
+                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Sorusturma")"><h4><i class="fa fa-search"></i> Read</h4></a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+            </div>
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-microphone"></i></div>
+                        <div class="info">
+                            <h3 class="title">Interview</h3>
+                            <p>
+                                interviews with writer, publisher, editor and translator
+                            </p>
+                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Roportaj")"><h4><i class="fa fa-microphone"></i> Read</h4></a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="space"></div>
+            </div>
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-bullhorn"></i></div>
+                        <div class="info">
+                            <h3 class="title">News&Announcement</h3>
+                            <p>
+                                Current news and announcements on the children’s literature
+                            </p>
+                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Duyuruhaber")"><h4><i class="fa fa-bullhorn"></i> Read</h4></a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="space"></div>
+            </div>
+
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 ">
+            @{Html.RenderAction("homepostEN", "Partial");}
+
+        </div>
+
+    </div>
+
+
+</div>
+@*<div class="homepartial">
+        @{Html.RenderAction("homepost", "Partial");}
+    </div>*@
+<div style="clear:left;"></div>

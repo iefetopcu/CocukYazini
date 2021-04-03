@@ -27,25 +27,31 @@
         <script>
             CKEDITOR.replace('postcontent');
         </script>
+        <label>Spot Metni</label><br />
 
+        <label></label><textarea name="postspot" maxlength="250" placeholder="SPOT" cols="100" required="required" rows="4"></textarea><br /><br />
         <label>Kategori Seç</label>
         @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat)<br />
         <label>Dosya Adı Seç</label>
-        @Html.DropDownListFor(m => m.monthid, (List<SelectListItem>)ViewBag.mon)
-    
+        @Html.DropDownListFor(m => m.monthid, (List<SelectListItem>)ViewBag.mon)<br />
+        <p>"Dosya adı sadece soruşturma kategorisi seçildiğinde seçilmelidir"</p>
+        <label>Soruşturma Adı Seç</label>
+        @Html.DropDownListFor(m => m.sorusturmaid, (List<SelectListItem>)ViewBag.srstrma) <p>"Soruşturma adı sadece soruşturma kategorisi seçildiğinde seçilmelidir"</p><br />
+
         <br />
         <label>İçerik Fotoğrafı</label>
-        <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" required="required" /><br />
+        <input type="file" name="postphoto" id="postphoto" style="margin-left:200px;" /><br />
         <label>Küçük Fotoğraf</label>
-        <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" required="required" /><h6>(Küçük fotoğraf yüksekliği 150 genişliği 200 px veya katları olmalıdır.)</h6><br />
+        <input type="file" name="previewphoto" id="previewphoto" style="margin-left:200px;" /><h6>(Küçük fotoğraf yüksekliği 250 genişliği 500 px veya katları olmalıdır.)</h6><br />
         <label></label>
         <select name="isaktif">
             <option value="1">Aktif İçerik</option>
             <option value="2">Pasif İçerik</option>
-
+            <option value="3">İngilizce Aktif İçerik</option>
+            <option value="4">İngilizce Pasif İçerik</option>
         </select><br />
         <br />
-        <label></label>
+        <label>İçerik Zamanı</label>
         <input type="text" id="datepicker" name="posttime" required="required"><br />
         <label>Kim Yazdı?</label>
         @Html.DropDownListFor(m => m.userid, (List<SelectListItem>)ViewBag.usr)

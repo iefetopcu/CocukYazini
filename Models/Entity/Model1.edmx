@@ -47,6 +47,7 @@
           <Property Name="monthname" Type="varchar(max)" Nullable="false" />
           <Property Name="datetime" Type="datetime" />
           <Property Name="monthphotourl" Type="varchar(max)" />
+          <Property Name="isaktif" Type="bigint" />
         </EntityType>
         <EntityType Name="posttable">
           <Key>
@@ -63,6 +64,8 @@
           <Property Name="isaktif" Type="int" />
           <Property Name="posttime" Type="datetime" />
           <Property Name="monthid" Type="bigint" />
+          <Property Name="sorusturmaid" Type="bigint" />
+          <Property Name="postspot" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="slidertable">
           <Key>
@@ -71,6 +74,17 @@
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sliderpath" Type="varchar(max)" />
           <Property Name="sliderurl" Type="varchar(max)" />
+          <Property Name="isaktif" Type="bigint" />
+        </EntityType>
+        <EntityType Name="sorusturma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sorusturmaname" Type="varchar(max)" />
+          <Property Name="datetime" Type="datetime" />
+          <Property Name="sorusturmaphotourl" Type="varchar(max)" />
+          <Property Name="isaktif" Type="bigint" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -155,6 +169,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_posttable_sorusturma">
+          <End Role="sorusturma" Type="Self.sorusturma" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sorusturma">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="sorusturmaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_posttable_usertable">
           <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
           <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
@@ -174,6 +200,7 @@
           <EntitySet Name="monthtable" EntityType="Self.monthtable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="posttable" EntityType="Self.posttable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sorusturma" EntityType="Self.sorusturma" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
@@ -194,6 +221,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
             <End Role="monthtable" EntitySet="monthtable" />
+            <End Role="posttable" EntitySet="posttable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_sorusturma" Association="Self.FK_posttable_sorusturma">
+            <End Role="sorusturma" EntitySet="sorusturma" />
             <End Role="posttable" EntitySet="posttable" />
           </AssociationSet>
           <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">
@@ -252,6 +283,7 @@
           <Property Name="monthname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datetime" Type="DateTime" Precision="3" />
           <Property Name="monthphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isaktif" Type="Int64" />
           <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_monthtable" FromRole="monthtable" ToRole="posttable" />
         </EntityType>
         <EntityType Name="posttable">
@@ -269,9 +301,12 @@
           <Property Name="isaktif" Type="Int32" />
           <Property Name="posttime" Type="DateTime" Precision="3" />
           <Property Name="monthid" Type="Int64" />
+          <Property Name="sorusturmaid" Type="Int64" />
+          <Property Name="postspot" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="categorytable" Relationship="Self.FK_posttable_categorytable" FromRole="posttable" ToRole="categorytable" />
           <NavigationProperty Name="comenttables" Relationship="Self.FK_comenttable_posttable" FromRole="posttable" ToRole="comenttable" />
           <NavigationProperty Name="monthtable" Relationship="Self.FK_posttable_monthtable" FromRole="posttable" ToRole="monthtable" />
+          <NavigationProperty Name="sorusturma" Relationship="Self.FK_posttable_sorusturma" FromRole="posttable" ToRole="sorusturma" />
           <NavigationProperty Name="usertable" Relationship="Self.FK_posttable_usertable" FromRole="posttable" ToRole="usertable" />
         </EntityType>
         <EntityType Name="slidertable">
@@ -281,6 +316,18 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="sliderpath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="sliderurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isaktif" Type="Int64" />
+        </EntityType>
+        <EntityType Name="sorusturma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sorusturmaname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="datetime" Type="DateTime" Precision="3" />
+          <Property Name="sorusturmaphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isaktif" Type="Int64" />
+          <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_sorusturma" FromRole="sorusturma" ToRole="posttable" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -368,6 +415,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_posttable_sorusturma">
+          <End Role="sorusturma" Type="Self.sorusturma" Multiplicity="0..1" />
+          <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sorusturma">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="posttable">
+              <PropertyRef Name="sorusturmaid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_posttable_usertable">
           <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
           <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
@@ -387,6 +446,7 @@
           <EntitySet Name="monthtables" EntityType="Self.monthtable" />
           <EntitySet Name="posttables" EntityType="Self.posttable" />
           <EntitySet Name="slidertables" EntityType="Self.slidertable" />
+          <EntitySet Name="sorusturmas" EntityType="Self.sorusturma" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="usertables" EntityType="Self.usertable" />
           <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
@@ -407,6 +467,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
             <End Role="monthtable" EntitySet="monthtables" />
+            <End Role="posttable" EntitySet="posttables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posttable_sorusturma" Association="Self.FK_posttable_sorusturma">
+            <End Role="sorusturma" EntitySet="sorusturmas" />
             <End Role="posttable" EntitySet="posttables" />
           </AssociationSet>
           <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">
@@ -464,6 +528,7 @@
                 <ScalarProperty Name="monthname" ColumnName="monthname" />
                 <ScalarProperty Name="datetime" ColumnName="datetime" />
                 <ScalarProperty Name="monthphotourl" ColumnName="monthphotourl" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -481,6 +546,8 @@
                 <ScalarProperty Name="isaktif" ColumnName="isaktif" />
                 <ScalarProperty Name="posttime" ColumnName="posttime" />
                 <ScalarProperty Name="monthid" ColumnName="monthid" />
+                <ScalarProperty Name="sorusturmaid" ColumnName="sorusturmaid" />
+                <ScalarProperty Name="postspot" ColumnName="postspot" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -490,6 +557,18 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="sliderpath" ColumnName="sliderpath" />
                 <ScalarProperty Name="sliderurl" ColumnName="sliderurl" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sorusturmas">
+            <EntityTypeMapping TypeName="cocukyaziniModel.sorusturma">
+              <MappingFragment StoreEntitySet="sorusturma">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sorusturmaname" ColumnName="sorusturmaname" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="sorusturmaphotourl" ColumnName="sorusturmaphotourl" />
+                <ScalarProperty Name="isaktif" ColumnName="isaktif" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

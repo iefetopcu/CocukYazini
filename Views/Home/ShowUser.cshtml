@@ -10,7 +10,8 @@
     label {
         width: 200px;
     }
-        .postheader {
+
+    .postheader {
         font-size: 25px;
         font-display: auto;
         font-style: oblique;
@@ -19,6 +20,19 @@
         color: coral;
     }
 </style>
+@*@if (Session["MySessionUser"] != null && Model.id == ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).id)
+{
+
+}
+else
+{
+
+    <div col="12">
+        Lütfen Giriş Yapınız
+    </div>
+}*@
+
+
 <h4 class="postheader">Kullanıcı Düzenle</h4>
 <div class="container">
     <br />
@@ -45,8 +59,8 @@
                     <div class="form-control-static">
                         <label></label>
                         <img src="@Model.userphoto" height="200px;" /><br />
-                        
-                        <input type="file" name="userphoto" id="userphoto"/><br />
+
+                        <input type="file" name="userphoto" id="userphoto" /><br />
                         <label>Kullanıcı Numarası</label>
                         @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })
                         <br />
@@ -81,4 +95,3 @@
 
 </div>
 <div stle="clear:left;"></div>
-

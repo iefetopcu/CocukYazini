@@ -17,5 +17,6 @@ namespace CocukYazini.Models.Entity
         public long id { get; set; }
         public string sliderpath { get; set; }
         public string sliderurl { get; set; }
+        public Nullable<long> isaktif { get; set; }
     }
 }

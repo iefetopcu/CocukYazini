@@ -22,12 +22,19 @@
     <form method="post" enctype="multipart/form-data">
         <div>
             <label>Slider Fotoğrafı </label>
-            <input type="file" name="sliderpath" style="margin-left:200px;" required="required"/>
-            
+            <input type="file" name="sliderpath" style="margin-left:200px;" required="required" />
+
             <p style="margin-left:200px;">Slider boyutu 1200x250 olarak girilmelidir.</p><br />
             <label>Slider Linki</label>
             <input type="text" name="sliderurl" />
         </div>
+        <label>Durum ve Dil </label>
+        <select name="isaktif">
+            <option value="1">Aktif İçerik</option>
+            <option value="2">Pasif İçerik</option>
+            <option value="3">İngilizce Aktif İçerik</option>
+            <option value="4">İngilizce Pasif İçerik</option>
+        </select><br />
         <div style="margin-top: 15px">
             <label></label> <button class="btn btn-info">Slider Ekle</button>
         </div>

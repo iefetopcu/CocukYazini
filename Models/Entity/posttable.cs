@@ -31,11 +31,14 @@ namespace CocukYazini.Models.Entity
         public Nullable<int> isaktif { get; set; }
         public Nullable<System.DateTime> posttime { get; set; }
         public Nullable<long> monthid { get; set; }
+        public Nullable<long> sorusturmaid { get; set; }
+        public string postspot { get; set; }
     
         public virtual categorytable categorytable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comenttable> comenttables { get; set; }
         public virtual monthtable monthtable { get; set; }
+        public virtual sorusturma sorusturma { get; set; }
         public virtual usertable usertable { get; set; }
     }
 }

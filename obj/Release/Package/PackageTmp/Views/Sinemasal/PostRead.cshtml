@@ -9,18 +9,21 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h4 style="text-align:center; box-shadow:2px 2px grey; padding:10px; border-radius:20px;">@Model.posttitle</h4>
+            <h3 style="text-align:center; @*box-shadow:2px 2px grey;*@ padding:10px; border-radius:20px; margin:20px; color:dimgray;"><b>@Model.posttitle</b></h3>
+
             <img src="@Model.postphoto" style="text-align:center; width:100%!important; margin:20px;" />
+
+            <h4 style="color:dimgray"><i><b>@Model.usertable.username @Model.usertable.usersurname</b> | @Model.posttime.Value.ToString("dd.MM.yyyy")</i></h4>
+
             <hr />
             @Html.Raw(Model.postcontent)
 
-            <h4 style="text-align:center;"><i>@Model.usertable.username @Model.usertable.usersurname</i></h4>
             <br />
-            <h5 style="text-align:center;">Post Zamanı : @Model.posttime</h5>
+            <i><h6 style="color:chocolate;"> İşbu Web sitesi ve tüm sayfaları Fikir ve Sanat Eserleri Kanunu'na tabidir ve içeriğine ilişkin her türlü ses, görüntü, yazı içeren bilgi-belge,marka ve her türlü fikri ve sınai haklar ile tüm telif hakları ve diğer fikri ve sınai mülkiyet hakları Çocuk Yazını'na aittir. </i></h6>
         </div>
     </div>
     <div class="row text-center">
-        <a href="#Comment" data-toggle="modal"><button class="btn btn-info">YORUM YAP</button></a>
+        <a href="#Comment" data-toggle="modal"><button class="btn btn-secondary">YORUM YAP</button></a>
     </div>
     <div class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -79,7 +82,7 @@
 
     
 </div>
-<h3 style="text-align:center">Yorumlar</h3>
+@*<h3 style="text-align:center">Yorumlar</h3>*@
 <hr />
 
 
@@ -95,13 +98,13 @@
 
         @foreach (var item in Model.comenttables)
         {
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <strong>@item.comenttitle</strong>
-                        @if (Session["kullaniciadi"] != null)
+                        @if (Session["MySessionUser"] != null)
                         {
-                            if (((CocukYazini.Models.Entity.usertable)Session["kullaniciadi"]).authority == 1)
+                            if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
                             {
                                 <a href="@Url.Action("CommentDelete", "Home" , new {id = item.id})" onclick="return confirm('Bu Yorumu Silmek İstediğinize Emin Misiniz?')" class="pull-right"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
                             }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using CocukYazini.Models.Entity;
@@ -79,13 +81,14 @@ namespace CocukYazini.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult NewSlider(string sliderpath, string sliderurl)
+        public ActionResult NewSlider(string sliderpath, string sliderurl,int isaktif)
         {
             var ekle = new slidertable
             {
                 sliderpath = sliderpath,
                 sliderurl = sliderurl,
-               
+                isaktif = isaktif,
+
             };
 
             if (Request.Files.Count > 0)
@@ -140,7 +143,7 @@ namespace CocukYazini.Controllers
             return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
         }
         [HttpPost]
-        public ActionResult YeniDosyaAdi(string monthname, string monthphotourl, string datetime)
+        public ActionResult YeniDosyaAdi(string monthname, string monthphotourl, string datetime, int isaktif)
         {
             string zaman = datetime;
             var ekle = new monthtable
@@ -148,11 +151,11 @@ namespace CocukYazini.Controllers
                 monthname = monthname,
                 monthphotourl = monthphotourl,
                 datetime = Convert.ToDateTime(zaman),
-
+                isaktif = isaktif,
 
             };
 
-            if (Request.Files.Count > 0)
+            if (monthphotourl != null)
             {
                 var image = Request.Files[0]; 
 
@@ -191,6 +194,7 @@ namespace CocukYazini.Controllers
         public ActionResult DosyaGuncelle(monthtable p1)
         {
             var dosyalar = db.monthtables.Find(p1.id);
+            var zaman = p1.datetime;
 
             if (p1.monthphotourl != null)
             {
@@ -212,8 +216,97 @@ namespace CocukYazini.Controllers
             }
 
             dosyalar.monthname = p1.monthname;
+            dosyalar.datetime = Convert.ToDateTime(zaman);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("DosyaAdi");
         }
+
+        public ActionResult Sorusturma()
+        {
+
+            var degerler = db.sorusturmas.ToList();
+            return View(degerler);
+        }
+        [HttpGet]
+        public ActionResult YeniSorusturma()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YeniSorusturma(string sorusturmaname, string sorusturmaphotourl, string datetime , int isaktif)
+        {
+            string zaman = datetime;
+            var ekle = new sorusturma
+            {
+                sorusturmaname = sorusturmaname,
+                sorusturmaphotourl = sorusturmaphotourl,
+                datetime = Convert.ToDateTime(zaman),
+                isaktif = isaktif,
+
+            };
+
+            if (sorusturmaphotourl != null)
+            {
+                var image = Request.Files[0];
+                var fileInfo = new FileInfo(image.FileName);
+                var pic = "pic_" + DateTime.Now.Ticks + fileInfo.Extension; //new file name
+                var filePath = "/Photos/sorusturma/" + pic; //sen bunu db'ye yaz..
+                var tempFilePath = Server.MapPath("~\\Photos\\sorusturma\\" + pic);
+                image.SaveAs(tempFilePath);
+                ekle.sorusturmaphotourl = filePath;
+            }
+
+            db.sorusturmas.Add(ekle);
+            db.SaveChanges();
+            return RedirectToAction("Sorusturma");
+        }
+        public ActionResult SorusturmaSil(int id)
+        {
+            var sorusturmadelete = db.sorusturmas.Find(id);
+            db.sorusturmas.Remove(sorusturmadelete);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
+        [HttpGet]
+        public ActionResult SorusturmaUpdate(int id)
+        {
+            var sorusturmatable = db.sorusturmas.Find(id);
+            return View("SorusturmaUpdate", sorusturmatable);
+        }
+
+        [HttpPost]
+        public ActionResult SorusturmaGuncelle(sorusturma p1)
+        {
+            var sorusturmalar = db.sorusturmas.Find(p1.id);
+            var zaman = p1.datetime;
+
+            if (p1.sorusturmaphotourl != null)
+            {
+                var image = Request.Files[0];
+
+                if ((5 * 1024 * 1024) < image.ContentLength)
+                    throw new Exception("hata mesaaji");
+
+                var fileInfo = new FileInfo(image.FileName);
+                var pic = "pic_" + DateTime.Now.Ticks + fileInfo.Extension; //new file name
+
+                var filePath = "/Photos/sorusturma/" + pic; //sen bunu db'ye yaz..
+
+                var tempFilePath = Server.MapPath("~\\Photos\\sorusturma\\" + pic);
+
+                image.SaveAs(tempFilePath);
+
+                sorusturmalar.sorusturmaphotourl = filePath;
+            }
+
+            sorusturmalar.sorusturmaname = p1.sorusturmaname;
+            sorusturmalar.datetime = Convert.ToDateTime(zaman);
+            db.SaveChanges();
+            return RedirectToAction("Sorusturma");
+        }
+
+        
+
+
     }
 }

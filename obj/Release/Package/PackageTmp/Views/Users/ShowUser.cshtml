@@ -27,7 +27,7 @@
 
         <div class="form-control-static">
             <label></label>
-            <img src="@Model.userphoto" height="200px;" /><br />
+            <img src="@Model.userphoto" class="img-rounded" height="200px"/><br />
             <input type="file" name="userphoto" id="userphoto" style="margin-left:200px;" /><br />
             <label>Kullanıcı Numarası</label>
             @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })

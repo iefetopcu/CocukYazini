@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using CocukYazini.Models.Entity;
+using System.Data.Entity;
 
 namespace CocukYazini.Controllers
 {
@@ -24,17 +25,28 @@ namespace CocukYazini.Controllers
             return View(degerler);
 
         }
+
+        public ActionResult IndexEN()
+        {
+            var degerler = (from s in db.slidertables
+                            orderby s.sliderpath descending
+                            select s).Take(5);
+
+            return View(degerler);
+
+        }
         [HttpPost]
         public ActionResult Login(usertable model)
         {
-            var KULLANICI = db.usertables.FirstOrDefault(x => x.usermail == model.usermail && x.password == model.password);
+            var CocukYaziniUser = db.usertables.FirstOrDefault(x => x.usermail == model.usermail && x.password == model.password);
 
-            if (KULLANICI != null)
+            if (CocukYaziniUser != null)
             {
 
 
-                Session["kullaniciadi"] = KULLANICI;
+                Session["MySessionUser"] = CocukYaziniUser;
 
+                
                 ViewBag.successMessage = "Başarılı Giriş";
 
                 return RedirectToAction("Index");
@@ -50,7 +62,7 @@ namespace CocukYazini.Controllers
         public ActionResult LogOut()
         {
 
-            Session.Remove("kullaniciadi");
+            Session.Remove("MySessionUser");
             Session.Abandon();
             Session.Clear();
             return RedirectToAction("Index");
@@ -113,7 +125,7 @@ namespace CocukYazini.Controllers
 
             var KULLANICI = db.usertables.FirstOrDefault();
 
-            if (Session["kullaniciadi"] != null)
+            if (Session["MySessionUser"] != null)
             {
                 ekle.userid = KULLANICI.id;
             }
@@ -131,19 +143,40 @@ namespace CocukYazini.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult ForgetPassword(usertable model,string body)
+        [HttpGet]
+        public ActionResult ForgetPasswordEN()
         {
+            return View();
+        }
 
-            
-            var mailadresi = db.usertables.FirstOrDefault(x => x.usermail == model.usermail);
+        [HttpPost]
+        public ActionResult ForgetPassword(usertable k)
+        {            
+            var mailadresi = db.usertables.Where(x => x.usermail == k.usermail).FirstOrDefault();
             if (mailadresi != null)
             {
-                
-                
+                Guid rastgele = Guid.NewGuid();
+                mailadresi.password = rastgele.ToString().Substring(0, 8);
+                db.SaveChanges();
 
+                SmtpClient client = new SmtpClient("mail.cocukyazini.com",587);
 
+                //client.EnableSsl = true;
 
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("info@cocukyazini.com","Şifre Sıfırlama - Çocuk Yazını");
+                mail.To.Add(mailadresi.usermail);
+                mail.IsBodyHtml = true;
+                mail.Subject = "Şifre Değiştirme İsteği";
+                mail.Body += "Merhaba " + mailadresi.username + "<br/>" + "<b>Kullanıcı Mail Adresi :</b> " + mailadresi.usermail + "<br/>"
+                    + " <b>Şifreniz :</b> " + mailadresi.password
+                    + "<br /> <br />" + "Eğer şifrenin başkası tarafından değiştirildiğini düşünüyorsan bizimle iletişime geçebilirsin. </br> info@cocukyazini.com <br/><br/><br/>"
+                    + "<a href='https://cocukyazini.com/'>Çocuk Yazını</a> <br /> <br /> <img src='https://cocukyazini.com/Photos/logo/cocuk.png' height='100px' />"
+                    ;
+
+                NetworkCredential net = new NetworkCredential("info@cocukyazini.com", "CocukYazinicom1234!");
+                client.Credentials = net;
+                client.Send(mail);
 
                 return RedirectToAction("Index");
 
@@ -152,7 +185,51 @@ namespace CocukYazini.Controllers
             {
                 var HataMesaji = " Girmiş olduğunuz E-posta sistemimizde kayıtlı değil.";
                 ViewBag.mesaj = HataMesaji;
-                return RedirectToAction("ForgetPassword");
+                return View();
+            }
+
+
+        }
+        [HttpPost]
+        public ActionResult ForgetPasswordEN(usertable k)
+        {
+
+
+            var mailadresi = db.usertables.Where(x => x.usermail == k.usermail).FirstOrDefault();
+
+            if (mailadresi != null)
+            {
+                Guid rastgele = Guid.NewGuid();
+                mailadresi.password = rastgele.ToString().Substring(0, 8);
+                db.SaveChanges();
+
+                SmtpClient client = new SmtpClient("mail.cocukyazini.com", 587);
+
+                //client.EnableSsl = true;
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("info@cocukyazini.com", "Şifre Sıfırlama - Çocuk Yazını");
+                mail.To.Add(mailadresi.usermail);
+                mail.IsBodyHtml = true;
+                mail.Subject = "Change Password - Children's Literature";
+                mail.Body += "Hello " + mailadresi.username + "<br/>" + "<b>User Mail :</b> " + mailadresi.usermail + "<br/>"
+                    + " <b>Your New Password :</b> " + mailadresi.password
+                    + "<br /> <br />" + "If you think your password has been changed by someone else, you can contact us.. </ br> info@cocukyazini.com <br/><br/><br/>"
+                    + "<a href='https://cocukyazini.com/'>Çocuk Yazını</a> <br /> <br /> <img src='https://cocukyazini.com/Photos/logo/cocuk.png' height='100px' />"
+                    ;
+
+                NetworkCredential net = new NetworkCredential("info@cocukyazini.com", "CocukYazinicom1234!");
+                client.Credentials = net;
+                client.Send(mail);
+
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                var HataMesaji = " The email you entered is not registered in system..";
+                ViewBag.mesaj = HataMesaji;
+                return View();
             }
 
 
@@ -194,20 +271,33 @@ namespace CocukYazini.Controllers
 
         }
 
-        public ActionResult ShowUser(int id)
+        public ActionResult ShowUser()
         {
-            var user = db.usertables.Find(id);
 
-            var post = from x in db.posttables
-                            where x.isaktif == 1 && x.userid == id
-                            select x;
-
+            usertable currentUser = (usertable)Session["MySessionUser"];
             
+            if(currentUser != null)
+            {
+                var user = db.usertables.Find(currentUser.id);
 
-            ViewBag.postlar = post.Count();
-            
+                var post = from x in db.posttables
+                           where x.isaktif == 1 && x.userid == currentUser.id
+                           select x;
 
-            return View("ShowUser", user);
+
+
+                ViewBag.postlar = post.Count();
+
+
+                return View("ShowUser", user);
+
+            }
+            else
+            {
+                return RedirectToAction ("Index");
+            }
+
+
 
         }
         [HttpPost]
@@ -238,11 +328,127 @@ namespace CocukYazini.Controllers
             kullanici.username = p1.username;
             kullanici.usersurname = p1.usersurname;
             db.SaveChanges();
-            Session.Remove("kullaniciadi");
+            Session.Remove("MySessionUser");
             Session.Abandon();
             Session.Clear();
             
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult Search(string search, int kategori)
+        {
+            if(kategori == 0)
+            {
+                var post = from x in db.posttables
+                           select x;
+
+                if (!String.IsNullOrEmpty(search))
+                {
+                    post = post.Where(s => s.posttitle.Contains(search));
+                    
+                }
+
+                return View(post.ToList());
+            }
+            else
+            {
+                var post = from x in db.posttables
+                           select x;
+
+                if (!String.IsNullOrEmpty(search))
+                {
+                    post = post.Where(s => s.posttitle.Contains(search) && s.categoryid == kategori);
+
+                }
+
+                return View(post.ToList());
+
+            }
+           
+        }
+        [HttpPost]
+        public ActionResult SearchEN(string search, int kategori)
+        {
+            if (kategori == 0)
+            {
+                var post = from x in db.posttables
+                           select x;
+
+                if (!String.IsNullOrEmpty(search))
+                {
+                    post = post.Where(s => s.posttitle.Contains(search));
+
+                }
+
+                return View(post.ToList());
+            }
+            else
+            {
+                var post = from x in db.posttables
+                           select x;
+
+                if (!String.IsNullOrEmpty(search))
+                {
+                    post = post.Where(s => s.posttitle.Contains(search) && s.categoryid == kategori);
+
+                }
+
+                return View(post.ToList());
+
+            }
+
+        }
+
+        [Route("PostRead/{id}/{baslik}")]
+        public ActionResult PostRead(int id)
+        {
+            var post = db.posttables.Include(a => a.comenttables).FirstOrDefault(a => a.id == id);
+            var yorumlar = db.posttables.Include(a => a.comenttables);
+            if (post == null)
+                return RedirectPermanent("/");
+
+            //var userotherpost = from s in db.posttables
+            //                    where s.userid == post.userid
+            //                    orderby s.posttime
+            //                    descending
+            //                    select s;
+
+            return View("PostRead", post);
+        }
+
+        public ActionResult PostReadEN(int id)
+        {
+            var post = db.posttables.Include(a => a.comenttables).FirstOrDefault(a => a.id == id);
+            if (post == null)
+                return RedirectPermanent("/");
+
+            return View("PostReadEN", post);
+        }
+
+        public ActionResult UserPosts(int id)
+        {
+
+            var userposts = from s in db.posttables
+                           where s.userid == id && s.isaktif == 1
+                           orderby s.posttime descending
+                           select s;
+
+            return View("UserPosts", userposts);
+
+        }
+
+        public ActionResult UserPostsEN(int id)
+        {
+
+            var userposts = from s in db.posttables
+                            where s.userid == id && s.isaktif == 3
+                            orderby s.posttime descending
+                            select s;
+
+            return View("UserPosts", userposts);
+
+        }
+
+
     }
 }

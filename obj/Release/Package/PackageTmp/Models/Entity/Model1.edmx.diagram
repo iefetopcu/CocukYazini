@@ -4,20 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e4feaf9c3f51449b9aa9d930e730c269" Name="Diagram1">
-        <EntityTypeShape EntityType="cocukyaziniModel.categorytable" Width="1.5" PointX="3.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.comenttable" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.contacttable" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.monthtable" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.posttable" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.slidertable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cocukyaziniModel.usertable" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="e1401909c9a84b13bdbe2d6ecd198daa" Name="Diagram1">
+        <EntityTypeShape EntityType="cocukyaziniModel.categorytable" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.comenttable" Width="1.5" PointX="13.625" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.contacttable" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.monthtable" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.posttable" Width="1.5" PointX="9" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.slidertable" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.sorusturma" Width="1.5" PointX="3.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cocukyaziniModel.usertable" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <AssociationConnector Association="cocukyaziniModel.FK_posttable_categorytable" ManuallyRouted="false" />
         <AssociationConnector Association="cocukyaziniModel.FK_comenttable_posttable" ManuallyRouted="false" />
         <AssociationConnector Association="cocukyaziniModel.FK_comenttable_usertable" ManuallyRouted="false" />
         <AssociationConnector Association="cocukyaziniModel.FK_contacttable_usertable" ManuallyRouted="false" />
         <AssociationConnector Association="cocukyaziniModel.FK_posttable_monthtable" ManuallyRouted="false" />
+        <AssociationConnector Association="cocukyaziniModel.FK_posttable_sorusturma" ManuallyRouted="false" />
         <AssociationConnector Association="cocukyaziniModel.FK_posttable_usertable" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

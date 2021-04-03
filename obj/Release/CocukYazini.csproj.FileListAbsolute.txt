@@ -98,3 +98,9 @@ C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csprojAssemblyReference.cache
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csproj.CopyComplete
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.dll
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.pdb
+C:\CocukYazini\CocukYazini\bin\EPPlus.dll
+C:\CocukYazini\CocukYazini\bin\EPPlus.xml
+C:\CocukYazini\CocukYazini\bin\PagedList.dll
+C:\CocukYazini\CocukYazini\bin\PagedList.Mvc.dll
+C:\CocukYazini\CocukYazini\bin\PagedList.xml
+C:\CocukYazini\CocukYazini\bin\PagedList.Mvc.xml

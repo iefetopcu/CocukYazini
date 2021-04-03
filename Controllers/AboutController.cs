@@ -13,5 +13,10 @@ namespace CocukYazini.Controllers
         {
             return View();
         }
+
+        public ActionResult IndexEN()
+        {
+            return View();
+        }
     }
 }

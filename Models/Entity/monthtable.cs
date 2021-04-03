@@ -24,6 +24,7 @@ namespace CocukYazini.Models.Entity
         public string monthname { get; set; }
         public Nullable<System.DateTime> datetime { get; set; }
         public string monthphotourl { get; set; }
+        public Nullable<long> isaktif { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<posttable> posttables { get; set; }

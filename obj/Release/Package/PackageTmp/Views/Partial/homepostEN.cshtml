@@ -1,0 +1,145 @@
+﻿@using CocukYazini.App_Code
+
+<style>
+
+    .icerik {
+        width: 400px;
+        float: left;
+        margin: 10px;
+        padding: 25px;
+        text-align: center;
+        border-left: 1px solid;
+        border-bottom: 1px solid;
+        border-color: coral;
+    }
+
+
+    .myButton {
+        background-color: #6ccc86;
+        border-radius: 28px;
+        border: 1px solid #278530;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 12px;
+        padding: 16px 31px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #26571e;
+        margin-top: 10px;
+    }
+
+        .myButton:hover {
+            background-color: #9de374;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+    .example_c {
+        color: #494949 !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ffffff;
+        padding: 10px;
+        border: 2px solid #494949 !important;
+        display: inline-block;
+        transition: all 0.4s ease 0s;
+    }
+
+        .example_c:hover {
+            color: #ffffff !important;
+            background: #f6b93b;
+            border-color: #f6b93b !important;
+            transition: all 0.4s ease 0s;
+        }
+
+    .ortala {
+        position: relative;
+        margin: auto;
+    }
+
+    .postheader {
+        font-size: 25px;
+        font-display: auto;
+        font-style: oblique;
+        /*text-align:center;*/
+        /*border-bottom:solid 2px;
+    border-color:cornsilk;*/
+        margin: 30px;
+        color: coral;
+        text-align: center;
+    }
+
+    .icerik h5 {
+        border-bottom: 1px solid;
+        border-color: lightgoldenrodyellow;
+    }
+
+    .ortala {
+        width: 100% !important;
+    }
+
+    .homepost {
+        height: 850px;
+    }
+
+    .postbox {
+        box-shadow: 2px 2px grey;
+        padding: 5px;
+        border-radius: 20px;
+    }
+</style>
+
+<h4 class="postheader"></h4>
+<div class="container-fluid">
+    <div class="row">
+
+        @foreach (var post in Model)
+        {
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" style="margin-top:5px; padding:30px;">
+
+                <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})" class="baslik">
+                    <h3 style="height:50px;" class="mobiltitles">@post.posttitle</h3>
+
+                </a>
+
+                <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})" style="text-decoration:none;">
+                    <img src="@post.previewphoto" style="width:100%!important" /><br />
+                </a>
+                <br />
+                <h4 style="color: darkgoldenrod;">@post.usertable.username @post.usertable.usersurname <i style="        color: seagreen">|</i> <i style="color:darkgoldenrod;">@post.posttime.ToString("dd.MM.yyyy")</i></h4>
+
+
+                <div class="col-12">
+                    <span style="text-align:justify; font-size:16px; font-family:'Trebuchet MS'; color:#837A78;">@post.postspot...</span>
+
+                </div>
+
+                <div class="pull-right">
+                    <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})" style="font-family:'Trebuchet MS'; font-size:12pt;">
+                        Devamını oku...
+                    </a>
+
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<div style="clear:left;"></div>
+
+

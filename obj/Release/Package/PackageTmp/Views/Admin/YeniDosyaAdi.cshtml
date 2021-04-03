@@ -27,13 +27,20 @@
             <input type="text" id="datepicker" name="datetime" required="required"><br />
 
             <label style="margin-left:200px;">Dosya Fotoğrafı </label>
-            <input type="file" name="monthphotourl" style="margin-left:200px;" required="required" /><br />
+            <input type="file" name="monthphotourl" style="margin-left:200px;" /><br />
             <p>Dosya Fotoğraf Boyutu genişliği 500px yükseliği 250px veya katları olmalıdır</p>
         </div>
+        <label>Dil ve Durum</label>
+        <select name="isaktif">
+            <option value="1">Aktif İçerik</option>
+            <option value="2">Pasif İçerik</option>
+            <option value="3">İngilizce Aktif İçerik</option>
+            <option value="4">İngilizce Pasif İçerik</option>
+        </select><br />
         <div style="margin-top: 15px">
             <label></label> <button class="btn btn-info">Dosya Ekle</button>
         </div>
-        
+
     </form>
 
 </div>

@@ -33,10 +33,63 @@ namespace CocukYazini.Controllers
 
 
             var postlar = (from s in db.posttables
+                           where s.isaktif == 1
                            orderby s.posttime descending
                            select s).Take(8);
 
             return PartialView(postlar);
+        }
+
+        public ActionResult duyuruhaber()
+        {
+
+
+            var duyuruhaber = (from s in db.posttables
+                          where s.isaktif == 1 && s.categoryid == 6
+                               orderby s.posttime descending
+                          select s).Take(3);
+
+            return PartialView(duyuruhaber);
+        }
+
+        public ActionResult footerEN()
+        {
+
+
+            var degerler = (from s in db.posttables
+                            where s.isaktif == 3
+                            orderby s.posttime descending
+                            select s).Take(3);
+
+
+
+
+
+            return PartialView(degerler);
+        }
+
+        public ActionResult homepostEN()
+        {
+
+
+            var postlar = (from s in db.posttables
+                           where s.isaktif == 3
+                           orderby s.posttime descending
+                           select s).Take(8);
+
+            return PartialView(postlar);
+        }
+
+        public ActionResult duyuruhaberEN()
+        {
+
+
+            var duyuruhaber = (from s in db.posttables
+                               where s.isaktif == 3 && s.categoryid == 6
+                               orderby s.posttime descending
+                               select s).Take(3);
+
+            return PartialView(duyuruhaber);
         }
 
         //public ActionResult menuler()

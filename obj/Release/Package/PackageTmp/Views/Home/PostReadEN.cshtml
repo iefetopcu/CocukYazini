@@ -1,0 +1,128 @@
+﻿
+@model CocukYazini.Models.Entity.posttable
+@{
+    ViewBag.Title = Model.posttitle;
+    ViewBag.Description = Model.postspot;
+    Layout = "~/Views/Shared/_Layout - EN.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 style="text-align:center; @*box-shadow:2px 2px grey;*@ padding:10px; border-radius:20px; margin:20px; color:dimgray;"><b>@Model.posttitle</b></h3>
+
+            <img src="@Model.postphoto" style="text-align:center; width:100%!important; margin:20px;" />
+
+            <h4 style="color:dimgray"><i><a href="@Url.Action("UserPostsEN", "Home" , new {id = @Model.userid})"><b>@Model.usertable.username @Model.usertable.usersurname</b></a> | @Model.posttime.Value.ToString("dd.MM.yyyy")</i></h4>
+            <hr />
+            @Html.Raw(Model.postcontent)
+
+            <br />
+            <i><h6 style="color:chocolate;"> The website is subject to the Law of Intellectual Property rights and everything about its contexts such as audio, visual, pieces of information which consist of text, brand and all kind of intellectual property rights and other intellectual and industrial property rights belong to the Çocuk Yazını. </i></h6>
+        </div>
+    </div>
+    <div class="row text-center">
+        <a href="#Comment" data-toggle="modal"><button class="btn btn-secondary">Comment</button></a>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div id="Comment" class="modal fade">
+                <div class="modal-dialog modal-login">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <h4 class="modal-title">Comment</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form action="@Url.Action("Comment", "Home")" method="post">
+                                <div class="form-group">
+                                    <i class="fa fa-bars"></i>
+                                    <input type="text" class="form-control" required="required" name="postid" value="@Model.id" readonly="readonly">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-bars"></i>
+                                    <input type="text" class="form-control" placeholder="Title" required="required" name="comenttitle">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-commenting-o"></i>
+                                    <input type="text" class="form-control" placeholder="Text" required="required" name="comentcontent">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control" placeholder="Who is writing" required="required" name="whowrote">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Send">
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<!--yorumlar-->
+
+
+
+<div>
+
+
+</div>
+@*<h3 style="text-align:center">Yorumlar</h3>*@
+<hr />
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+
+    <div class="row">
+
+
+        @foreach (var item in Model.comenttables)
+        {
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>@item.comenttitle</strong>
+                        @if (Session["MySessionUser"] != null)
+                        {
+                            if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
+                            {
+                                <a href="@Url.Action("CommentDelete", "Home" , new {id = item.id})" onclick="return confirm('Bu Yorumu Silmek İstediğinize Emin Misiniz?')" class="pull-right"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                            }
+                        }
+
+
+                    </div>
+                    <div class="panel-body">
+                        @item.comentcontent
+                    </div>
+                    <div class="panel-heading">
+                        <span class="text-muted">@item.whowrote @item.comenttime</span>
+                    </div><!-- /panel-body -->
+                </div><!-- /panel panel-default -->
+            </div><!-- /col-sm-5 -->
+        }
+
+
+
+    </div><!-- /row -->
+
+</div><!-- /container -->

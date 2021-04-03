@@ -30,6 +30,7 @@
             
             <th>Slider Dosya Yolu</th>
             <th>Slider URL</th>
+            <th>Dil ve Durum</th>
             <th>İşlem</th>
 
         </tr>
@@ -40,6 +41,13 @@
                 
                 <td>@slider.sliderpath</td>
                 <td>@slider.sliderurl</td>
+               @if (slider.isaktif == 1) {
+               <td>Türkçe</td>
+               }
+               @if (slider.isaktif == 3)
+               {
+                   <td>İngilizce</td>
+               }
 
                 <td>
                     <a href="@Url.Action("SliderSil", "Admin" , new {id = slider.id})" onclick="return confirm('Bu Slideri Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>

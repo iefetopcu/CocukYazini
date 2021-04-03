@@ -80,27 +80,40 @@
 
     @foreach (var post in Model)
     {
-        <div class="icerik">
+<div class="icerik">
 
 
-            <h3>@post.posttitle</h3><br />
-            <img src="@post.previewphoto" height="150px" width="200px" /><br />
-            <br />
-            <i><h4 style="color: seagreen;">Yazar : @post.usertable.username @post.usertable.usersurname </h4></i>
-            <h4 style="color:peru">Tarih : @post.posttime</h4>
+    <h3>@post.posttitle</h3><br />
+    <img src="@post.previewphoto" height="150px" width="200px" /><br />
+    <br />
+    <i><h4 style="color: seagreen;">Yazar : @post.usertable.username @post.usertable.usersurname </h4></i>
+    <h4 style="color:peru">Tarih : @post.posttime</h4>
+
+    <div class="col-12 postspot">
+        @if (post.postcontent.Length > 100)
+        {
+            @Html.Raw(post.postcontent.Substring(0, 450) + "...");
+            <a href="@Url.Action("PostRead", "Sinemasal", new {id = post.id})">
+                Devamını Oku...
+            </a>
+        }
+        else
+        {
+            @Html.Raw(post.postcontent);
+        }
+
+    </div>
+
+
+    <br />
+
+
+    <div class="button_cont"><a class="example_c" href="@Url.Action("PostRead", "Sinemasal", new {id = post.id})" rel="nofollow noopener">Oku</a></div>
 
 
 
 
-            <br />
-
-
-            <div class="button_cont"><a class="example_c" href="@Url.Action("PostRead", "Sinemasal", new {id = post.id})" rel="nofollow noopener">Oku</a></div>
-
-
-
-
-        </div>
+</div>
 
 
 

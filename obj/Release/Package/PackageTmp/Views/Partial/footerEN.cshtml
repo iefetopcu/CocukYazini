@@ -1,0 +1,125 @@
+﻿@using CocukYazini.Models.Entity
+@using CocukYazini.App_Code
+<style>
+    .background {
+        background-image: url("../../Photos/sliderphotos/bgtest3.jpg");
+        color: brown;
+        text-decoration: none;
+    }
+
+        .background a {
+            color: dimgray;
+            text-decoration: none;
+        }
+
+            .background a:hover {
+                color: coral;
+                text-decoration: none;
+            }
+
+    .footerurl {
+        text-decoration: none;
+        color: brown !important;
+    }
+
+        .footerurl:hover {
+            color: cornsilk;
+            text-decoration: none;
+        }
+
+    .footerlogoimg:hover {
+        height: 110px !important;
+    }
+
+    .duyuru a {
+        color: brown !important;
+    }
+</style>
+
+<div class="row mt-5 background">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2">
+        <div class="footer-widget">
+
+            <div class="footer-widget-content">
+                <a href="About/Index">
+
+                    <img src="~/Photos/logo/cocuk.png" height="100px;" style="margin-top:15px; margin-left:30px;" class="footerlogoimg" />
+                </a>
+
+                <br /><br /><br />
+                <hr />
+                <a href="mailto:infococukyazini@gmail.com" class="contact-link"><i class="fa fa-envelope" style="font-size:24px;"></i></a>
+                <a href="https://www.instagram.com/cocukyazini/" class="contact-link"><i class="fa fa-instagram" style="font-size:24px; margin-left:10px;"></i></a>
+
+                <a href="https://www.youtube.com/channel/UCEFxedCZbBncrDYAuaRKzsQ" class="contact-link" title="Rss"><i class="fa fa-youtube" style="font-size: 24px;margin-left: 10px;"></i></a>
+                <a href="https://www.facebook.com/cocukyaziniwebsite/" class="contact-link" title="Facebook"><i class="fa fa-facebook" style="font-size:24px; margin-left:10px;"></i></a>
+                <a href="https://twitter.com/cocuk_yazini" class="contact-link" title="Twitter"><i class="fa fa-twitter" style="font-size:24px; margin-left:10px;"></i></a>
+                <br /><br />
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5">
+        <div class="footer-widget">
+            <h2 style="margin-top:10px;">
+                Recent Posts
+            </h2>
+
+            <div class="footer-widget-content">
+
+                @foreach (var footerpost in Model)
+                {
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="@Url.Action("PostReadEN", "Home", new {id = footerpost.id,baslik=Seo.AdresDuzenle(footerpost.posttitle)})" class="footerurl">
+                                <img class="media-object" src="@footerpost.previewphoto" height="50px" width="100px">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <a href="@Url.Action("PostReadEN", "Home", new {id = footerpost.id,baslik=Seo.AdresDuzenle(footerpost.posttitle)})" class="footerurl"><span><h4>@footerpost.posttitle</h4></span></a>
+
+                            <span><h4 style="color:dimgrey">@footerpost.categorytable.categoryname</h4></span>
+                            <i><span><b>@footerpost.usertable.username @footerpost.usertable.usersurname</b></span><br /></i>
+                        </div>
+                    </div>
+
+                }
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2">
+        <div class="footer-widget">
+            <h2 style="margin-top:10px;" class="duyuru"><a href="@Url.Action("IndexEN", "Duyuruhaber")">News&Announcement</a></h2>
+            @{Html.RenderAction("duyuruhaberEN", "Partial");}
+
+           
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="footer-widget">
+            <h2 style="margin-top:10px;">Contact Form</h2>
+            <h5>You can write to us using the form below</h5>
+            <div class="footer-widget-content">
+                <div class="images-gellary">
+                    <form action="@Url.Action("NewContact", "Home")" method="post">
+                        <input type="text" placeholder="Title" class="form-control form-control-sm" name="contacttitle" required="required" style="margin-top:5px;" />
+                        <textarea placeholder="Your Message" rows="3" cols="22" class="form-control form-control-sm" name="contactcontent" required="required" style="margin-top:5px;"></textarea>
+                        <input type="email" placeholder="E-Mail" class="form-control form-control-sm" name="email" required="required" style="margin-top:5px;" />
+                        <input type="text" placeholder="Who is writing?" class="form-control form-control-sm" name="whowrote" required="required" style="margin-top:5px;" />
+
+
+                        <button class="btn btn-secondary" style="margin-top:5px;">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

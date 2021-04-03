@@ -1,0 +1,91 @@
+﻿@model CocukYazini.Models.Entity.posttable
+@{
+    ViewBag.Title = "PostUpdate";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    label {
+        width: 200px;
+    }
+</style>
+<script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+
+<div class="container">
+
+
+    <br />
+    <h4>İçerik Düzenle</h4>
+    <hr />
+
+
+    <div class="row">
+        @using (Html.BeginForm("PostUpdate", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+        {
+
+            <label>İçerik Numarası</label>
+            @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })<br />
+            <label>Başlık</label>
+            @Html.TextBoxFor(m => m.posttitle, new { @required = "required" })
+
+            <textarea name="postcontent">@Model.postcontent</textarea><br /><br />
+            <script>
+                CKEDITOR.replace('postcontent');
+            </script>
+            <label>Post Spot</label>
+            @Html.TextAreaFor(m => m.postspot, new { maxlength = 250, style = "width:700px", @required = "required", @maxlenght = "350" }) <br />
+            <label>Kategori Seç</label>
+            @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat, @Model.categoryid)<br />
+            <label>Dosya Adı Seç</label>
+            @Html.DropDownListFor(m => m.monthid, (List<SelectListItem>)ViewBag.mon, @Model.monthid)<br />
+            <p>"Dosya adı sadece soruşturma kategorisi seçildiğinde seçilmelidir, Dosyaya ait değilse <b>"Dosya Adı Yok"</b> seçiniz."</p>
+            <label>Soruşturma Adı Seç</label>
+            @Html.DropDownListFor(m => m.sorusturmaid, (List<SelectListItem>)ViewBag.srstrma, @Model.sorusturmaid) <p>"Soruşturma adı sadece soruşturma kategorisi seçildiğinde seçilmelidir, Soruşturmaya ait değilse <b>" Soruşturma Adı Yok"</b> seçiniz."</p><br />
+
+            <label>Kim Yazdı?</label>
+            @Html.DropDownListFor(m => m.userid, (List<SelectListItem>)ViewBag.usr, @Model.userid)
+            <div class="col-5">
+                İçerik Fotoğrafı<br />
+                <img src="@Model.postphoto" height="200px;" /><br />
+                <input type="checkbox" name="nopostphoto" value="sil" id="nopostphoto"> İçerik Fotoğrafı Sil <br />
+
+                <input type="file" name="postphoto" id="postphoto" style="margin-left:200px;" /><br />
+            </div>
+            <div class="col-5">
+                Küçük Fotoğraf<br />
+                <img src="@Model.previewphoto" height="100px;" /><br />
+                <input type="checkbox" name="nopwphoto" value="sil" id="nopwphoto"> Küçük Fotoğrafı Sil
+                <input type="file" name="previewphoto" id="previewphoto" style="margin-left:200px;" /><br />
+            </div>
+            <label>Dil ve Durum</label>
+            @Html.DropDownListFor(m => m.isaktif, new List<SelectListItem>
+            { new SelectListItem{Text="Türkçe", Value="1"},
+            new SelectListItem{Text="Türkçe Pasif İçerik", Value="2"},
+       new SelectListItem{Text="İngilizce", Value="3"},
+       new SelectListItem{Text="İngilizce Pasif İçerik", Value="4"}})<br />
+            <label>İçerik Zamanı</label>
+            <input type="text" id="datepicker" name="posttime" required="required" value="@Model.posttime"><br />
+            <label></label><button class="btn btn-info">Güncelle</button>
+
+            <br />
+
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+            <script>
+                $(function () {
+
+
+                    $("#datepicker").datepicker({
+                        dateFormat: 'yy-mm-dd'
+                    }).datepicker();
+                    ;
+                });
+            </script>
+        }
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,45 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="container">
+        <div class="col-12">
+            <table class="table table-bordered" id="tbl1">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>Kim Yazmış</th>
+                        <th>Kategori</th>
+                        <th>Dosya Adı</th>
+                        <th>Paylaşım zamanı</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var post in Model)
+                    {
+                        <tr>
+                            <td>@post.posttitle</td>
+                            <td>@post.usertable.username @post.usertable.usersurname</td>
+                            <td>@post.categorytable.categoryname</td>
+                            <td>@post.monthtable.monthname</td>
+                            <td>@post.posttime</td>
+                            <td>
+                                <a href="@Url.Action("PostRead", "Post" , new {id = post.id})">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                    <a href="@Url.Action("PostUpdate", "Post" , new {id = post.id})">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                    <a href="@Url.Action("Sil", "Post" , new {id = post.id})" onclick="return confirm('Bu İçeriği Silmek İstediğinize Emin Misiniz? Eğer Bu İçeriği Silerseniz İçeriğe Ait Yorumlarda Silinecektir.')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+

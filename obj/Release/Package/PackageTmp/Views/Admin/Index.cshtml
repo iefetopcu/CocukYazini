@@ -3,126 +3,137 @@
     ViewBag.Title = "Admin Panel Bilgi Ekranı";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-<style>
-    .container {
-        margin:auto;
-        margin-left: 200px;
-        
-        
-    }
 
-    .kategoritablo tr th {
-        color: black;
-        width: 200px;
-        height: 50px;
-    }
+<link rel="stylesheet" href="https://cdn.anychart.com/css/latest/anychart-ui.css">
+<script src="https://cdn.anychart.com/js/latest/anychart-bundle.min.js"></script>
 
-    #kullanicilar {
-        text-align:center;
-        border: solid 1px;
-        border-color: cyan;
-        width: 400px;
-        height: 150px;
-        float: left;
-        padding: 10px;
-        margin: 10px;
-    }
+@*<script>
+    anychart.onDocumentLoad(function () {
+                        // create a chart and set the data
+                        var chart = anychart.column([
+                            ["Kullanıcı Sayisi", @ViewBag.kullanicilar],
+                            ["İcerik Sayisi", @ViewBag.icerikler],
+                            ["Kategori Sayisi", @ViewBag.kategoriler],
+                            ["İcerik Sayisi", @ViewBag.mesajlar]
 
-    #kategori {
-        text-align: center;
-        border: solid 1px;
-        border-color: brown;
-        width: 400px;
-        height: 150px;
-        float: left;
-        padding: 10px;
-        margin: 10px;
-    }
 
-    #icerik {
-        text-align: center;
-        border: solid 1px;
-        border-color: chartreuse;
-        width: 400px;
-        height: 150px;
-        float: left;
-        padding: 10px;
-        margin: 10px;
-    }
+                        ]);
+                        // set chart title
+                        chart.title("Rapor");
+                        // set chart container and draw
+                        chart.container("graph").draw();
+                    });</script>*@
 
-    #mesajlar {
-        text-align: center;
-        border: solid 1px;
-        border-color: darkorange;
-        width: 400px;
-        height: 150px;
-        float: left;
-        padding: 10px;
-        margin: 10px;
-    }
-    .hizlilinkler{
-        
-        width:800px;
-        
-    }
-    .hizlilinkler h4{
-        margin-top:20px;
-        
-    }
-    .hizlilinkler a{
-        margin-left:15px;
-        color:darkgoldenrod;
-        
-    }
-    .hizlilinkler a:hover{
-        color:goldenrod;
-        text-decoration:none;
-    }
-</style>
 
 <div class="container">
-    <h3>> > Bilgi Ekranı</h3>
-    <hr />
-
-    <div id="kullanicilar">
-        <h4><i>Kullanıcı Sayısı :</i>@ViewBag.kullanicilar </h4>
-        <h4><i>Aktif Kullanıcı : </i>@ViewBag.kullaniciaktif </h4>
-        <h4><i style=" color: red; ">Yasaklı Kullanıcı : </i>@ViewBag.kullanicipasif </h4>
-
-    </div>
-
-    <div id="icerik">
-        <h4><i>İçerik Sayısı : </i>@ViewBag.icerikler</i></h4>
-        <h4><i>Aktif İçerik :</i>@ViewBag.postaktif</h4>
-        <h4><i style="color:red;">Pasif Kategori : </i>@ViewBag.postpasif</h4>
-
-    </div>
-    <div id="kategori">
-        <h4><i>Kategori Sayısı :</i>@ViewBag.kategoriler</h4>
-        <h4><i>Aktif Kategori :</i>@ViewBag.kategoriaktif</h4>
-        <h4><i style="color:red;">Pasif Kategori : </i>@ViewBag.kategoripasif</h4>
-
-
-    </div>
-    <div id="mesajlar">
-        <h4><i>Mesaj Sayısı :</i> @ViewBag.mesajlar</h4>
-        <h4><i style="color:red;">Okunmamış Mesaj : </i>@ViewBag.mesajokunmamis </h4>
-        <h4><i>Okunmuş Mesaj : </i>@ViewBag.mesajokunmus </h4>
-        </div>
     
-    <div class="hizlilinkler">
+   
 
-        <h4>Hızlı İşlemler</h4>
-        <hr />
-        <a href="@Url.Action("NewPost", "Post")">Yeni İçerik Ekle</a>
-        <a href="@Url.Action("NewUser", "Users")">Yeni Kullanıcı Ekle</a>
-        <a href="@Url.Action("NewCategory", "Category")">Yeni Kategori Ekle</a>
-        <a href="@Url.Action("Dosyaadi", "Admin")">Yeni Dosya Adı'ı Ekle</a>
-        <a href="@Url.Action("Slider", "Admin")">Slider'ı Düzenle</a>
+    <br />
+    
+        
+    <div class="row">
 
 
+        
 
-    </div>    
+        
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Kullanıcı Sayısı
+                    <span class="badge badge-primary badge-pill">@ViewBag.kullanicilar</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Aktif Kullanıcı
+                    <span class="badge badge-primary badge-pill">@ViewBag.kullaniciaktif</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Yasaklı Kullanıcı
+                    <span class="badge badge-primary badge-pill">@ViewBag.kullanicipasif</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+           
 
-</div>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    İçerik Sayısı
+                    <span class="badge badge-primary badge-pill">@ViewBag.icerikler</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Aktif İçerik
+                    <span class="badge badge-primary badge-pill">@ViewBag.postaktif</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Pasif  İçerik
+                    <span class="badge badge-primary badge-pill">@ViewBag.postpasif</span>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+           
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Kategori Sayısı
+                    <span class="badge badge-primary badge-pill">@ViewBag.kategoriler</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Aktif Kategori
+                    <span class="badge badge-primary badge-pill">@ViewBag.kategoriaktif</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Pasif Kategori
+                    <span class="badge badge-primary badge-pill">@ViewBag.kategoripasif</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+           
+
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Mesaj Sayısı
+                    <span class="badge badge-primary badge-pill">@ViewBag.mesajlar</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center" >
+                    Okunmamış Mesaj
+                    <span class="badge badge-primary badge-pill">@ViewBag.mesajokunmamis</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Okunmuş Mesaj
+                    <span class="badge badge-primary badge-pill">@ViewBag.mesajokunmus</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <h4>Hızlı İşlemler</h4>
+            <hr />
+
+
+
+
+
+            <a href="@Url.Action("NewPost", "Post")" class="stretched-link text-danger">Yeni İçerik Ekle</a> |
+            <a href="@Url.Action("NewUser", "Users")" class="stretched-link text-danger">Yeni Kullanıcı Ekle</a> |
+            <a href="@Url.Action("NewCategory", "Category")" class="stretched-link text-danger">Yeni Kategori Ekle</a> |
+
+            <a href="@Url.Action("Slider", "Admin")" class="stretched-link text-danger">Slider'ı Düzenle</a> |
+            <a href="@Url.Action("Dosyaadi", "Admin")" class="stretched-link text-danger">Yeni Dosya Adı'ı Ekle</a> |
+            <a href="@Url.Action("Sorusturma", "Admin")" class="stretched-link text-danger">Soruşturma Düzenle</a>
+
+
+        </div>    
+        </div>
+
+
+
+    </div>
 

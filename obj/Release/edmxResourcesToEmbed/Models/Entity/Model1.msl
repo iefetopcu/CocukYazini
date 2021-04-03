@@ -45,6 +45,7 @@
           <ScalarProperty Name="monthname" ColumnName="monthname" />
           <ScalarProperty Name="datetime" ColumnName="datetime" />
           <ScalarProperty Name="monthphotourl" ColumnName="monthphotourl" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -62,6 +63,8 @@
           <ScalarProperty Name="isaktif" ColumnName="isaktif" />
           <ScalarProperty Name="posttime" ColumnName="posttime" />
           <ScalarProperty Name="monthid" ColumnName="monthid" />
+          <ScalarProperty Name="sorusturmaid" ColumnName="sorusturmaid" />
+          <ScalarProperty Name="postspot" ColumnName="postspot" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -71,6 +74,18 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="sliderpath" ColumnName="sliderpath" />
           <ScalarProperty Name="sliderurl" ColumnName="sliderurl" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sorusturmas">
+      <EntityTypeMapping TypeName="cocukyaziniModel.sorusturma">
+        <MappingFragment StoreEntitySet="sorusturma">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sorusturmaname" ColumnName="sorusturmaname" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="sorusturmaphotourl" ColumnName="sorusturmaphotourl" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,460 @@
+﻿@using CocukYazini.Models.Entity;
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102271655-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102271655-1');
+    </script>
+
+
+    <link rel="shortcut icon" type="image/png" href="~/Photos/menu/cocuk.ico" />
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="cocuk,cocukyazini,cocukdili,cocukedebiyati,edebi,edebiyat,metin,yazar,sylesi,kritik,dosya,sorusturma,akademik,cocukhikayeleri,cocukyazarlar,cocukedebimetin,metinler,cocuklar,cocuklarlaalakali,yazidili,turkce">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+    <meta name="language" content="Turkish">
+    <meta name="author" content="Efe Topcu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Çocuk Yazını </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+        .baslik {
+            color: #B45A30;
+            text-decoration: none;
+        }
+
+        .postspot {
+            text-align: justify !important;
+            height: 200px;
+        }
+
+        .baslik:hover {
+            color: coral;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Verdana !important;
+        }
+
+        .nav-link {
+            font-size: 22px;
+            margin-left: 4px;
+            color: dimgrey;
+        }
+
+
+
+
+        .modal-login {
+            color: #636363;
+            width: 350px !important;
+        }
+
+            .modal-login .modal-content {
+                padding: 20px;
+                border-radius: 5px;
+                border: none;
+            }
+
+            .modal-login .modal-header {
+                border-bottom: none;
+                position: relative;
+                justify-content: center;
+            }
+
+            .modal-login h4 {
+                text-align: center;
+                font-size: 26px;
+            }
+
+            .modal-login .form-group {
+                position: relative;
+            }
+
+            .modal-login i {
+                position: absolute;
+                left: 13px;
+                top: 11px;
+                font-size: 18px;
+            }
+
+            .modal-login .form-control {
+                padding-left: 40px;
+            }
+
+                .modal-login .form-control:focus {
+                    border-color: #3EBEE1;
+                }
+
+            .modal-login .form-control, .modal-login .btn {
+                min-height: 40px;
+                border-radius: 3px;
+            }
+
+            .modal-login .hint-text {
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .modal-login .close {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+            }
+
+            .modal-login .btn {
+                background: #59E0F0;
+                border: none;
+                line-height: normal;
+            }
+
+                .modal-login .btn:hover, .modal-login .btn:focus {
+                    background: #3EBEE1;
+                }
+
+            .modal-login .modal-footer {
+                background: #ecf0f1;
+                border-color: #dee4e7;
+                text-align: center;
+                margin: 0 -20px -20px;
+                border-radius: 5px;
+                font-size: 13px;
+                justify-content: center;
+            }
+
+                .modal-login .modal-footer a {
+                    color: #F36F55;
+                }
+
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+
+        footer .social {
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+            footer .social li {
+                float: left;
+                margin: 8px;
+            }
+
+
+
+
+        .sessionlink {
+            text-decoration: none;
+            color: black;
+            margin-right: 12px;
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+
+            .sessionlink:hover {
+                color: chocolate;
+            }
+
+        @@media only screen and (max-width: 600px) {
+            .userphoto {
+                width: 0px;
+            }
+
+            .postspot {
+                text-align: justify !important;
+                display: inline-block;
+            }
+
+            .headerlogo {
+                margin: 0 !important;
+            }
+
+            .mobiltitles {
+                display: inline-block;
+            }
+
+            .headerlogo {
+                width: 75px !important;
+                margin: 20px !important;
+            }
+            .mobillogin{
+                display:none;
+            }
+
+            
+        }
+
+        .backgroundbannertop {
+            background-image: url("../../Photos/sliderphotos/bgtest3.jpg");
+            margin-top: -50px;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="container-fluid backgroundbannertop">
+        <div class="row">
+
+            <div class="col-6" style="margin-bottom:-50px;">
+                <a href="#"><img src="~/Photos/logo/cocuk.png" width="150px" style="margin-left:40px; margin-top:20px;" class="headerlogo"/></a>
+            </div>
+            
+            <div class="col-6 mobillogin">
+                <div class="pull-right">
+
+                    @if (Session["MySessionUser"] != null)
+                    {
+
+                        <a href='@Url.Action("ShowUser", "Home" , new {id = ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).id})' class="sessionlink">
+                            <span class="glyphicon glyphicon-pencil mobilloginicon"></span>
+                        </a>
+                        <a href='@Url.Action("Logout", "Home")' class="sessionlink">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+                        <a href='#SearchModal' data-toggle="modal" class="sessionlink">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+
+
+
+                        <h4>
+                            <img src="@(((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).userphoto )" height="40" width="40" style=" border: 1px solid #999;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;" class="userphoto" />
+
+                            @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).username : "")
+
+                            @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).usersurname : "")
+                        </h4>
+                    }
+                    else
+                    {
+                        <a href='#myModalNewLogin' data-toggle="modal" class="sessionlink">
+                            <span class="glyphicon glyphicon-user"> </span>
+                        </a>
+                        <a href='#myModal' data-toggle="modal" class="sessionlink">
+                            <span class="glyphicon glyphicon-log-in"> </span>
+                        </a>
+                        <a href='#SearchModal' data-toggle="modal" class="sessionlink">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+            <nav class="navbar navbar-light navbar-expand-lg sticky-top pull-right">
+                <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavbarContentID" area-expanded="false" aria-label="toggler Button" aria-controls="NavbarContentID"> <span class="navbar-toggler-icon"></span></button>
+
+                <div class="row pull-right">
+                    <div id="NavbarContentID" class="collapse navbar-collapse ml-auto" style="font-size:18px;">
+                        <ul class="navbar-nav ml-auto text-right">
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Home")" class="nav-link"><b>Homepage</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "About")" class="nav-link"><b>About</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Dosya")" class="nav-link"><b>Agenda</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Kritik")" class="nav-link"><b>Critique</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Sinemasal")" class="nav-link"><b>Cinema</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Sorusturma")" class="nav-link"><b>Inquiry</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Roportaj")" class="nav-link"><b>Interview</b></a></li>
+                            <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png" alt="Türkçe diline geç" height="20" /></a></li>
+                            @{
+                                if (Session["MySessionUser"] != null)
+                                {
+                                    if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
+                                    {
+                                        <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link"><span class="glyphicon glyphicon-wrench"></span></a></li>
+                                    }
+                                }
+                                else
+                                {
+
+                                }
+                            }
+
+
+
+
+                        </ul>
+                    </div>
+
+                </div>
+
+
+
+
+            </nav>
+
+        </div>
+
+   
+
+        @RenderBody()
+        <hr />
+
+    
+    <div class="container-fluid">
+
+        @{Html.RenderAction("footerEN", "Partial");}
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+@*<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Sign In</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <form action="@Url.Action("Login", "Home")" method="post">
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="email" class="form-control" placeholder="E-Posta" required="required" name="usermail">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign In">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <a href="@Url.Action("ForgetPasswordEN", "Home")">I forgot my password</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- yeni kullanici-->
+
+<div id="myModalNewLogin" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Sign Up</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <form action="@Url.Action("NewUser", "Home")" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" placeholder="Name" required="required" name="username">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" placeholder="Surname" required="required" name="usersurname">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="email" class="form-control" placeholder="E-Posta" required="required" name="usermail">
+                    </div>
+
+                    <div class="form-group">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" class="form-control" placeholder="Password" required="required" name="password">
+                    </div>
+                    <div class="form-group">
+                        <p>Photo</p>
+                        <input type="file" name="userphoto" id="userphoto" required="required" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign Up">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div id="SearchModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Search</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <form action="@Url.Action("SearchEN", "Home")" method="post">
+                    <div class="form-group">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Search..." required="required" name="search">
+                    </div>
+                    <div class="form-group">
+                        
+                        <select name="kategori" class="form-control">
+                            <option value="0">
+                                All Categories
+                            </option>
+                            <option value="1">Agenda </option>
+                            <option value="2">Critique</option>
+                            <option value="3">Cinema</option>
+                            <option value="4">Inquiry</option>
+                            <option value="5">Interview</option>
+                            <option value="6">News & Announcement </option>
+                            <option value="7">Archive</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Search">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <a href=""></a>
+            </div>
+        </div>
+    </div>
+</div>

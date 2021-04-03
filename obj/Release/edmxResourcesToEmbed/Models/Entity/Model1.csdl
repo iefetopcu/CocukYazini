@@ -46,6 +46,7 @@
     <Property Name="monthname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="datetime" Type="DateTime" Precision="3" />
     <Property Name="monthphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isaktif" Type="Int64" />
     <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_monthtable" FromRole="monthtable" ToRole="posttable" />
   </EntityType>
   <EntityType Name="posttable">
@@ -63,9 +64,12 @@
     <Property Name="isaktif" Type="Int32" />
     <Property Name="posttime" Type="DateTime" Precision="3" />
     <Property Name="monthid" Type="Int64" />
+    <Property Name="sorusturmaid" Type="Int64" />
+    <Property Name="postspot" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="categorytable" Relationship="Self.FK_posttable_categorytable" FromRole="posttable" ToRole="categorytable" />
     <NavigationProperty Name="comenttables" Relationship="Self.FK_comenttable_posttable" FromRole="posttable" ToRole="comenttable" />
     <NavigationProperty Name="monthtable" Relationship="Self.FK_posttable_monthtable" FromRole="posttable" ToRole="monthtable" />
+    <NavigationProperty Name="sorusturma" Relationship="Self.FK_posttable_sorusturma" FromRole="posttable" ToRole="sorusturma" />
     <NavigationProperty Name="usertable" Relationship="Self.FK_posttable_usertable" FromRole="posttable" ToRole="usertable" />
   </EntityType>
   <EntityType Name="slidertable">
@@ -75,6 +79,18 @@
     <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="sliderpath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="sliderurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isaktif" Type="Int64" />
+  </EntityType>
+  <EntityType Name="sorusturma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sorusturmaname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="datetime" Type="DateTime" Precision="3" />
+    <Property Name="sorusturmaphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isaktif" Type="Int64" />
+    <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_sorusturma" FromRole="sorusturma" ToRole="posttable" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -162,6 +178,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_posttable_sorusturma">
+    <End Role="sorusturma" Type="Self.sorusturma" Multiplicity="0..1" />
+    <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sorusturma">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posttable">
+        <PropertyRef Name="sorusturmaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_posttable_usertable">
     <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
     <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
@@ -181,6 +209,7 @@
     <EntitySet Name="monthtables" EntityType="Self.monthtable" />
     <EntitySet Name="posttables" EntityType="Self.posttable" />
     <EntitySet Name="slidertables" EntityType="Self.slidertable" />
+    <EntitySet Name="sorusturmas" EntityType="Self.sorusturma" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="usertables" EntityType="Self.usertable" />
     <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
@@ -201,6 +230,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
       <End Role="monthtable" EntitySet="monthtables" />
+      <End Role="posttable" EntitySet="posttables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posttable_sorusturma" Association="Self.FK_posttable_sorusturma">
+      <End Role="sorusturma" EntitySet="sorusturmas" />
       <End Role="posttable" EntitySet="posttables" />
     </AssociationSet>
     <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">

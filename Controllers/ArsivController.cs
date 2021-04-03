@@ -23,6 +23,20 @@ namespace CocukYazini.Controllers
             return View(degerler);
 
         }
+
+        public ActionResult IndexEN()
+
+        {
+            // aktif olan ve kategorisine göre döndürme işlemi yapar.
+            var degerler = from s in db.posttables
+                           where s.isaktif == 3 && s.categoryid == 7
+                           orderby s.posttime descending
+                           select s;
+
+
+            return View(degerler);
+
+        }
     }
 
 }

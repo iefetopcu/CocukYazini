@@ -1,58 +1,120 @@
 ﻿@using CocukYazini.Models.Entity
-@model List<posttable>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<posttable>
+
 @{
     ViewBag.Title = "İçerikler";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-<style>
-    .container {
-        margin-left: 200px;
-    }
-
-    .table-bordered tr th {
-        color: black;
-        width: 200px;
-        height: 50px;
-    }
-</style>
 
 <div class="container">
-    <h4>İçerik</h4>
-    <hr />
+
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-3 pull-right">
+            <form action="@Url.Action("Search", "Post")" method="post">
+                <input type="text" placeholder="Ara" name="search"/>
 
 
-    <table class="table table-bordered">
-        <tr>
-           
-            <td>Başlık</td>
-            <td>Kim Yazmış</td>
-            <td>Paylaşım zamanı</td>
-            <td>İŞLEM</td>
 
-        </tr>
-        <tbody>
-            @foreach (var post in Model)
-            {
-                <tr>
-                    
-                    <td>@post.posttitle</td>
-                    <td>@post.usertable.username @post.usertable.usersurname</td>
-                    <td>@post.posttime</td>
-                    <td>
-                        <a href="@Url.Action("PostRead", "Post" , new {id = post.id})">
-                            <span class="glyphicon glyphicon-eye-open"></span>
-                            <a href="@Url.Action("PostUpdate", "Post" , new {id = post.id})">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a>
-                            <a href="@Url.Action("Sil", "Post" , new {id = post.id})" onclick="return confirm('Bu İçeriği Silmek İstediğinize Emin Misiniz? Eğer Bu İçeriği Silerseniz İçeriğe Ait Yorumlarda Silinecektir.')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
-</td>
+                <select name="kategori">
+                    <option value="0">Tüm Kategoriler</option>
+                    <option value="1">Dosya</option>
+                    <option value="2">Kritik</option>
+                    <option value="3">SineMasal</option>
+                    <option value="4">Soruşturma</option>
+                    <option value="5">Röportaj</option>
+                    <option value="6">Duyuru&Haber</option>
+                    <option value="7">Arşiv</option>
 
-                </tr>
-            }
-        </tbody>
-    </table>
-    <br /><br />
-    <a href="@Url.Action("NewPost", "Post")"> <button class="btn btn-info">Yeni İçerik Ekle</button></a>
+                </select>
+
+                <input type="submit" class="btn btn-primary" value="Ara">
+            </form>
+
+        </div>
+        <div class="col-12">
+            <table class="table table-bordered" id="tbl1">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>Kim Yazmış</th>
+                        <th>Kategori</th>
+                        <th>Dosya Adı</th>
+                        <th>Soruşturma Adı</th>
+                        <th>Dil</th>
+                        <th>Paylaşım zamanı</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var post in Model)
+                    {
+                    <tr>
+                        <td>@post.posttitle</td>
+                        <td>@post.usertable.username @post.usertable.usersurname</td>
+                        <td>@post.categorytable.categoryname</td>
+                        <td>@post.monthtable.monthname</td>
+                        <td>@post.sorusturma.sorusturmaname</td>
+                        @if (post.isaktif == 1)
+                        {
+                            <td>Türkçe</td>
+                        }
+                        @if (post.isaktif == 2)
+                        {
+                            <td>Türkçe Pasif İçerik</td>
+                        }
+
+                        @if (post.isaktif == 3)
+                        {
+                            <td>İngilizce</td>
+                        }
+                        @if (post.isaktif == 4)
+                        {
+                            <td>İngilizce Pasif İçerik</td>
+                        }
+
+                        <td>@post.posttime.Value.ToString("dd.MM.yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("PostRead", "Post" , new {id = post.id})">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <a href="@Url.Action("PostUpdate", "Post" , new {id = post.id})">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                                <a href="@Url.Action("Sil", "Post" , new {id = post.id})" onclick="return confirm('Bu İçeriği Silmek İstediğinize Emin Misiniz? Eğer Bu İçeriği Silerseniz İçeriğe Ait Yorumlarda Silinecektir.')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+
+            <script>
+                $('#table').DataTable();
+
+            </script>
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+        </div>
+
+        <div class="col-12">
+            <a href="@Url.Action("NewPost", "Post")"> <button class="btn btn-info">Yeni İçerik Ekle</button></a>
+        </div>
+        <br />
+        <div class="col-12">
+            <a href="@Url.Action("ExporToExcel", "Post")">
+                <button class="btn btn-success">
+                    Excel'e Aktar
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+
 
 </div>
+
+
 
