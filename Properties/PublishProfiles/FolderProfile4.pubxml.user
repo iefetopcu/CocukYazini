@@ -6,7 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\Private Zone\Çocuk Yazını Publish\v28</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\Private Zone\Çocuk Yazını Publish\v29</_PublishTargetUrl>
+    <History>True|2021-06-29T21:35:37.0592498Z;True|2021-06-28T01:34:49.8932578+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Code/Seo.cs">
@@ -19,10 +20,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/CocukYazini.dll">
-      <publishTime>03/02/2021 03:00:17</publishTime>
+      <publishTime>06/30/2021 00:35:35</publishTime>
     </File>
     <File Include="bin/CocukYazini.pdb">
-      <publishTime>03/02/2021 03:00:17</publishTime>
+      <publishTime>06/30/2021 00:35:35</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -784,7 +785,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Models/Entity/Model1.edmx.diagram">
-      <publishTime>01/09/2021 21:46:19</publishTime>
+      <publishTime>06/28/2021 00:34:24</publishTime>
     </File>
     <File Include="Photos/aboutphotos/azra.jpg">
       <publishTime>04/20/2020 20:08:54</publishTime>
@@ -836,6 +837,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Photos/menu/Sabit.png">
       <publishTime>07/30/2020 22:18:17</publishTime>
+    </File>
+    <File Include="Photos/menu/sabitEN.png">
+      <publishTime>06/25/2021 00:28:24</publishTime>
     </File>
     <File Include="Photos/menu/slider.png">
       <publishTime>04/23/2020 18:07:04</publishTime>
@@ -1161,14 +1165,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Admin/DosyaUpdate.cshtml">
       <publishTime>06/27/2020 03:22:26</publishTime>
     </File>
+    <File Include="Views/Admin/DosyaUpload.cshtml">
+      <publishTime>06/28/2021 01:28:02</publishTime>
+    </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>12/08/2020 02:06:47</publishTime>
+      <publishTime>06/28/2021 00:22:55</publishTime>
     </File>
     <File Include="Views/Admin/NewSlider.cshtml">
       <publishTime>12/07/2020 03:58:39</publishTime>
     </File>
     <File Include="Views/Admin/Slider.cshtml">
-      <publishTime>12/07/2020 04:03:49</publishTime>
+      <publishTime>06/27/2021 18:12:55</publishTime>
     </File>
     <File Include="Views/Admin/Sorusturma.cshtml">
       <publishTime>05/19/2020 06:37:38</publishTime>
@@ -1186,7 +1193,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 04:52:36</publishTime>
     </File>
     <File Include="Views/Arsiv/IndexEN.cshtml">
-      <publishTime>12/12/2020 04:58:03</publishTime>
+      <publishTime>06/25/2021 00:32:27</publishTime>
     </File>
     <File Include="Views/Category/CategoryGetir.cshtml">
       <publishTime>04/23/2020 14:58:11</publishTime>
@@ -1198,10 +1205,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/23/2020 14:57:49</publishTime>
     </File>
     <File Include="Views/Dosya/AylikDosya.cshtml">
-      <publishTime>12/12/2020 05:13:17</publishTime>
+      <publishTime>06/25/2021 00:31:19</publishTime>
     </File>
     <File Include="Views/Dosya/AylikDosyaEN.cshtml">
-      <publishTime>12/12/2020 05:13:21</publishTime>
+      <publishTime>06/25/2021 00:31:55</publishTime>
     </File>
     <File Include="Views/Dosya/Index.cshtml">
       <publishTime>07/10/2020 14:02:08</publishTime>
@@ -1213,7 +1220,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 04:54:02</publishTime>
     </File>
     <File Include="Views/Duyuruhaber/IndexEN.cshtml">
-      <publishTime>03/02/2021 02:56:00</publishTime>
+      <publishTime>06/25/2021 00:32:39</publishTime>
     </File>
     <File Include="Views/Home/ForgetPassword.cshtml">
       <publishTime>12/08/2020 00:41:47</publishTime>
@@ -1222,10 +1229,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/08/2020 01:16:18</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/02/2020 00:58:46</publishTime>
+      <publishTime>06/27/2021 18:03:46</publishTime>
     </File>
     <File Include="Views/Home/IndexEN.cshtml">
-      <publishTime>01/02/2021 01:44:40</publishTime>
+      <publishTime>06/28/2021 00:20:04</publishTime>
     </File>
     <File Include="Views/Home/PostRead.cshtml">
       <publishTime>01/02/2021 01:49:35</publishTime>
@@ -1237,7 +1244,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 05:26:10</publishTime>
     </File>
     <File Include="Views/Home/SearchEN.cshtml">
-      <publishTime>12/12/2020 05:26:04</publishTime>
+      <publishTime>06/25/2021 00:33:17</publishTime>
     </File>
     <File Include="Views/Home/ShowUser.cshtml">
       <publishTime>12/16/2020 01:28:41</publishTime>
@@ -1246,7 +1253,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/02/2021 01:54:20</publishTime>
     </File>
     <File Include="Views/Home/UserPostsEN.cshtml">
-      <publishTime>01/02/2021 01:54:12</publishTime>
+      <publishTime>06/25/2021 00:35:22</publishTime>
     </File>
     <File Include="Views/Icerikler/Index.cshtml">
       <publishTime>07/29/2020 01:04:45</publishTime>
@@ -1255,7 +1262,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 04:54:58</publishTime>
     </File>
     <File Include="Views/Kritik/IndexEN.cshtml">
-      <publishTime>03/02/2021 02:50:52</publishTime>
+      <publishTime>06/25/2021 00:32:47</publishTime>
     </File>
     <File Include="Views/Messages/Index.cshtml">
       <publishTime>04/23/2020 14:57:06</publishTime>
@@ -1270,22 +1277,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 05:02:10</publishTime>
     </File>
     <File Include="Views/Partial/footer.cshtml">
-      <publishTime>12/12/2020 05:20:01</publishTime>
+      <publishTime>06/27/2021 17:55:11</publishTime>
     </File>
     <File Include="Views/Partial/footerEN.cshtml">
-      <publishTime>12/12/2020 05:20:42</publishTime>
+      <publishTime>06/28/2021 00:18:35</publishTime>
     </File>
     <File Include="Views/Partial/homepost.cshtml">
       <publishTime>12/12/2020 05:10:39</publishTime>
     </File>
     <File Include="Views/Partial/homepostEN.cshtml">
-      <publishTime>12/12/2020 05:11:39</publishTime>
+      <publishTime>06/25/2021 00:32:08</publishTime>
     </File>
     <File Include="Views/Partial/Index.cshtml">
       <publishTime>04/19/2020 20:04:26</publishTime>
     </File>
     <File Include="Views/Partial/menuler.cshtml">
       <publishTime>05/05/2020 04:01:15</publishTime>
+    </File>
+    <File Include="Views/PartialAdmin/DosyaUpload.cshtml">
+      <publishTime>06/28/2021 01:11:24</publishTime>
     </File>
     <File Include="Views/Post/Index.cshtml">
       <publishTime>12/08/2020 02:11:19</publishTime>
@@ -1294,7 +1304,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2020 00:38:06</publishTime>
     </File>
     <File Include="Views/Post/PostRead.cshtml">
-      <publishTime>06/27/2020 16:23:00</publishTime>
+      <publishTime>06/25/2021 00:26:17</publishTime>
     </File>
     <File Include="Views/Post/PostUpdate.cshtml">
       <publishTime>01/02/2021 23:26:00</publishTime>
@@ -1306,25 +1316,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 04:55:36</publishTime>
     </File>
     <File Include="Views/Roportaj/IndexEN.cshtml">
-      <publishTime>03/02/2021 02:56:28</publishTime>
+      <publishTime>06/25/2021 00:32:55</publishTime>
     </File>
     <File Include="Views/Shared/AdminLayout.cshtml">
-      <publishTime>05/30/2020 02:32:03</publishTime>
+      <publishTime>06/28/2021 00:49:49</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout - EN.cshtml">
-      <publishTime>01/02/2021 01:42:40</publishTime>
+      <publishTime>06/28/2021 00:15:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/02/2021 01:42:27</publishTime>
+      <publishTime>06/27/2021 18:05:08</publishTime>
     </File>
     <File Include="Views/Sinemasal/Index.cshtml">
       <publishTime>12/12/2020 04:56:02</publishTime>
     </File>
     <File Include="Views/Sinemasal/IndexEN.cshtml">
-      <publishTime>03/02/2021 02:56:37</publishTime>
+      <publishTime>06/25/2021 00:33:04</publishTime>
     </File>
     <File Include="Views/Sinemasal/PostRead.cshtml">
       <publishTime>12/15/2020 23:48:11</publishTime>
@@ -1339,7 +1349,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 05:12:50</publishTime>
     </File>
     <File Include="Views/Sorusturma/SorusturmalarEN.cshtml">
-      <publishTime>12/12/2020 05:12:43</publishTime>
+      <publishTime>06/25/2021 00:33:26</publishTime>
     </File>
     <File Include="Views/Users/Index.cshtml">
       <publishTime>12/07/2020 04:19:15</publishTime>
@@ -1360,7 +1370,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/08/2020 02:27:02</publishTime>
+      <publishTime>06/28/2021 01:34:49</publishTime>
     </File>
   </ItemGroup>
 </Project>

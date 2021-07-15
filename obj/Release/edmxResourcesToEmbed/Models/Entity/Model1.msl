@@ -100,6 +100,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="uploadtables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.uploadtable">
+        <MappingFragment StoreEntitySet="uploadtable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uploadname" ColumnName="uploadname" />
+          <ScalarProperty Name="uploadlink" ColumnName="uploadlink" />
+          <ScalarProperty Name="uploadurl" ColumnName="uploadurl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="usertables">
       <EntityTypeMapping TypeName="cocukyaziniModel.usertable">
         <MappingFragment StoreEntitySet="usertable">

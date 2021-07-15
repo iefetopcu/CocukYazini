@@ -1,0 +1,89 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "DosyaUpload";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    .container {
+        margin-left: 200px;
+    }
+
+    .kategoritablo tr th {
+        color: black;
+        width: 200px;
+        height: 50px;
+    }
+
+    .kategoriler {
+        height: 35px;
+        border-bottom: 1px solid;
+        border-color: dodgerblue;
+    }
+</style>
+
+
+<div class="container">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Dosya Upload Et</button>
+
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>Dosya Adı</th>
+            <th>Dosya Önizleme</th>
+            <th>İşlem</th>
+        </tr>
+        <tbody>
+            @foreach (var dosya in Model)
+            {
+                <tr class="kategoriler">
+                    <td>@dosya.uploadname</td>
+
+                    <td><img src="@dosya.uploadurl" height="60px" /></td>
+                    <td>
+                        <a href="@Url.Action("UploadSil", "Admin" , new {id = dosya.id})" onclick="return confirm('Bu Dosyayı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                        <a href="https://www.cocukyazini.com/@dosya.uploadlink" onclick="copyURI(event)" style="padding-left:20px;">Copy URL</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br /><br />
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dosya Upload Et</h4>
+                </div>
+                <div class="modal-body">
+                    @{Html.RenderAction("DosyaUpload", "PartialAdmin");}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function copyURI(evt) {
+        evt.preventDefault();
+        navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
+            alert("Dosya Linki Kopyalandı");
+        }, () => {
+            /* clipboard write failed */
+        });
+    }
+</script>
+
+
+

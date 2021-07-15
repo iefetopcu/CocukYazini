@@ -21,25 +21,22 @@
         border-color: dodgerblue;
     }
 </style>
-
 <div class="container">
     <h4>Slider</h4>
     <hr />
     <table class="table table-bordered">
-        <tr>
+        <tr>        
             
-            <th>Slider Dosya Yolu</th>
             <th>Slider URL</th>
             <th>Dil ve Durum</th>
+            <th>Slider Önizleme</th>
             <th>İşlem</th>
-
         </tr>
         <tbody>
             @foreach (var slider in Model)
             {
-            <tr class="kategoriler">
-                
-                <td>@slider.sliderpath</td>
+            <tr class="kategoriler">             
+               
                 <td>@slider.sliderurl</td>
                @if (slider.isaktif == 1) {
                <td>Türkçe</td>
@@ -48,7 +45,7 @@
                {
                    <td>İngilizce</td>
                }
-
+               <td><img src="@slider.sliderpath" height="60px" /></td>
                 <td>
                     <a href="@Url.Action("SliderSil", "Admin" , new {id = slider.id})" onclick="return confirm('Bu Slideri Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
                 </td>

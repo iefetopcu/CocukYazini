@@ -43,7 +43,7 @@
                 line-height: 88px;
                 border-radius: 50%;
                 /*background: #428bca;*/
-                background-color: dimgray;
+                background-color: #F8C166;
                 vertical-align: middle;
             }
 
@@ -56,52 +56,57 @@
                 color: white !important;
             }
 
-            .box > .icon > .info {
-                margin-top: -24px;
-                background: rgba(0, 0, 0, 0.04);
-                border: 1px solid #e0e0e0;
-                padding: 15px 0 10px 0;
-            }
+    .btnanasayfa {
+        background-color: #F8C166 !important;
+        border-color: #F8C166 !important;
+    }
 
-                .box > .icon > .info > h3.title {
-                    font-family: sans-serif !important;
-                    font-size: 16px;
-                    color: #222;
-                    font-weight: 500;
-                    margin-top: 20px;
-                }
+    .box > .icon > .info {
+        margin-top: -24px;
+        background: #E3F5DB;
+        border: 2px solid #F1CE99;
+        padding: 15px 0 10px 0;
+    }
 
-                .box > .icon > .info > p {
-                    font-family: sans-serif !important;
-                    font-size: 13px;
-                    color: #666;
-                    line-height: 1.5em;
-                    padding: 20px;
-                    height: 70px;
-                }
-
-            .box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a {
-                color: #222;
-            }
-
-            .box > .icon > .info > .more a {
-                font-family: sans-serif !important;
-                font-size: 12px;
-                color: #222;
-                line-height: 12px;
-                text-transform: uppercase;
-                text-decoration: none;
-            }
-
-            .box > .icon:hover > .info > .more > a {
-                color: #fff;
-                padding: 6px 8px;
-                background-color: #63B76C;
-            }
-
-        .box .space {
-            height: 30px;
+        .box > .icon > .info > h3.title {
+            font-family: sans-serif !important;
+            font-size: 16px;
+            color: #222;
+            font-weight: 500;
+            margin-top: 20px;
         }
+
+        .box > .icon > .info > p {
+            font-family: sans-serif !important;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5em;
+            padding: 20px;
+            height: 70px;
+        }
+
+    .box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a {
+        color: #222;
+    }
+
+    .box > .icon > .info > .more a {
+        font-family: sans-serif !important;
+        font-size: 12px;
+        color: #222;
+        line-height: 12px;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    .box > .icon:hover > .info > .more > a {
+        color: #fff;
+        padding: 6px 8px;
+        background-color: #63B76C;
+    }
+
+    .box .space {
+        height: 30px;
+    }
 
     .modal-header-primary {
         color: #fff;
@@ -139,7 +144,7 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/Photos/menu/sabit.png" class="d-block w-100" alt="...">
+            <img src="~/Photos/menu/sabitEN.png" class="d-block w-100" alt="...">
         </div>
         @foreach (var sliderpost in Model)
         {
@@ -176,7 +181,7 @@
                             <p>
                                 Thematic researches and reviews on children's literature
                             </p>
-                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Dosya")"><h4><i class="fa fa-folder-open"></i> Read</h4></a>
+                            <a class="btn btn-secondary btnanasayfa" href="@Url.Action("IndexEN", "Dosya")"><h4><i class="fa fa-folder-open"></i> Read</h4></a>
 
                         </div>
                     </div>
@@ -193,7 +198,7 @@
                             <p>
                                 Critical book reviews and analysis
                             </p>
-                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Kritik")"><h4><i class="fa fa-book"></i> Read</h4></a>
+                            <a class="btn btn-secondary btnanasayfa" href="@Url.Action("IndexEN", "Kritik")"><h4><i class="fa fa-book"></i> Read</h4></a>
 
                         </div>
                     </div>
@@ -210,7 +215,7 @@
                             <p>
                                 Critical reviews on film and TV series
                             </p>
-                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Sinemasal")"><h4><i class="fa fa-film"></i> Read</h4></a>
+                            <a class="btn btn-secondary btnanasayfa" href="@Url.Action("IndexEN", "Sinemasal")"><h4><i class="fa fa-film"></i> Read</h4></a>
 
                         </div>
                     </div>
@@ -229,7 +234,7 @@
 
 
                             </p>
-                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Sorusturma")"><h4><i class="fa fa-search"></i> Read</h4></a>
+                            <a class="btn btn-secondary btnanasayfa" href="@Url.Action("IndexEN", "Sorusturma")"><h4><i class="fa fa-search"></i> Read</h4></a>
 
                         </div>
                     </div>
@@ -246,7 +251,7 @@
                             <p>
                                 interviews with writer, publisher, editor and translator
                             </p>
-                            <a class="btn btn-secondary" href="@Url.Action("IndexEN", "Roportaj")"><h4><i class="fa fa-microphone"></i> Read</h4></a>
+                            <a class="btn btn-secondary btnanasayfa" href="@Url.Action("IndexEN", "Roportaj")"><h4><i class="fa fa-microphone"></i> Read</h4></a>
 
                         </div>
                     </div>

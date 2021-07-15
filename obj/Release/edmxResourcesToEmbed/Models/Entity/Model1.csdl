@@ -102,6 +102,15 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+  <EntityType Name="uploadtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uploadname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="uploadlink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="uploadurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="usertable">
     <Key>
       <PropertyRef Name="id" />
@@ -211,6 +220,7 @@
     <EntitySet Name="slidertables" EntityType="Self.slidertable" />
     <EntitySet Name="sorusturmas" EntityType="Self.sorusturma" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="uploadtables" EntityType="Self.uploadtable" />
     <EntitySet Name="usertables" EntityType="Self.usertable" />
     <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
       <End Role="categorytable" EntitySet="categorytables" />

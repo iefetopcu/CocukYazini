@@ -3,31 +3,30 @@
     Layout = null;
 }
 <script>
-	    function htmlbodyHeightUpdate(){
-		var height3 = $( window ).height()
-		var height1 = $('.nav').height()+50
-		height2 = $('.main').height()
-		if(height2 > height3){
-			$('html').height(Math.max(height1,height3,height2)+10);
-			$('body').height(Math.max(height1,height3,height2)+10);
-		}
-		else
-		{
-			$('html').height(Math.max(height1,height3,height2));
-			$('body').height(Math.max(height1,height3,height2));
-		}
+    function htmlbodyHeightUpdate() {
+        var height3 = $(window).height()
+        var height1 = $('.nav').height() + 50
+        height2 = $('.main').height()
+        if (height2 > height3) {
+            $('html').height(Math.max(height1, height3, height2) + 10);
+            $('body').height(Math.max(height1, height3, height2) + 10);
+        }
+        else {
+            $('html').height(Math.max(height1, height3, height2));
+            $('body').height(Math.max(height1, height3, height2));
+        }
 
-	}
-	$(document).ready(function () {
-		htmlbodyHeightUpdate()
-		$( window ).resize(function() {
-			htmlbodyHeightUpdate()
-		});
-		$( window ).scroll(function() {
-			height2 = $('.main').height()
-  			htmlbodyHeightUpdate()
-		});
-	});
+    }
+    $(document).ready(function () {
+        htmlbodyHeightUpdate()
+        $(window).resize(function () {
+            htmlbodyHeightUpdate()
+        });
+        $(window).scroll(function () {
+            height2 = $('.main').height()
+            htmlbodyHeightUpdate()
+        });
+    });
 </script>
 <style>
     body, html {
@@ -133,19 +132,19 @@
         z-index: 8000;
         margin-bottom: 0px;
     }
-    nav.sidebar img{
-        margin-left:5px;
-        width:70px;
-        
-    }
-     nav.sidebar img:hover{
-        width:75px;
-    }
+
+        nav.sidebar img {
+            margin-left: 5px;
+            width: 70px;
+        }
+
+            nav.sidebar img:hover {
+                width: 75px;
+            }
 
         /*give sidebar 100% width;*/
         nav.sidebar li {
             width: 100%;
-            
         }
 
         /* Move nav to full on mouse over*/
@@ -173,7 +172,6 @@
     nav.sidebar {
         margin-left: 0px;
         float: left;
-        
     }
         /*Show hidden items on nav*/
         nav.sidebar .forAnimate {
@@ -198,12 +196,14 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <nav class="navbar navbar-inverse sidebar" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -232,9 +232,9 @@
                     <img src='@Url.Content("~/Photos/menu/cocukyazinimenu.png")' />
                 </a>
                 @*
-        <li>@Html.ActionLink("Mesajlar", "Index", "Messages")<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></li>
+                    <li>@Html.ActionLink("Mesajlar", "Index", "Messages")<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></li>
 
-        <li>@Html.ActionLink("Category", "Index", "Category")<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></li>*@
+                    <li>@Html.ActionLink("Category", "Index", "Category")<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></li>*@
 
 
             </ul>

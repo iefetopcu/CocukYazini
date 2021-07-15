@@ -3,10 +3,18 @@
 
 <style>
     .background {
-        background-image: url("../../Photos/sliderphotos/bgtest3.jpg");
-        color: brown;
+        background-color: #FCE076;
         text-decoration: none;
     }
+
+        .background h4 {
+            color: #515A5A!important;
+            font-weight:bolder;
+        }
+        .background h5 {
+            color: brown !important;
+            font-weight: bolder;
+        }
 
         .background a {
             color: dimgray;
@@ -78,7 +86,7 @@
                         <div class="media-body">
                             <a href="@Url.Action("PostRead", "Home", new {id = footerpost.id,baslik=Seo.AdresDuzenle(footerpost.posttitle)})" class="footerurl"><span><h4>@footerpost.posttitle</h4></span></a>
 
-                            <span><h4 style="color:dimgrey">@footerpost.categorytable.categoryname</h4></span>
+                            <span><h5>@footerpost.categorytable.categoryname</h5></span>
                             <i><span><b>@footerpost.usertable.username @footerpost.usertable.usersurname</b></span><br /></i>
                         </div>
                     </div>
@@ -94,7 +102,7 @@
     </div>
     <div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-2">
         <div class="footer-widget">
-            <h2 style="margin-top:10px;" class="duyuru"><a href="@Url.Action("Index", "Duyuruhaber")">Duyuru&Haber</a></h2>
+            <h2 style="margin-top:10px;">Duyuru&Haber</h2>
             @{Html.RenderAction("duyuruhaber", "Partial");}
 
             

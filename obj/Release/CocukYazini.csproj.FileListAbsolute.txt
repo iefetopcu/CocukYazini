@@ -104,3 +104,4 @@ C:\CocukYazini\CocukYazini\bin\PagedList.dll
 C:\CocukYazini\CocukYazini\bin\PagedList.Mvc.dll
 C:\CocukYazini\CocukYazini\bin\PagedList.xml
 C:\CocukYazini\CocukYazini\bin\PagedList.Mvc.xml
+C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csproj.CoreCompileInputs.cache

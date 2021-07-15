@@ -305,8 +305,18 @@ namespace CocukYazini.Controllers
             return RedirectToAction("Sorusturma");
         }
 
-        
-
+        public ActionResult DosyaUpload()
+        {
+            var degerler = db.uploadtables.ToList();
+            return View(degerler);
+        }
+        public ActionResult UploadSil(int id)
+        {
+            var uploaddelete = db.uploadtables.Find(id);
+            db.uploadtables.Remove(uploaddelete);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
 
     }
 }

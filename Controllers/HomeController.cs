@@ -20,6 +20,7 @@ namespace CocukYazini.Controllers
         {
             var degerler = (from s in db.slidertables
                             orderby s.sliderpath descending
+                            where s.isaktif == 1
                             select s).Take(5);
 
             return View(degerler);
@@ -29,6 +30,7 @@ namespace CocukYazini.Controllers
         public ActionResult IndexEN()
         {
             var degerler = (from s in db.slidertables
+                            where s.isaktif == 3
                             orderby s.sliderpath descending
                             select s).Take(5);
 
@@ -445,7 +447,7 @@ namespace CocukYazini.Controllers
                             orderby s.posttime descending
                             select s;
 
-            return View("UserPosts", userposts);
+            return View("UserPostsEN", userposts);
 
         }
 

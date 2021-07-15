@@ -27,180 +27,181 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <style type="text/css">
-        .baslik {
-            color: #B45A30;
-            text-decoration: none;
+<style type="text/css">
+    .baslik {
+        color: #B45A30;
+        text-decoration: none;
+    }
+
+    .postspot {
+        text-align: justify !important;
+        height: 200px;
+    }
+
+    .baslik:hover {
+        color: coral;
+        text-decoration: none;
+    }
+
+    body {
+        font-family: Verdana !important;
+        background-color: #F5F4ED !important;
+    }
+
+    .nav-link {
+        font-size: 22px;
+        margin-left: 4px;
+        color: dimgrey;
+    }
+
+
+
+
+    .modal-login {
+        color: #636363;
+        width: 350px !important;
+    }
+
+        .modal-login .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .modal-login .modal-header {
+            border-bottom: none;
+            position: relative;
+            justify-content: center;
+        }
+
+        .modal-login h4 {
+            text-align: center;
+            font-size: 26px;
+        }
+
+        .modal-login .form-group {
+            position: relative;
+        }
+
+        .modal-login i {
+            position: absolute;
+            left: 13px;
+            top: 11px;
+            font-size: 18px;
+        }
+
+        .modal-login .form-control {
+            padding-left: 40px;
+        }
+
+            .modal-login .form-control:focus {
+                border-color: #3EBEE1;
+            }
+
+        .modal-login .form-control, .modal-login .btn {
+            min-height: 40px;
+            border-radius: 3px;
+        }
+
+        .modal-login .hint-text {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .modal-login .close {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .modal-login .btn {
+            background: #59E0F0;
+            border: none;
+            line-height: normal;
+        }
+
+            .modal-login .btn:hover, .modal-login .btn:focus {
+                background: #3EBEE1;
+            }
+
+        .modal-login .modal-footer {
+            background: #ecf0f1;
+            border-color: #dee4e7;
+            text-align: center;
+            margin: 0 -20px -20px;
+            border-radius: 5px;
+            font-size: 13px;
+            justify-content: center;
+        }
+
+            .modal-login .modal-footer a {
+                color: #F36F55;
+            }
+
+    .trigger-btn {
+        display: inline-block;
+        margin: 100px auto;
+    }
+
+    footer .social {
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+        footer .social li {
+            float: left;
+            margin: 8px;
+        }
+
+
+
+
+    .sessionlink {
+        text-decoration: none;
+        color: black;
+        margin-right: 12px;
+        font-size: 25px;
+        text-transform: uppercase;
+    }
+
+        .sessionlink:hover {
+            color: chocolate;
+        }
+
+    @@media only screen and (max-width: 600px) {
+        .userphoto {
+            width: 0px;
         }
 
         .postspot {
             text-align: justify !important;
-            height: 200px;
-        }
-
-        .baslik:hover {
-            color: coral;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: Verdana !important;
-        }
-
-        .nav-link {
-            font-size: 22px;
-            margin-left: 4px;
-            color: dimgrey;
-        }
-
-
-
-
-        .modal-login {
-            color: #636363;
-            width: 350px !important;
-        }
-
-            .modal-login .modal-content {
-                padding: 20px;
-                border-radius: 5px;
-                border: none;
-            }
-
-            .modal-login .modal-header {
-                border-bottom: none;
-                position: relative;
-                justify-content: center;
-            }
-
-            .modal-login h4 {
-                text-align: center;
-                font-size: 26px;
-            }
-
-            .modal-login .form-group {
-                position: relative;
-            }
-
-            .modal-login i {
-                position: absolute;
-                left: 13px;
-                top: 11px;
-                font-size: 18px;
-            }
-
-            .modal-login .form-control {
-                padding-left: 40px;
-            }
-
-                .modal-login .form-control:focus {
-                    border-color: #3EBEE1;
-                }
-
-            .modal-login .form-control, .modal-login .btn {
-                min-height: 40px;
-                border-radius: 3px;
-            }
-
-            .modal-login .hint-text {
-                text-align: center;
-                padding-top: 10px;
-            }
-
-            .modal-login .close {
-                position: absolute;
-                top: -5px;
-                right: -5px;
-            }
-
-            .modal-login .btn {
-                background: #59E0F0;
-                border: none;
-                line-height: normal;
-            }
-
-                .modal-login .btn:hover, .modal-login .btn:focus {
-                    background: #3EBEE1;
-                }
-
-            .modal-login .modal-footer {
-                background: #ecf0f1;
-                border-color: #dee4e7;
-                text-align: center;
-                margin: 0 -20px -20px;
-                border-radius: 5px;
-                font-size: 13px;
-                justify-content: center;
-            }
-
-                .modal-login .modal-footer a {
-                    color: #F36F55;
-                }
-
-        .trigger-btn {
             display: inline-block;
-            margin: 100px auto;
         }
 
-        footer .social {
-            text-decoration: none;
-            list-style-type: none;
+        .headerlogo {
+            margin: 0 !important;
         }
 
-            footer .social li {
-                float: left;
-                margin: 8px;
-            }
-
-
-
-
-        .sessionlink {
-            text-decoration: none;
-            color: black;
-            margin-right: 12px;
-            font-size: 25px;
-            text-transform: uppercase;
+        .mobiltitles {
+            display: inline-block;
         }
 
-            .sessionlink:hover {
-                color: chocolate;
-            }
-
-        @@media only screen and (max-width: 600px) {
-            .userphoto {
-                width: 0px;
-            }
-
-            .postspot {
-                text-align: justify !important;
-                display: inline-block;
-            }
-
-            .headerlogo {
-                margin: 0 !important;
-            }
-
-            .mobiltitles {
-                display: inline-block;
-            }
-
-            .headerlogo {
-                width: 75px !important;
-                margin: 20px !important;
-            }
-            .mobillogin{
-                display:none;
-            }
-
-            
+        .headerlogo {
+            width: 75px !important;
+            margin: 20px !important;
         }
 
-        .backgroundbannertop {
-            background-image: url("../../Photos/sliderphotos/bgtest3.jpg");
-            margin-top: -50px;
+        .mobillogin {
+            display: none;
         }
-    </style>
+    }
+
+    .backgroundbannertop {
+        /*background-image: url("../../Photos/sliderphotos/bgtest3.jpg");*/
+        background-color: #FCE076;
+        margin-top: -50px;
+    }
+</style>
 
 
 </head>

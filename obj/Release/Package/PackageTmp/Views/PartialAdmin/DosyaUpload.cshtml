@@ -1,0 +1,9 @@
+﻿@model CocukYazini.Models.Entity.uploadtable
+
+<form method="post" enctype="multipart/form-data" class="form-group" action="@Url.Action("DosyaKaydet", "PartialAdmin")">
+    <label>Dosya Adı</label>
+    <input type="text" class="form-control" name="uploadname" /><br />
+    <label>Dosya Adı</label>
+    <input type="file" name="uploadurl" /><br /><hr />
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>

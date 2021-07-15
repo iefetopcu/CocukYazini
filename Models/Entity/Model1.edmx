@@ -96,6 +96,15 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="uploadtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uploadname" Type="varchar(max)" />
+          <Property Name="uploadlink" Type="varchar(max)" />
+          <Property Name="uploadurl" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="usertable">
           <Key>
             <PropertyRef Name="id" />
@@ -202,6 +211,7 @@
           <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sorusturma" EntityType="Self.sorusturma" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uploadtable" EntityType="Self.uploadtable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
             <End Role="posttable" EntitySet="posttable" />
@@ -339,6 +349,15 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="uploadtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uploadname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="uploadlink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="uploadurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="usertable">
           <Key>
             <PropertyRef Name="id" />
@@ -448,6 +467,7 @@
           <EntitySet Name="slidertables" EntityType="Self.slidertable" />
           <EntitySet Name="sorusturmas" EntityType="Self.sorusturma" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="uploadtables" EntityType="Self.uploadtable" />
           <EntitySet Name="usertables" EntityType="Self.usertable" />
           <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
             <End Role="categorytable" EntitySet="categorytables" />
@@ -580,6 +600,16 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uploadtables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.uploadtable">
+              <MappingFragment StoreEntitySet="uploadtable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uploadname" ColumnName="uploadname" />
+                <ScalarProperty Name="uploadlink" ColumnName="uploadlink" />
+                <ScalarProperty Name="uploadurl" ColumnName="uploadurl" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

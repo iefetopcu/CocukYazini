@@ -91,6 +91,15 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="uploadtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uploadname" Type="varchar(max)" />
+    <Property Name="uploadlink" Type="varchar(max)" />
+    <Property Name="uploadurl" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="usertable">
     <Key>
       <PropertyRef Name="id" />
@@ -197,6 +206,7 @@
     <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sorusturma" EntityType="Self.sorusturma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uploadtable" EntityType="Self.uploadtable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
       <End Role="posttable" EntitySet="posttable" />
