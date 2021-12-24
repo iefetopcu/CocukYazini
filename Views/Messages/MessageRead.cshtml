@@ -31,7 +31,7 @@
             <label>E-Mail</label>
             @Html.ValueFor(m => m.email)
 
-            @if (@Html.ValueFor(m => m.userid) == null)
+            @*@if (@Html.ValueFor(m => m.userid) == null)
             {
                 <label>Mesaj Sahibi</label>
                 @Html.ValueFor(m => m.whowrote)
@@ -42,7 +42,7 @@
                 <label style="margin-left:100px;">Mesaj Sahibi</label>
                 @Html.ValueFor(m => m.usertable.username) @Html.ValueFor(m => m.usertable.usersurname)
 
-            }
+            }*@
 
 
             <label style="margin-left:100px;">Mesaj Zamanı</label>

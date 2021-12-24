@@ -111,11 +111,18 @@
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
         <div class="footer-widget">
-            <h2 style="margin-top:10px;">İletişim Formu</h2>
-            <h5>Aşağıdaki formu kullanarak bize yazabilirsin.</h5>
+            <h2 style="margin-top:10px;">Abone Ol</h2>
+            <h5>Yeni içeriklerimizden haberdar olmak için aşağıdaki formu doldurabilirsin!</h5>
             <div class="footer-widget-content">
-                <div class="images-gellary">
-                    <form action="@Url.Action("NewContact", "Home")" method="post">
+                <div class="images-gellary" style="margin-top:10px;">
+                    <form action="@Url.Action("Ebulten", "Home")" method="post" class="form-group">
+                        <input type="email" placeholder="E-Mail" class="form-control" name="email" required="required" style="margin:0px!important; width:100%!important;" />                    
+                        <br />
+                        <input type="checkbox" required/> Çocuk yazınından haber almak istiyorum , bu amaçla <a href="#" data-toggle="modal" data-target="#kvkkmodal">E-bülten Kişisel Veriler Aydınlatma Metni</a>"ni okudum ve “E-ileti ve Kişisel Veriler Onay Metni"ni kabul ediyorum.
+                        <br />
+                        <button class="btn btn-secondary" style="margin-top:5px; ">GÖNDER</button>
+                    </form>
+                    @*<form action="@Url.Action("NewContact", "Home")" method="post">
                         <input type="text" placeholder="BAŞLIK" class="form-control form-control-sm" name="contacttitle" required="required" style="margin-top:5px;" />
                         <textarea placeholder="MESAJINIZ" rows="3" cols="22" class="form-control form-control-sm" name="contactcontent" required="required" style="margin-top:5px;"></textarea>
                         <input type="email" placeholder="E-Mail" class="form-control form-control-sm" name="email" required="required" style="margin-top:5px;" />
@@ -123,9 +130,12 @@
 
 
                         <button class="btn btn-secondary" style="margin-top:5px;">GÖNDER</button>
-                    </form>
+                    </form>*@
                 </div>
             </div>
+            <br />
+            <br />
+            
         </div>
     </div>
 </div>

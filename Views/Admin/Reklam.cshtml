@@ -1,0 +1,129 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "Reklam";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+    $('#myModal2').on('shown.bs.modal', function () {
+        $('#myInput2').trigger('focus')
+    })
+    $('#myModal3').on('shown.bs.modal', function () {
+        $('#myInput3').trigger('focus')
+    })
+    $('#myModal4').on('shown.bs.modal', function () {
+        $('#myInput4').trigger('focus')
+    })
+</script>
+<div class="page-header row no-gutters py-4">
+    <div class="col-6 col-sm-6 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Reklam Yönetimi</span>
+    </div>
+
+
+    <div class="col-6 col-sm-6 text-center mb-0 ">
+        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal2">Yeni Reklam</button>
+    </div>
+</div>
+
+<div class="row">
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-danger text-center" role="alert" style="width:100%!important;">
+            <h4 class="alert-heading">Reklam Yok !</h4><br />
+
+
+        </div>
+    }
+    @foreach (var ads in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <div class="card card-small card-post card-post--1" style="border:#00ff21 solid 1px;">
+                <div class="card-post__image" style="background-image: url('@ads.reklamphotourl');">
+                    <a href="@Url.Action("DeleteAd", "Admin" , new { id = ads.id })" onclick="return confirm('Bu Reklamı Silmek İstediğinize Emin Misiniz?')">
+                        <i class="material-icons badge badge-pill badge-secondary" style="color:white; padding:10px;">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </i>
+                    </a>
+                    <p class="card-post__category badge badge-pill badge-dark">
+
+
+                    </p>
+                </div>
+                <div class="card-body">
+
+                    <span class="text-muted">@ads.reklamstart.ToString("dd.MM.yyyy") - @ads.reklamend.ToString("dd.MM.yyyy") </span>
+                    <br />
+                    @if (ads.reklamfooter == "true")
+                    {<span class="text-muted"><b style="color:#ae3b3b">Footer Yatak Reklam</b></span>}
+                    @if (ads.reklamside == "true")
+                    {<span class="text-muted"><b style="color:#ae3b3b">Sidebar Dikey Reklam</b></span>}
+                    
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="@Url.Action("AddReklam", "Admin")" method="post" enctype="multipart/form-data" class="form-group">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Yeni Reklam</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <i>
+                        <b style="color:darkred">
+                            Footer Reklamı Yatay 900px Genişlik 200px yükseklik , Sidebar Reklamı 400px genişlik olacak şekilde ayarlanmalıdır.
+                        </b>
+                    </i><br /><br />
+                    <input type="text" name="reklamurl" placeholder="Reklam Linki" required class="form-control" /><br />
+                    <label>Başlangıç Zamanı</label><br />
+                    <input type="text" id="datepicker" name="reklamstart" required="required" class="form-control"><br />
+                    <label>Bitiş Zamanı</label><br />
+                    <input type="text" id="datepicker2" name="reklamend" required="required" class="form-control"><br />
+                    <label>Reklam Formatı</label><br />
+                    <select name="format" class="form-control">
+                        <option value="footer">Footer Reklamı</option>
+                        <option value="sidebar">SideBar Reklamı</option>
+                    </select>
+                    <hr />
+                    <label>Reklam Fotoğrafı</label><br />
+                    <input type="file" name="reklamphotourl" required />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <input type="submit" class="btn btn-primary" value="Ekle" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+    $(function () {
+        var dateNow = new Date();
+
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+        }).datepicker('setDate', new Date());
+        ;
+    });
+
+    $(function () {
+        var dateNow = new Date();
+
+        $("#datepicker2").datepicker({
+            dateFormat: "yy-mm-dd",
+        }).datepicker('setDate', new Date());
+        ;
+    });
+</script>

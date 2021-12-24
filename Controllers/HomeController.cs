@@ -18,17 +18,20 @@ namespace CocukYazini.Controllers
         cocukyaziniEntities db = new cocukyaziniEntities();
         public ActionResult Index()
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
+            ViewBag.contact = TempData["contact"];
             var degerler = (from s in db.slidertables
                             orderby s.sliderpath descending
                             where s.isaktif == 1
                             select s).Take(5);
-
             return View(degerler);
-
         }
 
         public ActionResult IndexEN()
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             var degerler = (from s in db.slidertables
                             where s.isaktif == 3
                             orderby s.sliderpath descending
@@ -51,13 +54,13 @@ namespace CocukYazini.Controllers
                 
                 ViewBag.successMessage = "Başarılı Giriş";
 
-                return RedirectToAction("Index");
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
             //YALNIŞ GİRİŞ
             else
             {
-                ViewBag.successMessage = "E-Posta ve ya Şifre Hatalı";
-                return View("Index");
+                TempData["login"] = string.Format("no");
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
         }
 
@@ -136,18 +139,23 @@ namespace CocukYazini.Controllers
             ekle.contacttime = DateTime.Now;
             db.contacttables.Add(ekle);
             db.SaveChanges();
+            TempData["contact"] = string.Format("ok");
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult ForgetPassword()
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             return View();
         }
 
         [HttpGet]
         public ActionResult ForgetPasswordEN()
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             return View();
         }
 
@@ -275,7 +283,8 @@ namespace CocukYazini.Controllers
 
         public ActionResult ShowUser()
         {
-
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             usertable currentUser = (usertable)Session["MySessionUser"];
             
             if(currentUser != null)
@@ -339,7 +348,8 @@ namespace CocukYazini.Controllers
         [HttpPost]
         public ActionResult Search(string search, int kategori)
         {
-            if(kategori == 0)
+            ViewBag.ebulten = TempData["ebulten"];
+            if (kategori == 0)
             {
                 var post = from x in db.posttables
                            select x;
@@ -371,6 +381,7 @@ namespace CocukYazini.Controllers
         [HttpPost]
         public ActionResult SearchEN(string search, int kategori)
         {
+            ViewBag.ebulten = TempData["ebulten"];
             if (kategori == 0)
             {
                 var post = from x in db.posttables
@@ -404,32 +415,48 @@ namespace CocukYazini.Controllers
         [Route("PostRead/{id}/{baslik}")]
         public ActionResult PostRead(int id)
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             var post = db.posttables.Include(a => a.comenttables).FirstOrDefault(a => a.id == id);
             var yorumlar = db.posttables.Include(a => a.comenttables);
             if (post == null)
-                return RedirectPermanent("/");
-
+            {
+                return RedirectToAction("Hata", "Home");
+            }
+                
+            else
+            {
+                return View("PostRead", post);
+            }
             //var userotherpost = from s in db.posttables
             //                    where s.userid == post.userid
             //                    orderby s.posttime
             //                    descending
             //                    select s;
 
-            return View("PostRead", post);
+            
         }
 
         public ActionResult PostReadEN(int id)
         {
-            var post = db.posttables.Include(a => a.comenttables).FirstOrDefault(a => a.id == id);
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
+            var post = db.posttables.Include(a => a.comenttables).FirstOrDefault(a => a.id == id);         
             if (post == null)
-                return RedirectPermanent("/");
+            {
+                return RedirectToAction("Error", "Home");
+            }
 
-            return View("PostReadEN", post);
+            else
+            {
+                return View("PostReadEN", post);
+            }
         }
 
         public ActionResult UserPosts(int id)
         {
-
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             var userposts = from s in db.posttables
                            where s.userid == id && s.isaktif == 1
                            orderby s.posttime descending
@@ -441,7 +468,8 @@ namespace CocukYazini.Controllers
 
         public ActionResult UserPostsEN(int id)
         {
-
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             var userposts = from s in db.posttables
                             where s.userid == id && s.isaktif == 3
                             orderby s.posttime descending
@@ -451,6 +479,57 @@ namespace CocukYazini.Controllers
 
         }
 
+        public ActionResult Ebulten(string email)
+        {
+            var emailx = db.ebultens.FirstOrDefault(x => x.ebultenemail == email);
+            if(emailx != null)
+            {
+                TempData["ebulten"] = string.Format("no");
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+            }
+            else
+            {
+                
+
+                var ekle = new ebulten
+                {
+                    ebultenemail = email
+                };
+                db.ebultens.Add(ekle);
+                db.SaveChanges();
+                TempData["ebulten"] = string.Format("ok");
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+            }           
+        }     
+
+        public ActionResult Hata()
+        {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
+            return View();
+        }
+        public ActionResult Error()
+        {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
+            return View();
+        }
+
+        public ActionResult CocukYaziniTV()
+        {
+            var videos = (from s in db.videotables
+                          orderby s.videotime descending
+                          select s).ToList();
+            return View(videos);
+        }
+
+        public ActionResult CocukYaziniTVEn()
+        {
+            var videos = (from s in db.videotables
+                          orderby s.videotime descending
+                          select s).ToList();
+            return View(videos);
+        }
 
     }
 }

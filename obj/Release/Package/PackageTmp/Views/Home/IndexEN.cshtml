@@ -279,7 +279,19 @@
 
                 <div class="space"></div>
             </div>
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <div class="box">
+                    @{Html.RenderAction("sidebarreklam", "Partial");}
+                </div>
 
+
+            </div>
+            <hr />
+            <div class="mb-5">
+                <!-- Boxes de Acoes -->
+                <a href="@Url.Action("CocukYaziniTVEn", "Home")"><img src="~/Photos/logo/cocukyazinitv.png" class="img-rounded" style="width:100%!important;" /></a>
+            </div>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 ">
             @{Html.RenderAction("homepostEN", "Partial");}

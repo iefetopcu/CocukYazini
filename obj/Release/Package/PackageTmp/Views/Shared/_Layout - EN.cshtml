@@ -27,193 +27,201 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-<style type="text/css">
-    .baslik {
-        color: #B45A30;
-        text-decoration: none;
-    }
-
-    .postspot {
-        text-align: justify !important;
-        height: 200px;
-    }
-
-    .baslik:hover {
-        color: coral;
-        text-decoration: none;
-    }
-
-    body {
-        font-family: Verdana !important;
-        background-color: #F5F4ED !important;
-    }
-
-    .nav-link {
-        font-size: 22px;
-        margin-left: 4px;
-        color: dimgrey;
-    }
-
-
-
-
-    .modal-login {
-        color: #636363;
-        width: 350px !important;
-    }
-
-        .modal-login .modal-content {
-            padding: 20px;
-            border-radius: 5px;
-            border: none;
+    <style type="text/css">
+        .footerlinks a {
+            color: white !important;
         }
 
-        .modal-login .modal-header {
-            border-bottom: none;
-            position: relative;
-            justify-content: center;
+        .footerlinks {
+            font-size: 14px;
         }
 
-        .modal-login h4 {
-            text-align: center;
-            font-size: 26px;
-        }
-
-        .modal-login .form-group {
-            position: relative;
-        }
-
-        .modal-login i {
-            position: absolute;
-            left: 13px;
-            top: 11px;
-            font-size: 18px;
-        }
-
-        .modal-login .form-control {
-            padding-left: 40px;
-        }
-
-            .modal-login .form-control:focus {
-                border-color: #3EBEE1;
-            }
-
-        .modal-login .form-control, .modal-login .btn {
-            min-height: 40px;
-            border-radius: 3px;
-        }
-
-        .modal-login .hint-text {
-            text-align: center;
-            padding-top: 10px;
-        }
-
-        .modal-login .close {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-        }
-
-        .modal-login .btn {
-            background: #59E0F0;
-            border: none;
-            line-height: normal;
-        }
-
-            .modal-login .btn:hover, .modal-login .btn:focus {
-                background: #3EBEE1;
-            }
-
-        .modal-login .modal-footer {
-            background: #ecf0f1;
-            border-color: #dee4e7;
-            text-align: center;
-            margin: 0 -20px -20px;
-            border-radius: 5px;
-            font-size: 13px;
-            justify-content: center;
-        }
-
-            .modal-login .modal-footer a {
-                color: #F36F55;
-            }
-
-    .trigger-btn {
-        display: inline-block;
-        margin: 100px auto;
-    }
-
-    footer .social {
-        text-decoration: none;
-        list-style-type: none;
-    }
-
-        footer .social li {
-            float: left;
-            margin: 8px;
-        }
-
-
-
-
-    .sessionlink {
-        text-decoration: none;
-        color: black;
-        margin-right: 12px;
-        font-size: 25px;
-        text-transform: uppercase;
-    }
-
-        .sessionlink:hover {
-            color: chocolate;
-        }
-
-    @@media only screen and (max-width: 600px) {
-        .userphoto {
-            width: 0px;
+        .baslik {
+            color: #B45A30;
+            text-decoration: none;
         }
 
         .postspot {
             text-align: justify !important;
+            height: 200px;
+        }
+
+        .baslik:hover {
+            color: coral;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Verdana !important;
+            background-color: #F5F4ED !important;
+        }
+
+        .nav-link {
+            font-size: 22px;
+            margin-left: 4px;
+            color: dimgrey;
+        }
+
+
+
+
+        .modal-login {
+            color: #636363;
+            width: 350px !important;
+        }
+
+            .modal-login .modal-content {
+                padding: 20px;
+                border-radius: 5px;
+                border: none;
+            }
+
+            .modal-login .modal-header {
+                border-bottom: none;
+                position: relative;
+                justify-content: center;
+            }
+
+            .modal-login h4 {
+                text-align: center;
+                font-size: 26px;
+            }
+
+            .modal-login .form-group {
+                position: relative;
+            }
+
+            .modal-login i {
+                position: absolute;
+                left: 13px;
+                top: 11px;
+                font-size: 18px;
+            }
+
+            .modal-login .form-control {
+                padding-left: 40px;
+            }
+
+                .modal-login .form-control:focus {
+                    border-color: #3EBEE1;
+                }
+
+            .modal-login .form-control, .modal-login .btn {
+                min-height: 40px;
+                border-radius: 3px;
+            }
+
+            .modal-login .hint-text {
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .modal-login .close {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+            }
+
+            .modal-login .btn {
+                background: #59E0F0;
+                border: none;
+                line-height: normal;
+            }
+
+                .modal-login .btn:hover, .modal-login .btn:focus {
+                    background: #3EBEE1;
+                }
+
+            .modal-login .modal-footer {
+                background: #ecf0f1;
+                border-color: #dee4e7;
+                text-align: center;
+                margin: 0 -20px -20px;
+                border-radius: 5px;
+                font-size: 13px;
+                justify-content: center;
+            }
+
+                .modal-login .modal-footer a {
+                    color: #F36F55;
+                }
+
+        .trigger-btn {
             display: inline-block;
+            margin: 100px auto;
         }
 
-        .headerlogo {
-            margin: 0 !important;
+        footer .social {
+            text-decoration: none;
+            list-style-type: none;
         }
 
-        .mobiltitles {
-            display: inline-block;
+            footer .social li {
+                float: left;
+                margin: 8px;
+            }
+
+
+
+
+        .sessionlink {
+            text-decoration: none;
+            color: black;
+            margin-right: 12px;
+            font-size: 25px;
+            text-transform: uppercase;
         }
 
-        .headerlogo {
-            width: 75px !important;
-            margin: 20px !important;
+            .sessionlink:hover {
+                color: chocolate;
+            }
+
+        @@media only screen and (max-width: 600px) {
+            .userphoto {
+                width: 0px;
+            }
+
+            .postspot {
+                text-align: justify !important;
+                display: inline-block;
+            }
+
+            .headerlogo {
+                margin: 0 !important;
+            }
+
+            .mobiltitles {
+                display: inline-block;
+            }
+
+            .headerlogo {
+                width: 75px !important;
+                margin: 20px !important;
+            }
+
+            .mobillogin {
+                display: none;
+            }
         }
 
-        .mobillogin {
-            display: none;
+        .backgroundbannertop {
+            /*background-image: url("../../Photos/sliderphotos/bgtest3.jpg");*/
+            background-color: #FCE076;
+            margin-top: -50px;
         }
-    }
-
-    .backgroundbannertop {
-        /*background-image: url("../../Photos/sliderphotos/bgtest3.jpg");*/
-        background-color: #FCE076;
-        margin-top: -50px;
-    }
-</style>
+    </style>
 
 
 </head>
 <body>
-    
+
     <div class="container-fluid backgroundbannertop">
         <div class="row">
 
             <div class="col-6" style="margin-bottom:-50px;">
-                <a href="#"><img src="~/Photos/logo/cocuk.png" width="150px" style="margin-left:40px; margin-top:20px;" class="headerlogo"/></a>
+                <a href="#"><img src="~/Photos/logo/cocuk.png" width="150px" style="margin-left:40px; margin-top:20px;" class="headerlogo" /></a>
             </div>
-            
+
             <div class="col-6 mobillogin">
                 <div class="pull-right">
 
@@ -239,7 +247,6 @@
         border-radius: 8px;" class="userphoto" />
 
                             @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).username : "")
-
                             @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).usersurname : "")
                         </h4>
                     }
@@ -263,60 +270,74 @@
         </div>
 
 
-            <nav class="navbar navbar-light navbar-expand-lg sticky-top pull-right">
-                <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavbarContentID" area-expanded="false" aria-label="toggler Button" aria-controls="NavbarContentID"> <span class="navbar-toggler-icon"></span></button>
+        <nav class="navbar navbar-light navbar-expand-lg sticky-top pull-right">
+            <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavbarContentID" area-expanded="false" aria-label="toggler Button" aria-controls="NavbarContentID"> <span class="navbar-toggler-icon"></span></button>
 
-                <div class="row pull-right">
-                    <div id="NavbarContentID" class="collapse navbar-collapse ml-auto" style="font-size:18px;">
-                        <ul class="navbar-nav ml-auto text-right">
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Home")" class="nav-link"><b>Homepage</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "About")" class="nav-link"><b>About</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Dosya")" class="nav-link"><b>Agenda</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Kritik")" class="nav-link"><b>Critique</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Sinemasal")" class="nav-link"><b>Cinema</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Sorusturma")" class="nav-link"><b>Inquiry</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Roportaj")" class="nav-link"><b>Interview</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png" alt="Türkçe diline geç" height="20" /></a></li>
-                            @{
-                                if (Session["MySessionUser"] != null)
+            <div class="row pull-right">
+                <div id="NavbarContentID" class="collapse navbar-collapse ml-auto" style="font-size:18px;">
+                    <ul class="navbar-nav ml-auto text-right">
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Home")" class="nav-link"><b>Homepage</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "About")" class="nav-link"><b>About</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Dosya")" class="nav-link"><b>Agenda</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Kritik")" class="nav-link"><b>Critique</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Sinemasal")" class="nav-link"><b>Cinema</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Sorusturma")" class="nav-link"><b>Inquiry</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Roportaj")" class="nav-link"><b>Interview</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/2000px-Flag_of_Turkey.svg.png" alt="Türkçe diline geç" height="20" /></a></li>
+                        @{
+                            if (Session["MySessionUser"] != null)
+                            {
+                                if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
                                 {
-                                    if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
-                                    {
-                                        <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link"><span class="glyphicon glyphicon-wrench"></span></a></li>
-                                    }
-                                }
-                                else
-                                {
-
+                                    <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link"><span class="glyphicon glyphicon-wrench"></span></a></li>
                                 }
                             }
+                            else
+                            {
+
+                            }
+                        }
 
 
 
 
-                        </ul>
-                    </div>
-
+                    </ul>
                 </div>
 
+            </div>
 
 
 
-            </nav>
 
+        </nav>
+
+    </div>
+
+
+
+    @RenderBody()
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @{Html.RenderAction("footerreklam", "Partial");}
+            </div>
         </div>
-
-   
-
-        @RenderBody()
-        <hr />
-
-    
+    </div>
     <div class="container-fluid">
 
         @{Html.RenderAction("footerEN", "Partial");}
+        <div class="row footerlinks" style="background-color:dimgray; color:white;">
+            <div class="col-lg-8">
+                This website was designed by <a href="https://www.artedijital.com/">Artedijital </a>
+            </div>
+            <div class="col-lg-4">
+                <a href='#contactModal' data-toggle="modal" class="pull-right">Contact</a>
+            </div>
+        </div>
     </div>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -358,6 +379,14 @@
                         <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign In">
                     </div>
                 </form>
+                @if (ViewBag.login == "no")
+                {
+
+                    <p class="alert alert-danger" role="alert">
+                        Unsuccessful ! Username or password is incorrect !
+                    </p>
+
+                }
 
             </div>
             <div class="modal-footer">
@@ -414,7 +443,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div id="SearchModal" class="modal fade">
     <div class="modal-dialog modal-login">
@@ -432,7 +461,7 @@
                         <input type="text" class="form-control" placeholder="Search..." required="required" name="search">
                     </div>
                     <div class="form-group">
-                        
+
                         <select name="kategori" class="form-control">
                             <option value="0">
                                 All Categories
@@ -459,3 +488,133 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="kvkkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Explicit Consent Text</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="padding:20px;">
+
+                    Informed by children's literature (cocukyazini.com) within the scope of the Clarification Text on the Processing of Personal Data; Until I withdraw my consent, the processing of my personal data for the purpose of suggesting special events and services for me, promoting and marketing them via social media, internet and other methods, to my above-mentioned contact information, such as events, invitations, advertisements, promotions, promotions, e-mails with campaign content, etc. I accept the sending of commercial electronic messages, the use of my personal data for these purposes, the processing and storage of the child's letter at home and abroad with appropriate security measures, and the sharing of the child's letter with third parties from whom he receives services and cooperates in order to send me and achieve these purposes.
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (ViewBag.ebulten == "ok")
+                {
+
+                    <p class="alert alert-success" role="alert">
+                        Congratulations ! Your e-mail address has reached us!
+
+                    </p>
+
+
+                }
+                @if (ViewBag.ebulten == "no")
+                {
+
+                    <p class="alert alert-danger" role="alert">
+                        Unsuccessful ! This e-mail address is registered, please enter another e-mail address!
+
+                    </p>
+
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contactModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">Contact</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <form action="@Url.Action("NewContact", "Home")" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" class="form-control" placeholder="E-Mail" required="required" name="email">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" placeholder="Who Wrote ?" required="required" name="whowrote">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-pencil"></i>
+                        <input type="text" class="form-control" placeholder="Title" required="required" name="contacttitle">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-pencil"></i>
+                        <textarea name="contactcontent" class="form-control" required placeholder="Content"></textarea>
+                    </div>
+
+                    <input type="checkbox" required /> Robot Değilim
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Mesaj Gönder">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+            $(document).ready(function () {
+            if('@ViewBag.ebulten' == "ok") {
+                $("#alertmodal").modal();
+     }
+            });
+    $(document).ready(function () {
+            if('@ViewBag.ebulten' == "no") {
+                $("#alertmodal").modal();
+     }
+    });
+    $(document).ready(function () {
+            if('@ViewBag.contact' == "ok") {
+                $("#alertmodal").modal();
+     }
+    });
+     $(document).ready(function () {
+            if('@ViewBag.login' == "no") {
+                $("#myModal").modal();
+     }
+            });
+</script>

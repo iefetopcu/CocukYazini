@@ -3,17 +3,8 @@
     ViewBag.Title = "Yeni Kategori";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-<style>
-    #categorynew{
-        
-        margin-left:200px;
-        
-    }
-    label{
-            width:200px;
-        }
-</style>
-<div id="categorynew">
+
+
     <br />
     <h4>Yeni Kategori Ekle</h4>
     <hr />
@@ -21,9 +12,9 @@
     <form method="post">
         <div>
             <label>Kategori Adı </label>
-            <input type="text" name="categoryname" required="required"/><br />
+            <input type="text" name="categoryname" required="required" class="form-control"/><br />
                                                          <label></label>  
-                                                           <select name="isaktif">
+                                                           <select name="isaktif" class="form-control">
                                                                <option value="1">Aktif Kategori</option>
                                                                <option value="2">Pasif Kategori</option>
                                                                
@@ -40,5 +31,5 @@
         </div>
 
     </form>
-</div>
+
 

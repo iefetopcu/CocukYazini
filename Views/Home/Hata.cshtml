@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Hata";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row text-center" style="margin-top:30px; margin-bottom:30px;">
+    <div class="col-lg-12">
+        <h1 style="color:orangered;">Hata !</h1>
+        <br />
+        <h3>Böyle bir sayfa bulunamadı !</h3>
+        <br /><br />
+        <a href="@Url.Action("Index", "Home")">
+            <h4>
+                Anasayfaya Geri Dön
+                <i class="fa fa-home" aria-hidden="true"></i>
+            </h4>
+        </a>
+    </div>
+</div>
+

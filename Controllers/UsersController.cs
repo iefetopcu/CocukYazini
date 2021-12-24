@@ -23,50 +23,57 @@ namespace CocukYazini.Controllers
         
         public ActionResult NewUser()
         {
+            ViewBag.user = TempData["user"];
+            
             return View();
         }
 
         [HttpPost]
         public ActionResult NewUser(string username, string usersurname, string usermail, string password, int authority, int isaktif)
         {
-            var ekle = new usertable
+            var usermailx = db.usertables.FirstOrDefault(x => x.usermail == usermail);
+            if(usermailx != null)
             {
-                username = username,
-                usersurname = usersurname,
-                password = password,
-                usermail = usermail,
-                authority = authority,
-                isaktif = isaktif,
-            };
-
-            if (Request.Files.Count > 0)
+                TempData["user"] = string.Format("no");
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+            }
+            else
             {
-                var image = Request.Files[0]; //kanka bu resmi aliyor. gelen request'in icinde gorunuyor su anda resim.
+                var ekle = new usertable
+                {
+                    username = username,
+                    usersurname = usersurname,
+                    password = password,
+                    usermail = usermail,
+                    authority = authority,
+                    isaktif = isaktif,
+                };
+                if (Request.Files.Count > 0)
+                {
+                    var image = Request.Files[0]; 
 
-                if ((5 * 1024 * 1024) < image.ContentLength) //5MB
-                    throw new Exception("hata mesaaji");
+                    if ((5 * 1024 * 1024) < image.ContentLength) 
+                        throw new Exception("hata mesaaji");
 
-                //burada content type denetlenebilir. sadece resimlerin gelebilmesi icin
-                //if (!ImageFormatHelper.GetRawImageFormat(fileBytes).IsIn(ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif))
-                //{
-                //    throw new Exception("Admin_FileUploadDescriptionMessage");
-                //}
+                   
 
-                var fileInfo = new FileInfo(image.FileName);
-                var pic = "pic_" + DateTime.Now.Ticks + fileInfo.Extension; //new file name
+                    var fileInfo = new FileInfo(image.FileName);
+                    var pic = "pic_" + DateTime.Now.Ticks + fileInfo.Extension; 
 
-                var filePath = "/Photos/users/" + pic; //sen bunu db'ye yaz..
+                    var filePath = "/Photos/users/" + pic;
 
-                var tempFilePath = Server.MapPath("~\\Photos\\users\\" + pic);
+                    var tempFilePath = Server.MapPath("~\\Photos\\users\\" + pic);
 
-                image.SaveAs(tempFilePath);
+                    image.SaveAs(tempFilePath);
 
-                ekle.userphoto = filePath;
+                    ekle.userphoto = filePath;
+                }
+
+                db.usertables.Add(ekle);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-            db.usertables.Add(ekle);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
         
 
@@ -130,7 +137,7 @@ namespace CocukYazini.Controllers
             var userdelete = db.usertables.Find(id);
             db.usertables.Remove(userdelete);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
 
         }
     }

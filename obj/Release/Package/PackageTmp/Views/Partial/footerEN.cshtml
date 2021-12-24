@@ -113,21 +113,36 @@
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
         <div class="footer-widget">
-            <h2 style="margin-top:10px;">Contact Form</h2>
-            <h5>You can write to us using the form below</h5>
+            <h2 style="margin-top:10px;">Subscribe</h2>
+            <h5>
+                You can fill out the form below to be informed about our new content!
+            </h5>
             <div class="footer-widget-content">
-                <div class="images-gellary">
-                    <form action="@Url.Action("NewContact", "Home")" method="post">
-                        <input type="text" placeholder="Title" class="form-control form-control-sm" name="contacttitle" required="required" style="margin-top:5px;" />
-                        <textarea placeholder="Your Message" rows="3" cols="22" class="form-control form-control-sm" name="contactcontent" required="required" style="margin-top:5px;"></textarea>
-                        <input type="email" placeholder="E-Mail" class="form-control form-control-sm" name="email" required="required" style="margin-top:5px;" />
-                        <input type="text" placeholder="Who is writing?" class="form-control form-control-sm" name="whowrote" required="required" style="margin-top:5px;" />
+                <div class="images-gellary" style="margin-top:10px;">
+                    <form action="@Url.Action("Ebulten", "Home")" method="post" class="form-group">
+                        <input type="email" placeholder="E-Mail" class="form-control" name="email" required="required" style="margin:0px!important; width:100%!important;" />
+                        <br />
+                        <input type="checkbox" required />
+                        I want to be notified by children's post
+                        , for this purpose I read <a href="#" data-toggle="modal" data-target="#kvkkmodal">Personal Data Clarification Text</a>and  “I accept the e-mail and the Personal Data Consent.
 
-
-                        <button class="btn btn-secondary" style="margin-top:5px;">SEND</button>
+                        <br />
+                        <button class="btn btn-secondary" style="margin-top:5px; ">GÖNDER</button>
                     </form>
+                    @*<form action="@Url.Action("NewContact", "Home")" method="post">
+                        <input type="text" placeholder="BAŞLIK" class="form-control form-control-sm" name="contacttitle" required="required" style="margin-top:5px;" />
+                        <textarea placeholder="MESAJINIZ" rows="3" cols="22" class="form-control form-control-sm" name="contactcontent" required="required" style="margin-top:5px;"></textarea>
+                        <input type="email" placeholder="E-Mail" class="form-control form-control-sm" name="email" required="required" style="margin-top:5px;" />
+                        <input type="text" placeholder="Kim Yazıyor?" class="form-control form-control-sm" name="whowrote" required="required" style="margin-top:5px;" />
+
+
+                        <button class="btn btn-secondary" style="margin-top:5px;">GÖNDER</button>
+                    </form>*@
                 </div>
             </div>
+            <br />
+            <br />
+
         </div>
     </div>
 </div>

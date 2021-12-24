@@ -16,6 +16,8 @@ namespace CocukYazini.Controllers
         public ActionResult Index()
 
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             // aktif olan ve kategorisine göre döndürme işlemi yapar.
             var degerler = from s in db.monthtables where s.id > 1 && s.isaktif == 1
                            orderby s.datetime descending
@@ -31,6 +33,8 @@ namespace CocukYazini.Controllers
         public ActionResult IndexEN()
 
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             // aktif olan ve kategorisine göre döndürme işlemi yapar.
             var degerler = from s in db.monthtables
                            where s.id > 1 && s.isaktif == 3
@@ -48,8 +52,8 @@ namespace CocukYazini.Controllers
 
         {
 
-            
-
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             var degerler = from s in db.posttables
                            where s.isaktif == 1 && s.categoryid == 1 && s.monthid == id
                            orderby s.posttime descending
@@ -67,9 +71,8 @@ namespace CocukYazini.Controllers
         public ActionResult AylikDosyaEN(int id)
 
         {
-
-
-
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             var degerler = from s in db.posttables
                            where s.isaktif == 3 && s.categoryid == 1 && s.monthid == id
                            orderby s.posttime descending

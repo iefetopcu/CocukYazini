@@ -4,24 +4,10 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<style>
-    .container {
-        margin-left: 200px;
-    }
 
-    .kategoritablo tr th {
-        color: black;
-        width: 200px;
-        height: 50px;
-    }
 
-    .kategoriler {
-        height: 35px;
-        border-bottom: 1px solid;
-        border-color: dodgerblue;
-    }
-</style>
-<div class="container">
+   
+
     <h4>Slider</h4>
     <hr />
     <table class="table table-bordered">
@@ -47,7 +33,7 @@
                }
                <td><img src="@slider.sliderpath" height="60px" /></td>
                 <td>
-                    <a href="@Url.Action("SliderSil", "Admin" , new {id = slider.id})" onclick="return confirm('Bu Slideri Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("SliderSil", "Admin" , new {id = slider.id})" onclick="return confirm('Bu Slideri Silmek İstediğinize Emin Misiniz?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
             </tr>
             }
@@ -55,5 +41,5 @@
     </table>
     <br /><br />
     <a href="@Url.Action("NewSlider", "Admin")"> <button class="btn btn-info">Yeni Slider Ekle</button></a>
-</div>
+
 

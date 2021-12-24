@@ -28,6 +28,14 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <style type="text/css">
+        .footerlinks a {
+            color: white !important;
+        }
+
+        .footerlinks {
+            font-size: 14px;
+        }
+
         .baslik {
             color: #B45A30;
             text-decoration: none;
@@ -45,7 +53,7 @@
 
         body {
             font-family: Verdana !important;
-            background-color: #F5F4ED!important;
+            background-color: #F5F4ED !important;
         }
 
         .nav-link {
@@ -190,11 +198,10 @@
                 width: 75px !important;
                 margin: 20px !important;
             }
-            .mobillogin{
-                display:none;
-            }
 
-            
+            .mobillogin {
+                display: none;
+            }
         }
 
         .backgroundbannertop {
@@ -207,20 +214,20 @@
 
 </head>
 <body>
-    
+
     <div class="container-fluid backgroundbannertop">
         <div class="row">
 
             <div class="col-6" style="margin-bottom:-50px;">
-                <a href="#"><img src="~/Photos/logo/cocuk.png" width="150px" style="margin-left:40px; margin-top:20px;" class="headerlogo"/></a>
+                <a href="#"><img src="~/Photos/logo/cocuk.png" width="150px" style="margin-left:40px; margin-top:20px;" class="headerlogo" /></a>
             </div>
-            
+
             <div class="col-6 mobillogin">
                 <div class="pull-right">
 
                     @if (Session["MySessionUser"] != null)
                     {
-                        
+
                         <a href='@Url.Action("ShowUser", "Home" )' class="sessionlink">
                             <span class="glyphicon glyphicon-pencil mobilloginicon"></span>
                         </a>
@@ -240,7 +247,6 @@
         border-radius: 8px;" class="userphoto" />
 
                             @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).username : "")
-
                             @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).usersurname : "")
                         </h4>
                     }
@@ -264,61 +270,76 @@
         </div>
 
 
-            <nav class="navbar navbar-light navbar-expand-lg sticky-top pull-right">
-                <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavbarContentID" area-expanded="false" aria-label="toggler Button" aria-controls="NavbarContentID"> <span class="navbar-toggler-icon"></span></button>
+        <nav class="navbar navbar-light navbar-expand-lg sticky-top pull-right">
+            <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavbarContentID" area-expanded="false" aria-label="toggler Button" aria-controls="NavbarContentID"> <span class="navbar-toggler-icon"></span></button>
 
-                <div class="row pull-right">
-                    <div id="NavbarContentID" class="collapse navbar-collapse ml-auto" style="font-size:18px;">
-                        <ul class="navbar-nav ml-auto text-right">
-                            <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link"><b>Anasayfa</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "About")" class="nav-link"><b>Hakkımızda</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "Dosya")" class="nav-link"><b>Dosya</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "Kritik")" class="nav-link"><b>Kritik</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "Sinemasal")" class="nav-link"><b>SineMasal</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "Sorusturma")" class="nav-link"><b>Soruşturma</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("Index", "Roportaj")" class="nav-link"><b>Röportaj</b></a></li>
-                            <li class="nav-item"><a href="@Url.Action("IndexEN", "Home")" class="nav-link"><img src="https://i4.hurimg.com/i/hurriyet/75/750x422/55ea65fdf018fbb8f87d5486.jpg" alt="Switch English Langugae" height="20" /></a></li>
+            <div class="row pull-right">
+                <div id="NavbarContentID" class="collapse navbar-collapse ml-auto" style="font-size:18px;">
+                    <ul class="navbar-nav ml-auto text-right">
+                        <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link"><b>Anasayfa</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "About")" class="nav-link"><b>Hakkımızda</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "Dosya")" class="nav-link"><b>Dosya</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "Kritik")" class="nav-link"><b>Kritik</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "Sinemasal")" class="nav-link"><b>SineMasal</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "Sorusturma")" class="nav-link"><b>Soruşturma</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("Index", "Roportaj")" class="nav-link"><b>Röportaj</b></a></li>
+                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Home")" class="nav-link"><img src="https://i4.hurimg.com/i/hurriyet/75/750x422/55ea65fdf018fbb8f87d5486.jpg" alt="Switch English Langugae" height="20" /></a></li>
 
-                            @{
-                                if (Session["MySessionUser"] != null)
+                        @{
+                            if (Session["MySessionUser"] != null)
+                            {
+                                if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
                                 {
-                                    if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
-                                    {
-                                        <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link"><span class="glyphicon glyphicon-wrench"></span></a></li>
-                                    }
-                                }
-                                else
-                                {
-
+                                    <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link"><span class="glyphicon glyphicon-wrench"></span></a></li>
                                 }
                             }
+                            else
+                            {
+
+                            }
+                        }
 
 
 
 
-                        </ul>
-                    </div>
-
+                    </ul>
                 </div>
 
+            </div>
 
 
 
-            </nav>
 
+        </nav>
+
+    </div>
+
+
+
+    @RenderBody()
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @{Html.RenderAction("footerreklam", "Partial");}
+            </div>
         </div>
-
-   
-
-        @RenderBody()
-        <hr />
-
+    </div>
     
+
     <div class="container-fluid">
 
         @{Html.RenderAction("footer", "Partial");}
+        <div class="row footerlinks" style="background-color:dimgray; color:white;">
+            <div class="col-lg-8">
+                Bu web sitesi <a href="https://www.artedijital.com/">Artedijital </a> tarafından yapılmıştır.
+            </div>
+            <div class="col-lg-4">
+                <a href='#contactModal' data-toggle="modal" class="pull-right">İletişim</a>
+            </div>
+        </div>
     </div>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -360,7 +381,14 @@
                         <input type="submit" class="btn btn-primary btn-block btn-lg" value="Oturum Aç">
                     </div>
                 </form>
+                @if (ViewBag.login == "no")
+                {
 
+                    <p class="alert alert-danger" role="alert">
+                        Başarısız ! Kullanıcı Adı veya şifre yanlış !
+                    </p>
+
+                }
             </div>
             <div class="modal-footer">
                 <a href="@Url.Action("ForgetPassword", "Home")">Şifremi Unuttum</a>
@@ -416,7 +444,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div id="SearchModal" class="modal fade">
     <div class="modal-dialog modal-login">
@@ -434,7 +462,7 @@
                         <input type="text" class="form-control" placeholder="Aranacak Kelime" required="required" name="search">
                     </div>
                     <div class="form-group">
-                        
+
                         <select name="kategori" class="form-control">
                             <option value="0">Tüm Kategoriler</option>
                             <option value="1">Dosya</option>
@@ -459,3 +487,138 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="kvkkmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Açık Rıza Metni</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="padding:20px;">
+
+                    Çocuk yazını (cocukyazini.com) tarafından, E-Bülten Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni kapsamında bilgilendirilmiş olarak; rızamı geri çekene kadar, kişisel verilerimin bana özel etkinlik ve hizmetlerin önerilmesi, sosyal medya, internet ve sair yöntemler ile tanıtımı ve pazarlanması amacıyla işlenmesini, yukarıda belirtilen iletişim bilgilerime etkinlik, davet, reklam, promosyon, tanıtım, kampanya içerikli e-mail vb. ticari elektronik ileti gönderilmesini, kişisel verilerimin bu amaçlarla kullanılmasını, yurtiçinde ve uygun güvenlik önlemleri ile yurtdışında işlenmesini ve saklanmasını ve Çocun yazını'nın tarafıma gönderim sağlaması ve bu amaçları gerçekleştirmesi için hizmet aldığı ve işbirliği yaptığı üçüncü kişilerle paylaşılmasını kabul ediyorum.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="alertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bildiri</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (ViewBag.ebulten == "ok")
+                {
+
+                    <p class="alert alert-success" role="alert">
+                        Tebrikler ! Mailiniz tarafımıza ulaştı !
+                    </p>
+
+
+                }
+                @if (ViewBag.ebulten == "no")
+                {
+
+                    <p class="alert alert-danger" role="alert">
+                        Başarısız ! Bu mail adresi kayıtlı, lütfen başka bir mail adresi giriniz !
+                    </p>
+
+                }
+                @if (ViewBag.contact == "ok")
+                {
+
+                    <p class="alert alert-success" role="alert">
+                        Tebrikler ! Mesajınız tarafımıza ulaştı !
+                    </p>
+
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contactModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">İletişim</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+
+                <form action="@Url.Action("NewContact", "Home")" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <i class="fa fa-envelope"></i>
+                        <input type="email" class="form-control" placeholder="E-Posta" required="required" name="email">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" placeholder="Kim Yazıyor ?" required="required" name="whowrote">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-pencil"></i>
+                        <input type="text" class="form-control" placeholder="Başlık" required="required" name="contacttitle">
+                    </div>
+                    <div class="form-group">
+                        <i class="fa fa-pencil"></i>
+                        <textarea name="contactcontent" class="form-control" required placeholder="Mesajınız"></textarea>
+                    </div>
+
+                    <input type="checkbox" required /> Robot Değilim
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Mesaj Gönder">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+            $(document).ready(function () {
+            if('@ViewBag.ebulten' == "ok") {
+                $("#alertmodal").modal();
+     }
+            });
+    $(document).ready(function () {
+            if('@ViewBag.ebulten' == "no") {
+                $("#alertmodal").modal();
+     }
+    });
+    $(document).ready(function () {
+            if('@ViewBag.contact' == "ok") {
+                $("#alertmodal").modal();
+     }
+    });
+     $(document).ready(function () {
+            if('@ViewBag.login' == "no") {
+                $("#myModal").modal();
+     }
+            });
+</script>

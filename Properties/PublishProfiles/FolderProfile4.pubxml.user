@@ -6,10 +6,190 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\Private Zone\Çocuk Yazını Publish\v29</_PublishTargetUrl>
-    <History>True|2021-06-29T21:35:37.0592498Z;True|2021-06-28T01:34:49.8932578+03:00;</History>
+    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\Projeler\Çocuk Yazını Publish\v30</_PublishTargetUrl>
+    <History>True|2021-12-12T19:24:32.3740722Z;True|2021-10-11T23:44:00.7341637+03:00;True|2021-06-30T00:35:37.0592498+03:00;True|2021-06-28T01:34:49.8932578+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="adminscripts/app/app-blog-new-post.1.1.0.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/app/app-blog-new-post.1.1.0.min.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/app/app-blog-overview.1.1.0.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/app/app-blog-overview.1.1.0.min.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/app/app-components-overview.1.1.0.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/app/app-components-overview.1.1.0.min.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/extras.1.1.0.min.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/shards-dashboards.1.1.0.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/shards-dashboards.1.1.0.js.map">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminscripts/shards-dashboards.1.1.0.min.js">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/danger.1.1.0.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/danger.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/info.1.1.0.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/info.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/secondary.1.1.0.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/secondary.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/success.1.1.0.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/success.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/warning.1.1.0.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/accents/warning.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/extras.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/accent-variations/danger.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/accent-variations/info.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/accent-variations/secondary.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/accent-variations/success.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/accent-variations/warning.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/blocks/_main-content.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/blocks/_main-footer.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/blocks/_main-navbar.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/blocks/_main-sidebar.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/blocks/_page-header.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/components/_card-post.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/components/_error.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/plugins/_quill.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/shards-dashboards.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/templates/_blog-add-new-post.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/templates/_blog-overview.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/templates/_common.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/utilities/_borders.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/utilities/_general.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/utilities/_text.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_alert.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_badge.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_button-group.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_buttons.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_card.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_custom-forms.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_custom-sliders.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_dropdown.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_icons.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_images.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_input-group.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_list-group.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_navbar.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_overrides.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_reboot.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_utilities.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/scss/_variables.scss">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/shards-dashboards.1.1.0.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
+    <File Include="adminstyle/shards-dashboards.1.1.0.min.css">
+      <publishTime>10/02/2021 23:21:01</publishTime>
+    </File>
     <File Include="App_Code/Seo.cs">
       <publishTime>12/12/2020 04:36:33</publishTime>
     </File>
@@ -20,10 +200,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/CocukYazini.dll">
-      <publishTime>06/30/2021 00:35:35</publishTime>
+      <publishTime>12/12/2021 22:24:30</publishTime>
     </File>
     <File Include="bin/CocukYazini.pdb">
-      <publishTime>06/30/2021 00:35:35</publishTime>
+      <publishTime>12/12/2021 22:24:30</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -785,7 +965,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Models/Entity/Model1.edmx.diagram">
-      <publishTime>06/28/2021 00:34:24</publishTime>
+      <publishTime>10/09/2021 16:09:45</publishTime>
     </File>
     <File Include="Photos/aboutphotos/azra.jpg">
       <publishTime>04/20/2020 20:08:54</publishTime>
@@ -810,6 +990,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Photos/logo/cocuk.png">
       <publishTime>04/15/2020 18:11:29</publishTime>
+    </File>
+    <File Include="Photos/logo/cocukyazinitv.png">
+      <publishTime>10/10/2021 00:55:09</publishTime>
     </File>
     <File Include="Photos/menu/bgtest.jpeg">
       <publishTime>04/23/2020 17:19:13</publishTime>
@@ -840,6 +1023,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Photos/menu/sabitEN.png">
       <publishTime>06/25/2021 00:28:24</publishTime>
+    </File>
+    <File Include="Photos/menu/slider.gif">
+      <publishTime>11/20/2021 15:09:45</publishTime>
     </File>
     <File Include="Photos/menu/slider.png">
       <publishTime>04/23/2020 18:07:04</publishTime>
@@ -1159,29 +1345,44 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/About/IndexEN.cshtml">
       <publishTime>12/07/2020 00:18:13</publishTime>
     </File>
+    <File Include="Views/Admin/Bulten.cshtml">
+      <publishTime>10/09/2021 22:40:30</publishTime>
+    </File>
+    <File Include="Views/Admin/BultenGonder.cshtml">
+      <publishTime>10/09/2021 23:10:06</publishTime>
+    </File>
+    <File Include="Views/Admin/CocukYaziniTV.cshtml">
+      <publishTime>10/10/2021 03:44:42</publishTime>
+    </File>
     <File Include="Views/Admin/Dosyaadi.cshtml">
-      <publishTime>05/06/2020 07:29:57</publishTime>
+      <publishTime>10/09/2021 18:42:38</publishTime>
     </File>
     <File Include="Views/Admin/DosyaUpdate.cshtml">
       <publishTime>06/27/2020 03:22:26</publishTime>
     </File>
     <File Include="Views/Admin/DosyaUpload.cshtml">
-      <publishTime>06/28/2021 01:28:02</publishTime>
+      <publishTime>10/09/2021 19:02:40</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>06/28/2021 00:22:55</publishTime>
+      <publishTime>10/02/2021 23:43:10</publishTime>
     </File>
     <File Include="Views/Admin/NewSlider.cshtml">
       <publishTime>12/07/2020 03:58:39</publishTime>
     </File>
+    <File Include="Views/Admin/Reklam.cshtml">
+      <publishTime>10/10/2021 04:51:44</publishTime>
+    </File>
     <File Include="Views/Admin/Slider.cshtml">
-      <publishTime>06/27/2021 18:12:55</publishTime>
+      <publishTime>10/09/2021 18:42:04</publishTime>
     </File>
     <File Include="Views/Admin/Sorusturma.cshtml">
-      <publishTime>05/19/2020 06:37:38</publishTime>
+      <publishTime>10/09/2021 19:02:28</publishTime>
     </File>
     <File Include="Views/Admin/SorusturmaUpdate.cshtml">
       <publishTime>06/27/2020 03:24:08</publishTime>
+    </File>
+    <File Include="Views/Admin/VideoUpdate.cshtml">
+      <publishTime>10/10/2021 03:46:50</publishTime>
     </File>
     <File Include="Views/Admin/YeniDosyaAdi.cshtml">
       <publishTime>12/07/2020 03:19:31</publishTime>
@@ -1196,13 +1397,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2021 00:32:27</publishTime>
     </File>
     <File Include="Views/Category/CategoryGetir.cshtml">
-      <publishTime>04/23/2020 14:58:11</publishTime>
+      <publishTime>10/03/2021 00:31:44</publishTime>
     </File>
     <File Include="Views/Category/Index.cshtml">
-      <publishTime>04/23/2020 14:58:01</publishTime>
+      <publishTime>10/03/2021 00:30:52</publishTime>
     </File>
     <File Include="Views/Category/NewCategory.cshtml">
-      <publishTime>04/23/2020 14:57:49</publishTime>
+      <publishTime>10/03/2021 00:29:01</publishTime>
     </File>
     <File Include="Views/Dosya/AylikDosya.cshtml">
       <publishTime>06/25/2021 00:31:19</publishTime>
@@ -1222,23 +1423,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Duyuruhaber/IndexEN.cshtml">
       <publishTime>06/25/2021 00:32:39</publishTime>
     </File>
+    <File Include="Views/Home/CocukYaziniTV.cshtml">
+      <publishTime>10/10/2021 03:53:28</publishTime>
+    </File>
+    <File Include="Views/Home/CocukYaziniTVEn.cshtml">
+      <publishTime>10/10/2021 10:50:56</publishTime>
+    </File>
+    <File Include="Views/Home/Error.cshtml">
+      <publishTime>10/09/2021 18:08:53</publishTime>
+    </File>
     <File Include="Views/Home/ForgetPassword.cshtml">
       <publishTime>12/08/2020 00:41:47</publishTime>
     </File>
     <File Include="Views/Home/ForgetPasswordEN.cshtml">
       <publishTime>12/08/2020 01:16:18</publishTime>
     </File>
+    <File Include="Views/Home/Hata.cshtml">
+      <publishTime>10/09/2021 18:09:15</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/27/2021 18:03:46</publishTime>
+      <publishTime>11/20/2021 15:09:55</publishTime>
     </File>
     <File Include="Views/Home/IndexEN.cshtml">
-      <publishTime>06/28/2021 00:20:04</publishTime>
+      <publishTime>10/10/2021 10:49:28</publishTime>
     </File>
     <File Include="Views/Home/PostRead.cshtml">
-      <publishTime>01/02/2021 01:49:35</publishTime>
+      <publishTime>10/09/2021 17:43:25</publishTime>
     </File>
     <File Include="Views/Home/PostReadEN.cshtml">
-      <publishTime>01/02/2021 01:53:24</publishTime>
+      <publishTime>10/09/2021 17:44:42</publishTime>
     </File>
     <File Include="Views/Home/Search.cshtml">
       <publishTime>12/12/2020 05:26:10</publishTime>
@@ -1265,10 +1478,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2021 00:32:47</publishTime>
     </File>
     <File Include="Views/Messages/Index.cshtml">
-      <publishTime>04/23/2020 14:57:06</publishTime>
+      <publishTime>10/03/2021 00:40:14</publishTime>
     </File>
     <File Include="Views/Messages/MessageRead.cshtml">
-      <publishTime>04/23/2020 14:56:58</publishTime>
+      <publishTime>10/03/2021 00:41:00</publishTime>
     </File>
     <File Include="Views/Partial/duyuruhaber.cshtml">
       <publishTime>12/12/2020 05:02:36</publishTime>
@@ -1277,10 +1490,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2020 05:02:10</publishTime>
     </File>
     <File Include="Views/Partial/footer.cshtml">
-      <publishTime>06/27/2021 17:55:11</publishTime>
+      <publishTime>10/09/2021 16:41:52</publishTime>
     </File>
     <File Include="Views/Partial/footerEN.cshtml">
-      <publishTime>06/28/2021 00:18:35</publishTime>
+      <publishTime>10/09/2021 17:26:00</publishTime>
+    </File>
+    <File Include="Views/Partial/footerreklam.cshtml">
+      <publishTime>10/10/2021 10:44:37</publishTime>
     </File>
     <File Include="Views/Partial/homepost.cshtml">
       <publishTime>12/12/2020 05:10:39</publishTime>
@@ -1294,20 +1510,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Partial/menuler.cshtml">
       <publishTime>05/05/2020 04:01:15</publishTime>
     </File>
+    <File Include="Views/Partial/sidebarreklam.cshtml">
+      <publishTime>10/10/2021 10:34:40</publishTime>
+    </File>
     <File Include="Views/PartialAdmin/DosyaUpload.cshtml">
       <publishTime>06/28/2021 01:11:24</publishTime>
     </File>
     <File Include="Views/Post/Index.cshtml">
-      <publishTime>12/08/2020 02:11:19</publishTime>
+      <publishTime>10/03/2021 00:30:31</publishTime>
     </File>
     <File Include="Views/Post/NewPost.cshtml">
-      <publishTime>12/07/2020 00:38:06</publishTime>
+      <publishTime>10/09/2021 23:09:40</publishTime>
     </File>
     <File Include="Views/Post/PostRead.cshtml">
-      <publishTime>06/25/2021 00:26:17</publishTime>
+      <publishTime>10/03/2021 00:16:43</publishTime>
     </File>
     <File Include="Views/Post/PostUpdate.cshtml">
-      <publishTime>01/02/2021 23:26:00</publishTime>
+      <publishTime>10/09/2021 18:37:46</publishTime>
     </File>
     <File Include="Views/Post/Search.cshtml">
       <publishTime>06/28/2020 05:05:56</publishTime>
@@ -1319,16 +1538,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2021 00:32:55</publishTime>
     </File>
     <File Include="Views/Shared/AdminLayout.cshtml">
-      <publishTime>06/28/2021 00:49:49</publishTime>
+      <publishTime>10/10/2021 11:42:35</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout - EN.cshtml">
-      <publishTime>06/28/2021 00:15:54</publishTime>
+      <publishTime>10/10/2021 11:25:03</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/27/2021 18:05:08</publishTime>
+      <publishTime>10/10/2021 11:24:11</publishTime>
     </File>
     <File Include="Views/Sinemasal/Index.cshtml">
       <publishTime>12/12/2020 04:56:02</publishTime>
@@ -1352,13 +1571,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2021 00:33:26</publishTime>
     </File>
     <File Include="Views/Users/Index.cshtml">
-      <publishTime>12/07/2020 04:19:15</publishTime>
+      <publishTime>10/03/2021 00:36:12</publishTime>
     </File>
     <File Include="Views/Users/Login.cshtml">
       <publishTime>03/22/2020 03:25:14</publishTime>
     </File>
     <File Include="Views/Users/NewUser.cshtml">
-      <publishTime>04/23/2020 14:55:28</publishTime>
+      <publishTime>10/10/2021 00:17:08</publishTime>
     </File>
     <File Include="Views/Users/ShowUser.cshtml">
       <publishTime>12/07/2020 04:18:11</publishTime>
@@ -1370,7 +1589,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/28/2021 01:34:49</publishTime>
+      <publishTime>10/11/2021 23:43:59</publishTime>
     </File>
   </ItemGroup>
 </Project>

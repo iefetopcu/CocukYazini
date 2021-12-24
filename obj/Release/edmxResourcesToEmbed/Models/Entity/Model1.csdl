@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="cocukyaziniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reklamstart" Type="DateTime" Precision="3" />
+    <Property Name="reklamend" Type="DateTime" Precision="3" />
+    <Property Name="reklamurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="reklamphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="reklamfooter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="reklamside" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="categorytable">
     <Key>
       <PropertyRef Name="id" />
@@ -37,6 +49,13 @@
     <Property Name="isaktif" Type="Int32" />
     <Property Name="contacttime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="usertable" Relationship="Self.FK_contacttable_usertable" FromRole="contacttable" ToRole="usertable" />
+  </EntityType>
+  <EntityType Name="ebulten">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ebultenemail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="monthtable">
     <Key>
@@ -127,6 +146,16 @@
     <NavigationProperty Name="contacttables" Relationship="Self.FK_contacttable_usertable" FromRole="usertable" ToRole="contacttable" />
     <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_usertable" FromRole="usertable" ToRole="posttable" />
   </EntityType>
+  <EntityType Name="videotable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="videotitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="videodescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="videourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="videotime" Type="DateTime" Precision="3" />
+  </EntityType>
   <Association Name="FK_posttable_categorytable">
     <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
     <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
@@ -212,9 +241,11 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="cocukyaziniEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adtables" EntityType="Self.adtable" />
     <EntitySet Name="categorytables" EntityType="Self.categorytable" />
     <EntitySet Name="comenttables" EntityType="Self.comenttable" />
     <EntitySet Name="contacttables" EntityType="Self.contacttable" />
+    <EntitySet Name="ebultens" EntityType="Self.ebulten" />
     <EntitySet Name="monthtables" EntityType="Self.monthtable" />
     <EntitySet Name="posttables" EntityType="Self.posttable" />
     <EntitySet Name="slidertables" EntityType="Self.slidertable" />
@@ -222,6 +253,7 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="uploadtables" EntityType="Self.uploadtable" />
     <EntitySet Name="usertables" EntityType="Self.usertable" />
+    <EntitySet Name="videotables" EntityType="Self.videotable" />
     <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
       <End Role="categorytable" EntitySet="categorytables" />
       <End Role="posttable" EntitySet="posttables" />

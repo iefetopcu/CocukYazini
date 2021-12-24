@@ -11,11 +11,13 @@ namespace CocukYazini.Controllers
         // GET: About
         public ActionResult Index()
         {
+            ViewBag.ebulten = TempData["ebulten"];
             return View();
         }
 
         public ActionResult IndexEN()
         {
+            ViewBag.ebulten = TempData["ebulten"];
             return View();
         }
     }

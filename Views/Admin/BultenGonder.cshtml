@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "BultenGonder";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+<h4>Bülten Gönder</h4>
+<hr />
+<form method="post">
+    <h5>Mail Başlığı</h5>
+    <input type="text" class="form-control" maxlength="65" required name="title" />
+    <h5>Bülten İçeriği</h5>
+    <textarea name="icerik" class="form-control"></textarea>
+    <script>
+        CKEDITOR.replace('icerik');
+    </script>
+    <input type="submit" class="btn btn-success" value="E-Bulteni Gönder" onclick="return confirm('Bu Mail Tüm E-bülten kullanıcılarına gönderilecektir! Bunu yapmak istediğine emin misin?')" />
+</form>
+
+
+

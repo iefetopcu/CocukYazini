@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="cocukyaziniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reklamstart" Type="datetime" />
+          <Property Name="reklamend" Type="datetime" />
+          <Property Name="reklamurl" Type="varchar(max)" />
+          <Property Name="reklamphotourl" Type="varchar(max)" />
+          <Property Name="reklamfooter" Type="varchar" MaxLength="50" />
+          <Property Name="reklamside" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="categorytable">
           <Key>
             <PropertyRef Name="id" />
@@ -38,6 +50,13 @@
           <Property Name="userid" Type="bigint" />
           <Property Name="isaktif" Type="int" />
           <Property Name="contacttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ebulten">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ebultenemail" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="monthtable">
           <Key>
@@ -117,6 +136,16 @@
           <Property Name="userphoto" Type="nvarchar" MaxLength="250" />
           <Property Name="authority" Type="int" />
           <Property Name="isaktif" Type="int" />
+        </EntityType>
+        <EntityType Name="videotable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="videotitle" Type="varchar(max)" />
+          <Property Name="videodescription" Type="varchar(max)" />
+          <Property Name="videourl" Type="varchar(max)" />
+          <Property Name="videotime" Type="datetime" />
         </EntityType>
         <Association Name="FK_comenttable_posttable">
           <End Role="posttable" Type="Self.posttable" Multiplicity="0..1" />
@@ -203,9 +232,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="cocukyaziniModelStoreContainer">
+          <EntitySet Name="adtable" EntityType="Self.adtable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="categorytable" EntityType="Self.categorytable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="comenttable" EntityType="Self.comenttable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contacttable" EntityType="Self.contacttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ebulten" EntityType="Self.ebulten" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="monthtable" EntityType="Self.monthtable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="posttable" EntityType="Self.posttable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
@@ -213,6 +244,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uploadtable" EntityType="Self.uploadtable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="videotable" EntityType="Self.videotable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
             <End Role="posttable" EntitySet="posttable" />
             <End Role="comenttable" EntitySet="comenttable" />
@@ -247,6 +279,18 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cocukyaziniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reklamstart" Type="DateTime" Precision="3" />
+          <Property Name="reklamend" Type="DateTime" Precision="3" />
+          <Property Name="reklamurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="reklamphotourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="reklamfooter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="reklamside" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="categorytable">
           <Key>
             <PropertyRef Name="id" />
@@ -284,6 +328,13 @@
           <Property Name="isaktif" Type="Int32" />
           <Property Name="contacttime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="usertable" Relationship="Self.FK_contacttable_usertable" FromRole="contacttable" ToRole="usertable" />
+        </EntityType>
+        <EntityType Name="ebulten">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ebultenemail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="monthtable">
           <Key>
@@ -374,6 +425,16 @@
           <NavigationProperty Name="contacttables" Relationship="Self.FK_contacttable_usertable" FromRole="usertable" ToRole="contacttable" />
           <NavigationProperty Name="posttables" Relationship="Self.FK_posttable_usertable" FromRole="usertable" ToRole="posttable" />
         </EntityType>
+        <EntityType Name="videotable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="videotitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="videodescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="videourl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="videotime" Type="DateTime" Precision="3" />
+        </EntityType>
         <Association Name="FK_posttable_categorytable">
           <End Role="categorytable" Type="Self.categorytable" Multiplicity="0..1" />
           <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
@@ -459,9 +520,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="cocukyaziniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adtables" EntityType="Self.adtable" />
           <EntitySet Name="categorytables" EntityType="Self.categorytable" />
           <EntitySet Name="comenttables" EntityType="Self.comenttable" />
           <EntitySet Name="contacttables" EntityType="Self.contacttable" />
+          <EntitySet Name="ebultens" EntityType="Self.ebulten" />
           <EntitySet Name="monthtables" EntityType="Self.monthtable" />
           <EntitySet Name="posttables" EntityType="Self.posttable" />
           <EntitySet Name="slidertables" EntityType="Self.slidertable" />
@@ -469,6 +532,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="uploadtables" EntityType="Self.uploadtable" />
           <EntitySet Name="usertables" EntityType="Self.usertable" />
+          <EntitySet Name="videotables" EntityType="Self.videotable" />
           <AssociationSet Name="FK_posttable_categorytable" Association="Self.FK_posttable_categorytable">
             <End Role="categorytable" EntitySet="categorytables" />
             <End Role="posttable" EntitySet="posttables" />
@@ -504,6 +568,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="cocukyaziniModelStoreContainer" CdmEntityContainer="cocukyaziniEntities">
+          <EntitySetMapping Name="adtables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.adtable">
+              <MappingFragment StoreEntitySet="adtable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="reklamstart" ColumnName="reklamstart" />
+                <ScalarProperty Name="reklamend" ColumnName="reklamend" />
+                <ScalarProperty Name="reklamurl" ColumnName="reklamurl" />
+                <ScalarProperty Name="reklamphotourl" ColumnName="reklamphotourl" />
+                <ScalarProperty Name="reklamfooter" ColumnName="reklamfooter" />
+                <ScalarProperty Name="reklamside" ColumnName="reklamside" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="categorytables">
             <EntityTypeMapping TypeName="cocukyaziniModel.categorytable">
               <MappingFragment StoreEntitySet="categorytable">
@@ -538,6 +615,14 @@
                 <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="isaktif" ColumnName="isaktif" />
                 <ScalarProperty Name="contacttime" ColumnName="contacttime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ebultens">
+            <EntityTypeMapping TypeName="cocukyaziniModel.ebulten">
+              <MappingFragment StoreEntitySet="ebulten">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ebultenemail" ColumnName="ebultenemail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -624,6 +709,17 @@
                 <ScalarProperty Name="userphoto" ColumnName="userphoto" />
                 <ScalarProperty Name="authority" ColumnName="authority" />
                 <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="videotables">
+            <EntityTypeMapping TypeName="cocukyaziniModel.videotable">
+              <MappingFragment StoreEntitySet="videotable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="videotitle" ColumnName="videotitle" />
+                <ScalarProperty Name="videodescription" ColumnName="videodescription" />
+                <ScalarProperty Name="videourl" ColumnName="videourl" />
+                <ScalarProperty Name="videotime" ColumnName="videotime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

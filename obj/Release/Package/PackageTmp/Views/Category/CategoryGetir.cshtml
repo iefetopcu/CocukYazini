@@ -3,33 +3,26 @@
     ViewBag.Title = "Kategori Güncelle";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-    <style>
-        #category {
-            margin-left: 200px;
-            
-        }
-        label{
-            width:200px;
-        }
-    </style>
+
+
 
 
 @using (Html.BeginForm("Guncelle", "Category", FormMethod.Post))
 
 {
     
-<div id="category">
+
     <h4>Kategori Güncelle</h4>
     <hr />
     <div class="form-control-static">
 
         <label>Kategori ID</label>
-        @Html.TextBoxFor(m => m.id, new { @readonly = "readonly"})<br />
+        @Html.TextBoxFor(m => m.id, new { @readonly = "readonly" })<br />
         <label>Kategori Adı</label>
 
-        @Html.TextBoxFor(m => m.categoryname , new { @required = "required" })<br />
+        @Html.TextBoxFor(m => m.categoryname , new { @required = "required" ,@class="form-control"})<br />
         <label>Kategori Adı</label>
-        <select name="isaktif">
+        <select name="isaktif" class="form-control">
             <option value="1">Aktif Kategori</option>
             <option value="2">Pasif Kategori</option>
 
@@ -44,5 +37,5 @@
 
         </div>
     </div>
-</div>
+
 }

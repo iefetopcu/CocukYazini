@@ -13,37 +13,26 @@ namespace CocukYazini.Controllers
 
         // GET: Partial
         public ActionResult footer()
-        {
-
-       
+        {      
             var degerler = (from s in db.posttables
                            where s.isaktif == 1 
                            orderby s.posttime descending
-                           select s).Take(3);
-
-            
-
-            
-
+                           select s).Take(3);                     
             return PartialView(degerler);
         }
 
         public ActionResult homepost()
         {
-
-
             var postlar = (from s in db.posttables
                            where s.isaktif == 1
                            orderby s.posttime descending
-                           select s).Take(8);
+                           select s).Take(12);
 
             return PartialView(postlar);
         }
 
         public ActionResult duyuruhaber()
         {
-
-
             var duyuruhaber = (from s in db.posttables
                           where s.isaktif == 1 && s.categoryid == 6
                                orderby s.posttime descending
@@ -75,7 +64,7 @@ namespace CocukYazini.Controllers
             var postlar = (from s in db.posttables
                            where s.isaktif == 3
                            orderby s.posttime descending
-                           select s).Take(8);
+                           select s).Take(12);
 
             return PartialView(postlar);
         }
@@ -91,16 +80,15 @@ namespace CocukYazini.Controllers
 
             return PartialView(duyuruhaber);
         }
-
-        //public ActionResult menuler()
-        //{
-
-
-        //    var kategoriler = db.categorytables.ToList();
-
-        //    return PartialView(kategoriler);
-        //}
-
-
+        public ActionResult sidebarreklam()
+        {
+            var ad = db.adtables.Where(x => x.reklamstart < DateTime.Now && x.reklamend > DateTime.Now && x.reklamside == "true").OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+            return PartialView(ad);
+        }
+        public ActionResult footerreklam()
+        {
+            var ad = db.adtables.Where(x => x.reklamstart < DateTime.Now && x.reklamend > DateTime.Now && x.reklamfooter == "true").OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+            return PartialView(ad);
+        }
     }
 }

@@ -25,9 +25,11 @@ namespace CocukYazini.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<adtable> adtables { get; set; }
         public virtual DbSet<categorytable> categorytables { get; set; }
         public virtual DbSet<comenttable> comenttables { get; set; }
         public virtual DbSet<contacttable> contacttables { get; set; }
+        public virtual DbSet<ebulten> ebultens { get; set; }
         public virtual DbSet<monthtable> monthtables { get; set; }
         public virtual DbSet<posttable> posttables { get; set; }
         public virtual DbSet<slidertable> slidertables { get; set; }
@@ -35,5 +37,6 @@ namespace CocukYazini.Models.Entity
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<uploadtable> uploadtables { get; set; }
         public virtual DbSet<usertable> usertables { get; set; }
+        public virtual DbSet<videotable> videotables { get; set; }
     }
 }

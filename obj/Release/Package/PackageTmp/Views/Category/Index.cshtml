@@ -22,7 +22,7 @@
     }
 </style>
 
-<div class="container">
+
     <h4>Kategori</h4>
     <hr />
     <table class="table table-bordered">
@@ -50,8 +50,8 @@
                 }
 
                 <td>
-                    <a href="@Url.Action("CategoryGetir", "Category" , new {id = ktgr.id})"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></a>
-                    <a href="@Url.Action("Sil", "Category" , new {id = ktgr.id})" onclick="return confirm('Bu Kategoriyi Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("CategoryGetir", "Category" , new {id = ktgr.id})"><i class="fa fa-pen" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("Sil", "Category" , new {id = ktgr.id})" onclick="return confirm('Bu Kategoriyi Silmek İstediğinize Emin Misiniz?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </td>
             </tr>
             }
@@ -59,4 +59,4 @@
     </table>
     <br /><br />
     <a href="@Url.Action("NewCategory", "Category")"> <button class="btn btn-info">Yeni Kategori Ekle</button></a>
-</div>
+

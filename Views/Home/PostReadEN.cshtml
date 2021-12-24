@@ -13,8 +13,18 @@
 
             <img src="@Model.postphoto" style="text-align:center; width:100%!important; margin:20px;" />
 
-            <h4 style="color:dimgray"><i><a href="@Url.Action("UserPostsEN", "Home" , new {id = @Model.userid})"><b>@Model.usertable.username @Model.usertable.usersurname</b></a> | @Model.posttime.Value.ToString("dd.MM.yyyy")</i></h4>
-            <hr />
+            <div class="row">
+                <div class="col-lg-9">
+                    <h4 style="color:dimgray"><i><a href="@Url.Action("UserPostsEN", "Home" , new {id = @Model.userid})"><b>@Model.usertable.username @Model.usertable.usersurname</b></a> | @Model.posttime.Value.ToString("dd.MM.yyyy")</i></h4>
+
+                </div>
+                <div class="col-lg-3">
+
+                    <a href="https://wa.me/?text= @Model.posttitle @Request.Url.ToString()"><i class="fa fa-whatsapp pull-right" style="margin-left:10px; font-size:30px!important; color:green!important;"></i></a>
+                    <a href="http://www.twitter.com/share? &url=@Request.Url.ToString()"><i class="fa fa-twitter pull-right" style="margin-left:10px; font-size:30px!important;"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=@Request.Url.ToString()"><i class="fa fa-facebook pull-right" style="margin-left:10px; font-size:30px!important; color:blue!important;"></i></a>
+                </div>
+            </div><hr />
             @Html.Raw(Model.postcontent)
 
             <br />

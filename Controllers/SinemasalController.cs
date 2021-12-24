@@ -19,8 +19,10 @@ namespace CocukYazini.Controllers
         public ActionResult Index(int sayfa=1)
 
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             // aktif olan ve kategorisine göre döndürme işlemi yapar.
-                 var degerler = from s in db.posttables
+            var degerler = from s in db.posttables
                                 where s.isaktif == 1 && s.categoryid == 3
                                 orderby s.posttime descending
                                 select s;
@@ -33,6 +35,8 @@ namespace CocukYazini.Controllers
         public ActionResult IndexEN(int sayfa = 1)
 
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             // aktif olan ve kategorisine göre döndürme işlemi yapar.
             var degerler = from s in db.posttables
                            where s.isaktif == 3 && s.categoryid == 3

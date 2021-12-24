@@ -1,0 +1,84 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "CocukYaziniTV";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+    $('#myModal2').on('shown.bs.modal', function () {
+        $('#myInput2').trigger('focus')
+    })
+    $('#myModal3').on('shown.bs.modal', function () {
+        $('#myInput3').trigger('focus')
+    })
+    $('#myModal4').on('shown.bs.modal', function () {
+        $('#myInput4').trigger('focus')
+    })
+</script>
+<div class="page-header row no-gutters py-4">
+    <div class="col-6 col-sm-6 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Çocuk Yazını TV</span>
+    </div>
+
+
+    <div class="col-6 col-sm-6 text-center mb-0 ">
+        <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal2">Yeni Video</button>
+    </div>
+</div>
+<div class="row">
+    @foreach (var videos in Model)
+    {
+    <div class="col-lg-6 text-center">
+        <h5><a href="@Url.Action("VideoUpdate", "Admin" , new { id = videos.id })">@videos.videotitle</a></h5>
+        @Html.Raw(videos.videourl) <br /><br />
+        <a href="@Url.Action("VideoDelete", "Admin" , new { id = videos.id })" onclick="return confirm('@videos.videotitle adlı Silmek İstediğinize Emin Misiniz?')">Sil</a>
+    </div>
+    }
+
+</div>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="@Url.Action("VideoAdd", "Admin")" method="post" enctype="multipart/form-data" class="form-group">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Yeni Video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="videotitle" placeholder="Vide Başlığı - Maximum 65 karakter" required class="form-control" maxlength="65" /><br />
+                    <i><p style="padding-bottom:0; margin-bottom:0; color:#ff0000; ">Video Embed Linki Koyulmalıdır.</p></i>
+                    <input type="text" name="videourl" placeholder="Video Linki" required class="form-control" /><br />
+                    <label>Video Spot Text - 175 karakter</label>
+                    <textarea name="videodescription" required class="form-control" maxlength="175"></textarea>
+                    <label>Yayınlanma Zamanı</label><br />
+                    <input type="text" id="datepicker" name="videotime" required="required" class="form-control"><br />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <input type="submit" class="btn btn-primary" value="Ekle" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+    $(function () {
+        var dateNow = new Date();
+
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+        }).datepicker('setDate', new Date());
+        ;
+    });
+</script>

@@ -143,8 +143,9 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="~/Photos/menu/sabit.png" class="d-block w-100" alt="...">
+            <img src="~/Photos/menu/slider.gif" class="d-block w-100" alt="...">
         </div>
+
         @foreach (var sliderpost in Model)
         {
             <div class="carousel-item">
@@ -263,22 +264,33 @@
                     <!-- Boxes de Acoes -->
                     <div class="box">
                         <div class="icon">
-                            <div class="image"><i class="fa fa-bullhorn"></i></div>
+                            <div class="image"><i class="fa fa-folder-open"></i></div>
                             <div class="info">
-                                <h3 class="title">Duyuru&Haber</h3>
+                                <h3 class="title">Dosya</h3>
                                 <p>
-                                    Çocuğa dair güncel haberler ve duyurular
+                                    Çocuk yazınlarına dair tematik araştırma ve inceleme yazıları
                                 </p>
-                                <a class="btn btn-secondary btnanasayfa" href="@Url.Action("Index", "Duyuruhaber")"><h4><i class="fa fa-bullhorn"></i> Duyurulara Bak</h4></a>
+                                <a class="btn btn-secondary btnanasayfa" href="@Url.Action("IndexEN", "Home")"><h4><i class="fa fa-folder-open"></i> Okumaya Başla</h4></a>
 
                             </div>
                         </div>
                     </div>
-
-
                     <div class="space"></div>
                 </div>
-               
+                <div class="mb-5">
+                    <!-- Boxes de Acoes -->
+                    <div class="box">
+                        @{Html.RenderAction("sidebarreklam", "Partial");}
+                    </div>
+
+
+                </div>
+                <hr />
+                <div class="mb-5">
+                    <!-- Boxes de Acoes -->
+                    <a href="@Url.Action("CocukYaziniTV", "Home")"><img src="~/Photos/logo/cocukyazinitv.png" class="img-rounded" style="width:100%!important;" /></a>
+                </div>
+
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 ">
                 @{Html.RenderAction("homepost", "Partial");}
@@ -289,7 +301,8 @@
     
     
 </div>
+
 @*<div class="homepartial">
     @{Html.RenderAction("homepost", "Partial");}
 </div>*@
-<div style="clear:left;"></div>
+

@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using CocukYazini.Models.Entity;
+using OfficeOpenXml;
 
 namespace CocukYazini.Controllers
 {
@@ -318,5 +319,182 @@ namespace CocukYazini.Controllers
             return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
         }
 
+        public ActionResult Bulten()
+        {
+            var bulten = (from x in db.ebultens
+                          orderby x.id descending
+                          select x).ToList();
+            return View(bulten);
+        }
+
+        public ActionResult BultenSil(int id)
+        {
+            var bulten = db.ebultens.Find(id);
+            db.ebultens.Remove(bulten);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
+        [HttpGet]
+        public ActionResult BultenGonder()
+        {        
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult BultenGonder(string title, string icerik)
+        {
+            var bultenlist = (from x in db.ebultens                             
+                             select x).ToList();
+            foreach (var item in bultenlist)
+            {
+                using(var client = new SmtpClient("mail.cocukyazini.com", 587))
+                {
+                    MailMessage mail = new MailMessage();
+                    mail.From = new MailAddress("info@cocukyazini.com", "Çocuk Yazını");
+                    mail.To.Add(item.ebultenemail);
+                    mail.IsBodyHtml = true;
+                    mail.Subject = title;
+                    mail.Body += icerik;
+
+                    NetworkCredential net = new NetworkCredential("info@cocukyazini.com", "CocukYazinicom1234!");
+                    client.Credentials = net;
+                    client.Send(mail);
+                }
+            }
+           return RedirectToAction("Index");
+
+        }
+
+        public void EbultenExcel()
+        {
+            var degerler = db.ebultens.ToList();
+
+
+            ExcelPackage pck = new ExcelPackage();
+            ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Report");
+
+            ws.Cells["A1"].Value = "Email Adresi";
+            
+
+
+            int rowStart = 2;
+            foreach (var item in degerler)
+            {
+                ws.Cells[String.Format("A{0}", rowStart)].Value = item.ebultenemail;              
+                rowStart++;
+            }
+
+            ws.Cells["A:AZ"].AutoFitColumns();
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment; filename=" + "E_Bulten_Listesi_" + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + ".xlsx");
+            Response.BinaryWrite(pck.GetAsByteArray());
+            Response.End();
+
+        }
+
+        public ActionResult CocukYaziniTV()
+        {
+            var videos = (from s in db.videotables
+                          orderby s.videotime descending
+                          select s).ToList();
+            return View(videos);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult VideoAdd(string videotitle, string videodescription, string videotime, string videourl)
+        {
+            string rtime = videotime;
+            //DateTime rtime = DateTime.ParseExact(releasetime, "yyyy/MM/dd", null);
+            var add = new videotable
+            {
+                videotitle = videotitle,
+                videodescription = videodescription,               
+                videourl = videourl,                
+                videotime = Convert.ToDateTime(rtime),
+            };
+            
+            db.videotables.Add(add);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
+
+        public ActionResult VideoDelete(int id)
+        {            
+            var video = db.videotables.Find(id);                     
+            db.videotables.Remove(video);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
+        [HttpGet]
+        public ActionResult VideoUpdate(int id)
+        {
+            var video = db.videotables.Find(id);
+            return View("VideoUpdate", video);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult VideoUpdate(videotable p1)
+        {           
+            var video = db.videotables.Find(p1.id);
+            var zaman = p1.videotime;
+            video.videotitle = p1.videotitle;
+            video.videodescription = p1.videodescription;
+            video.videourl = p1.videourl;                 
+            video.videotime = Convert.ToDateTime(zaman);          
+            db.SaveChanges();
+            return RedirectToAction("CocukYaziniTV","Admin");
+        }
+
+        public ActionResult Reklam()
+        {
+            var reklam = (from s in db.adtables
+                          select s).ToList();
+
+            return View(reklam);                       
+        }
+        [HttpPost]
+        public ActionResult AddReklam(string reklamstart, string reklamend, string reklamurl, string reklamphotourl, string format)
+        {
+            string stime = reklamstart;
+            string etime = reklamend;
+            var add = new adtable
+            {
+                reklamurl = reklamurl,
+                reklamstart = Convert.ToDateTime(stime),
+                reklamend = Convert.ToDateTime(etime),
+            };
+
+            if(format == "footer")
+            {
+                add.reklamfooter = "true";
+            }
+            else
+            {
+                add.reklamside = "true";
+            }
+            if (reklamphotourl != null)
+            {
+                var image = Request.Files[0];
+                var fileInfo = new FileInfo(image.FileName);
+                var pic = "pic_" + DateTime.Now.Ticks + fileInfo.Extension;
+                var filePath = "/Photos/post/" + pic;
+                var tempFilePath = Server.MapPath("~\\Photos\\post\\" + pic);
+                image.SaveAs(tempFilePath);
+                add.reklamphotourl = filePath;
+            }
+
+            db.adtables.Add(add);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
+        public ActionResult DeleteAd(int id)
+        {
+            var reklam = db.adtables.Find(id);
+            db.adtables.Remove(reklam);
+            db.SaveChanges();
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
     }
 }

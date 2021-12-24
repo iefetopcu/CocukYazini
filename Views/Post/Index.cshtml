@@ -7,39 +7,40 @@
     ViewBag.Title = "İçerikler";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+<div class="page-header row no-gutters py-4">
+    <div class="col-6 col-sm-6 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">İçerik Yönetimi</span>
+    </div>
 
-<div class="container">
+
+    <div class="col-6 col-sm-6 text-center mb-0 ">
+        <form action="@Url.Action("Search", "Post")" method="post" class="pull-right">
+            <input type="text" placeholder="Ara" name="search" />
+
+            <select name="kategori">
+                <option value="0">Tüm Kategoriler</option>
+                <option value="1">Dosya</option>
+                <option value="2">Kritik</option>
+                <option value="3">SineMasal</option>
+                <option value="4">Soruşturma</option>
+                <option value="5">Röportaj</option>
+                <option value="6">Duyuru&Haber</option>
+                <option value="7">Arşiv</option>
+
+            </select>
+
+            <input type="submit" class="btn btn-primary" value="Ara">
+        </form>
+    </div>
+</div>
 
     <div class="row">
-        <div class="col-6"></div>
-        <div class="col-3 pull-right">
-            <form action="@Url.Action("Search", "Post")" method="post">
-                <input type="text" placeholder="Ara" name="search"/>
-
-
-
-                <select name="kategori">
-                    <option value="0">Tüm Kategoriler</option>
-                    <option value="1">Dosya</option>
-                    <option value="2">Kritik</option>
-                    <option value="3">SineMasal</option>
-                    <option value="4">Soruşturma</option>
-                    <option value="5">Röportaj</option>
-                    <option value="6">Duyuru&Haber</option>
-                    <option value="7">Arşiv</option>
-
-                </select>
-
-                <input type="submit" class="btn btn-primary" value="Ara">
-            </form>
-
-        </div>
         <div class="col-12">
             <table class="table table-bordered" id="tbl1">
                 <thead>
                     <tr>
                         <th>Başlık</th>
-                        <th>Kim Yazmış</th>
+                        
                         <th>Kategori</th>
                         <th>Dosya Adı</th>
                         <th>Soruşturma Adı</th>
@@ -53,7 +54,7 @@
                     {
                     <tr>
                         <td>@post.posttitle</td>
-                        <td>@post.usertable.username @post.usertable.usersurname</td>
+                        
                         <td>@post.categorytable.categoryname</td>
                         <td>@post.monthtable.monthname</td>
                         <td>@post.sorusturma.sorusturmaname</td>
@@ -78,12 +79,14 @@
                         <td>@post.posttime.Value.ToString("dd.MM.yyyy")</td>
                         <td>
                             <a href="@Url.Action("PostRead", "Post" , new {id = post.id})">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <a href="@Url.Action("PostUpdate", "Post" , new {id = post.id})">
-                                    <span class="glyphicon glyphicon-pencil"></span>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
-                                <a href="@Url.Action("Sil", "Post" , new {id = post.id})" onclick="return confirm('Bu İçeriği Silmek İstediğinize Emin Misiniz? Eğer Bu İçeriği Silerseniz İçeriğe Ait Yorumlarda Silinecektir.')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
-                        </td>
+                                <a href="@Url.Action("PostUpdate", "Post" , new {id = post.id})">
+                                    <i class="fa fa-pen" aria-hidden="true"></i>
+
+                                </a>
+                                <a href="@Url.Action("Sil", "Post" , new {id = post.id})" onclick="return confirm('Bu İçeriği Silmek İstediğinize Emin Misiniz? Eğer Bu İçeriği Silerseniz İçeriğe Ait Yorumlarda Silinecektir.')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+</td>
 
                     </tr>
                     }
@@ -95,26 +98,25 @@
                 $('#table').DataTable();
 
             </script>
-            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa , @class ="pagenationstyle"}))
         </div>
 
         <div class="col-12">
             <a href="@Url.Action("NewPost", "Post")"> <button class="btn btn-info">Yeni İçerik Ekle</button></a>
-        </div>
-        <br />
-        <div class="col-12">
             <a href="@Url.Action("ExporToExcel", "Post")">
                 <button class="btn btn-success">
                     Excel'e Aktar
                 </button>
             </a>
         </div>
+       
     </div>
 
 
 
 
-</div>
+
+
 
 
 

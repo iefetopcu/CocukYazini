@@ -1,0 +1,37 @@
+﻿@using CocukYazini.Models.Entity
+@{
+    ViewBag.Title = "Bulten";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Bulten</h2>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>E-Mail Adresi</th>
+     
+        <th>İşlem</th>
+    </tr>
+    <tbody>
+        @foreach (var ebulten in Model)
+        {
+            <tr class="kategoriler">
+                <td>
+                    <a href="mailto:@ebulten.ebultenemail">
+                        @ebulten.ebultenemail
+                    </a>
+               </td>
+
+               
+                <td>
+                    <a href="@Url.Action("BultenSil", "Admin" , new {id = ebulten.id})" onclick="return confirm('Bu Mail Adresini Silmek İstediğinize Emin Misiniz?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+<a href="@Url.Action("EbultenExcel", "Admin")" class="btn btn-primary">Excel'e Aktar</a>
+<a href="@Url.Action("BultenGonder", "Admin")" class="btn btn-primary">Bülten Gönder</a>

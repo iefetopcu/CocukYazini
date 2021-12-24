@@ -16,6 +16,8 @@ namespace CocukYazini.Controllers
         public ActionResult Index(int sayfa = 1)
 
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             // aktif olan ve kategorisine göre döndürme işlemi yapar. 5
             var degerler = from s in db.posttables
                            where s.isaktif == 1 && s.categoryid == 5
@@ -31,6 +33,8 @@ namespace CocukYazini.Controllers
         public ActionResult IndexEN(int sayfa = 1)
 
         {
+            ViewBag.ebulten = TempData["ebulten"];
+            ViewBag.login = TempData["login"];
             // aktif olan ve kategorisine göre döndürme işlemi yapar. 5
             var degerler = from s in db.posttables
                            where s.isaktif == 3 && s.categoryid == 5

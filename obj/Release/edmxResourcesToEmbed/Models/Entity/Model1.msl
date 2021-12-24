@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="cocukyaziniModelStoreContainer" CdmEntityContainer="cocukyaziniEntities">
+    <EntitySetMapping Name="adtables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.adtable">
+        <MappingFragment StoreEntitySet="adtable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reklamstart" ColumnName="reklamstart" />
+          <ScalarProperty Name="reklamend" ColumnName="reklamend" />
+          <ScalarProperty Name="reklamurl" ColumnName="reklamurl" />
+          <ScalarProperty Name="reklamphotourl" ColumnName="reklamphotourl" />
+          <ScalarProperty Name="reklamfooter" ColumnName="reklamfooter" />
+          <ScalarProperty Name="reklamside" ColumnName="reklamside" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="categorytables">
       <EntityTypeMapping TypeName="cocukyaziniModel.categorytable">
         <MappingFragment StoreEntitySet="categorytable">
@@ -35,6 +48,14 @@
           <ScalarProperty Name="userid" ColumnName="userid" />
           <ScalarProperty Name="isaktif" ColumnName="isaktif" />
           <ScalarProperty Name="contacttime" ColumnName="contacttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ebultens">
+      <EntityTypeMapping TypeName="cocukyaziniModel.ebulten">
+        <MappingFragment StoreEntitySet="ebulten">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ebultenemail" ColumnName="ebultenemail" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -121,6 +142,17 @@
           <ScalarProperty Name="userphoto" ColumnName="userphoto" />
           <ScalarProperty Name="authority" ColumnName="authority" />
           <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="videotables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.videotable">
+        <MappingFragment StoreEntitySet="videotable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="videotitle" ColumnName="videotitle" />
+          <ScalarProperty Name="videodescription" ColumnName="videodescription" />
+          <ScalarProperty Name="videourl" ColumnName="videourl" />
+          <ScalarProperty Name="videotime" ColumnName="videotime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

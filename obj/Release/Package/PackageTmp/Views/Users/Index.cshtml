@@ -16,9 +16,7 @@
         }
 
             
-            #kullanicilar{
-                margin-left:200px;
-            }
+            
             .userlist img{
                 padding:5px;
             }
@@ -26,73 +24,54 @@
                 margin:5px;
             }
     </style>
-    <div id="kullanicilar">
-        <br />
+    <div class="page-header row no-gutters py-4">
+        <div class="col-6 col-sm-6 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Kullanıcı Yönetimi</span>
+        </div>
+
+
+        <div class="col-6 col-sm-6 text-center mb-0 ">
+            <div>
+               
+                <a href="@Url.Action("NewUser", "Users")"> <button class="btn btn-info">Yeni Kullanıcı Ekle</button></a>
+            </div>
+        </div>
+    </div>
+
+        
+      
+
         
 
-        <div><h4>Kullanıcılar</h4>
-            <a href="@Url.Action("NewUser", "Users")"> <button class="btn btn-info">Yeni Kullanıcı Ekle</button></a>
-        </div>
-        <hr />
 
-        <style>
-            .userlist {
-                font-family: Calibri;
-                font-size: 13pt;
-                border: solid 1px;
-                float: left;
-                height: 220px;
-                width: 250px;
-                margin-left: 10px;
-            }
-        </style>
-
-
-        @foreach (var user in Model)
+    <div class="row">
+        @foreach (var users in Model)
         {
+            <div class="col-lg-3">
+                <div class="card card-small mb-4 pt-3">
+                    <div class="card-header border-bottom text-center">
+                        <div class="mb-3 mx-auto">
+                            <img class="rounded-circle" src="@users.userphoto" alt="User Avatar" width="110" height="150">
+                        </div>
+                        <h4 class="mb-2">@users.username @users.usersurname</h4>
 
-            <div class="userlist">
-                <img src="@user.userphoto" class="img-rounded" height="100px" width="100px" />
-
-
-                <p>@user.username @user.usersurname</p>
-
-                <p>@user.usermail</p>
-                @if (user.authority == 1)
-                {
-                    <p><b>Admin</b></p>
-                }
-                else
-                {
-                    <p>Kullanıcı</p>
-                }
-                @if (user.isaktif == 1)
-                {
-                    <p style="color:darkgreen" class="pull-right">Aktif Üye</p>
-                }
-                else
-                {
-                    <p style="color:red" class="pull-right">Yasaklı Üye</p>
-                }
-
-
-                <a href="@Url.Action("ShowUser", "Users" , new {id = user.id})">
-                    <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
-                </a>
-                <a href="@Url.Action("Sil", "Users" , new {id = user.id})" onclick="return confirm('Bu Kullanıcıyı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
-
+                        <a href="@Url.Action("Sil", "Users" , new { id = users.id })" onclick="return confirm('Bu Kullanıcıyı Silmek İstediğinize Emin Misiniz?')">
+                            <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
+                                <i class="material-icons mr-1"></i>Sil
+                            </button>
+                        </a>
+                        <a href="@Url.Action("ShowUser", "Users" , new { id = users.id })">
+                            <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">
+                                <i class="material-icons mr-1"></i>Düzenle
+                            </button>
+                        </a>
+                    </div>
+                    
+                </div>
             </div>
-
-
-
-
-
-
         }
 
-
-
-
     </div>
+
 
     

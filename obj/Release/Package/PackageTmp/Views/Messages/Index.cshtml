@@ -11,10 +11,7 @@
         height:50px;
         
     }
-    #mesajsayfasi{
-        margin-left:200px;
-    }
-
+    
     .mesajlar {
         height:35px;
         border-bottom: 1px solid;
@@ -58,9 +55,9 @@
                         <td>@msjlr.contacttime</td>
                         <td>
                             <a href="@Url.Action("MessageRead", "Messages" , new {id = msjlr.id})">
-                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <i class="fa fa-eye"></i>
                             </a>
-                            <a href="@Url.Action("Sil", "Messages" , new {id = msjlr.id})" onclick="return confirm('Bu Mesajı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                            <a href="@Url.Action("Sil", "Messages" , new {id = msjlr.id})" onclick="return confirm('Bu Mesajı Silmek İstediğinize Emin Misiniz?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 }
@@ -101,9 +98,9 @@
                         <td>@msjlr.contacttime</td>
                         <td>
                             <a href="@Url.Action("MessageRead", "Messages" , new {id = msjlr.id})">
-                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <i class="fa fa-eye"></i>
                             </a>
-                            <a href="@Url.Action("Sil", "Messages" , new {id = msjlr.id})" onclick="return confirm('Bu Mesajı Silmek İstediğinize Emin Misiniz?')"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+                            <a href="@Url.Action("Sil", "Messages" , new {id = msjlr.id})" onclick="return confirm('Bu Mesajı Silmek İstediğinize Emin Misiniz?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
                     </tr>
                 }
