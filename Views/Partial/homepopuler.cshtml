@@ -1,0 +1,38 @@
+﻿@using CocukYazini.App_Code
+
+
+<div class="widget color-default">
+    <h3 class="utf_block_title"><span>Popüler Yazılar</span></h3>
+
+
+    <div class="utf_list_post_block">
+        <ul class="utf_list_post">
+            @foreach (var post in Model)
+            {
+                <li class="clearfix">
+                    <div class="utf_post_block_style post-float clearfix">
+                        <div class="utf_post_thumb"> <a href="@Url.Action("PostRead", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})"> <img class="img-fluid" src="@post.previewphoto" alt=""> </a> <a class="utf_post_cat" href="#">@post.categorytable.categoryname</a> </div>
+                        <div class="utf_post_content">
+                            <h2 class="utf_post_title title-small"> <a href="@Url.Action("PostRead", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})">@post.posttitle</a> </h2>
+                            <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> <a href="#">@post.usertable.username @post.usertable.usersurname</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> @post.posttime.ToString("dd.MM.yyyy")</span> </div>
+                        </div>
+                    </div>
+                </li>
+
+            }
+
+
+
+        </ul>
+    </div>
+</div>
+
+<div class="widget color-default">
+    <h3 class="utf_block_title"><span>Çocuk Yazını TV</span></h3>
+
+   
+        <div class="utf_list_post_block">
+            <a href="@Url.Action("CocukYaziniTV", "Home")" class="btn btn-primary" style="background-color: #2e8497; width:100%!important;">Çocuk Yazını TV</a>
+        </div>
+</div>
+        

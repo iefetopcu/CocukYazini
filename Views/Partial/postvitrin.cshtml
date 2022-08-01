@@ -1,0 +1,30 @@
+﻿@using CocukYazini.App_Code
+
+
+
+        <div class="utf_latest_news block color-orange">
+            <h3 class="utf_block_title"><span>Vitrin</span></h3>
+
+            <div class="row">
+                @foreach (var post in Model)
+                {
+
+                   <div class="col-lg-6">
+                       <div class="utf_post_block_style clearfix">
+                           <div> <a href="@Url.Action("PostRead", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})"><img class="img-fluid" src="@post.previewphoto" alt="" /></a> </div>
+                           <a class="utf_post_cat" href="">@post.categorytable.categoryname</a>
+                           <div class="utf_post_content">
+                               <h2 class="utf_post_title title-medium"> <a href="@Url.Action("PostRead", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})">@post.posttitle</a> </h2>
+                               <p>@post.postspot</p>
+                               <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> @post.usertable.username @post.usertable.usersurname</span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> @post.posttime.ToString("dd.MM.yyyy")</span> </div>
+                           </div>
+                       </div>
+                   </div>
+                }
+
+
+
+            </div>
+
+
+        </div>

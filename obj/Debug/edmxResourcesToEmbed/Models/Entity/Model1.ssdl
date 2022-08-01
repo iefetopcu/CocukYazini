@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="cocukyaziniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reklamstart" Type="datetime" />
+    <Property Name="reklamend" Type="datetime" />
+    <Property Name="reklamurl" Type="varchar(max)" />
+    <Property Name="reklamphotourl" Type="varchar(max)" />
+    <Property Name="reklamfooter" Type="varchar" MaxLength="50" />
+    <Property Name="reklamside" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="categorytable">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="categoryname" Type="varchar" MaxLength="50" />
+    <Property Name="categoryname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="isaktif" Type="int" />
   </EntityType>
   <EntityType Name="comenttable">
@@ -14,9 +26,9 @@
     </Key>
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="postid" Type="bigint" />
-    <Property Name="comenttitle" Type="varchar" MaxLength="100" />
-    <Property Name="comentcontent" Type="varchar(max)" />
-    <Property Name="whowrote" Type="varchar(max)" />
+    <Property Name="comenttitle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="comentcontent" Type="varchar(max)" Nullable="false" />
+    <Property Name="whowrote" Type="varchar(max)" Nullable="false" />
     <Property Name="userid" Type="bigint" />
     <Property Name="isaktif" Type="int" />
     <Property Name="comenttime" Type="datetime" />
@@ -26,30 +38,38 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="contacttitle" Type="varchar" MaxLength="100" />
-    <Property Name="contactcontent" Type="varchar(max)" />
+    <Property Name="contacttitle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="contactcontent" Type="varchar(max)" Nullable="false" />
     <Property Name="email" Type="varchar(max)" />
-    <Property Name="whowrote" Type="varchar(max)" />
+    <Property Name="whowrote" Type="varchar(max)" Nullable="false" />
     <Property Name="userid" Type="bigint" />
     <Property Name="isaktif" Type="int" />
     <Property Name="contacttime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ebulten">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ebultenemail" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="monthtable">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="monthname" Type="varchar(max)" />
+    <Property Name="monthname" Type="varchar(max)" Nullable="false" />
     <Property Name="datetime" Type="datetime" />
     <Property Name="monthphotourl" Type="varchar(max)" />
+    <Property Name="isaktif" Type="bigint" />
   </EntityType>
   <EntityType Name="posttable">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="posttitle" Type="varchar" MaxLength="100" />
-    <Property Name="postcontent" Type="varchar(max)" />
+    <Property Name="posttitle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="postcontent" Type="varchar(max)" Nullable="false" />
     <Property Name="categoryid" Type="bigint" />
     <Property Name="userid" Type="bigint" />
     <Property Name="whowrote" Type="varchar" MaxLength="100" />
@@ -58,6 +78,10 @@
     <Property Name="isaktif" Type="int" />
     <Property Name="posttime" Type="datetime" />
     <Property Name="monthid" Type="bigint" />
+    <Property Name="sorusturmaid" Type="bigint" />
+    <Property Name="postspot" Type="varchar(max)" />
+    <Property Name="postviewcount" Type="bigint" />
+    <Property Name="postvitrin" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="slidertable">
     <Key>
@@ -66,6 +90,17 @@
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="sliderpath" Type="varchar(max)" />
     <Property Name="sliderurl" Type="varchar(max)" />
+    <Property Name="isaktif" Type="bigint" />
+  </EntityType>
+  <EntityType Name="sorusturma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sorusturmaname" Type="varchar(max)" />
+    <Property Name="datetime" Type="datetime" />
+    <Property Name="sorusturmaphotourl" Type="varchar(max)" />
+    <Property Name="isaktif" Type="bigint" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -77,18 +112,37 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="uploadtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uploadname" Type="varchar(max)" />
+    <Property Name="uploadlink" Type="varchar(max)" />
+    <Property Name="uploadurl" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="usertable">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="varchar" MaxLength="50" />
-    <Property Name="usersurname" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="usersurname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="usermail" Type="varchar" MaxLength="50" />
     <Property Name="password" Type="varchar" MaxLength="50" />
     <Property Name="userphoto" Type="nvarchar" MaxLength="250" />
     <Property Name="authority" Type="int" />
     <Property Name="isaktif" Type="int" />
+  </EntityType>
+  <EntityType Name="videotable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="videotitle" Type="varchar(max)" />
+    <Property Name="videodescription" Type="varchar(max)" />
+    <Property Name="videourl" Type="varchar(max)" />
+    <Property Name="videotime" Type="datetime" />
   </EntityType>
   <Association Name="FK_comenttable_posttable">
     <End Role="posttable" Type="Self.posttable" Multiplicity="0..1" />
@@ -150,6 +204,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_posttable_sorusturma">
+    <End Role="sorusturma" Type="Self.sorusturma" Multiplicity="0..1" />
+    <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sorusturma">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="posttable">
+        <PropertyRef Name="sorusturmaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_posttable_usertable">
     <End Role="usertable" Type="Self.usertable" Multiplicity="0..1" />
     <End Role="posttable" Type="Self.posttable" Multiplicity="*" />
@@ -163,14 +229,19 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="cocukyaziniModelStoreContainer">
+    <EntitySet Name="adtable" EntityType="Self.adtable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="categorytable" EntityType="Self.categorytable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="comenttable" EntityType="Self.comenttable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="contacttable" EntityType="Self.contacttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ebulten" EntityType="Self.ebulten" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="monthtable" EntityType="Self.monthtable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="posttable" EntityType="Self.posttable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="slidertable" EntityType="Self.slidertable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sorusturma" EntityType="Self.sorusturma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uploadtable" EntityType="Self.uploadtable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usertable" EntityType="Self.usertable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="videotable" EntityType="Self.videotable" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_comenttable_posttable" Association="Self.FK_comenttable_posttable">
       <End Role="posttable" EntitySet="posttable" />
       <End Role="comenttable" EntitySet="comenttable" />
@@ -189,6 +260,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_posttable_monthtable" Association="Self.FK_posttable_monthtable">
       <End Role="monthtable" EntitySet="monthtable" />
+      <End Role="posttable" EntitySet="posttable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posttable_sorusturma" Association="Self.FK_posttable_sorusturma">
+      <End Role="sorusturma" EntitySet="sorusturma" />
       <End Role="posttable" EntitySet="posttable" />
     </AssociationSet>
     <AssociationSet Name="FK_posttable_usertable" Association="Self.FK_posttable_usertable">

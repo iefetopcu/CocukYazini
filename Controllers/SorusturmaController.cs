@@ -50,6 +50,11 @@ namespace CocukYazini.Controllers
                            orderby s.posttime descending
                            select s;
 
+            var sorusturmaadi = (from x in db.sorusturmas
+                                 where x.id == id
+                                 select x).FirstOrDefault();
+
+            ViewBag.SorusturmaAdi = sorusturmaadi.sorusturmaname;
 
             return View(degerler);
 
@@ -66,7 +71,11 @@ namespace CocukYazini.Controllers
                            orderby s.posttime descending
                            select s;
 
+            var sorusturmaadi = (from x in db.sorusturmas
+                            where x.id == id
+                            select x).FirstOrDefault();
 
+            ViewBag.SorusturmaAdi = sorusturmaadi.sorusturmaname;
             return View(degerler);
 
 

@@ -60,7 +60,13 @@ namespace CocukYazini.Controllers
                            select s;
 
 
-            
+            var dosyaadi = (from x in db.monthtables
+                           where x.id == id
+                           select x).FirstOrDefault();
+
+            ViewBag.DosyaAdi = dosyaadi.monthname;
+
+
             return View(degerler);
 
 
@@ -78,7 +84,11 @@ namespace CocukYazini.Controllers
                            orderby s.posttime descending
                            select s;
 
+            var dosyaadi = (from x in db.monthtables
+                            where x.id == id
+                            select x).FirstOrDefault();
 
+            ViewBag.DosyaAdi = dosyaadi.monthname;
 
             return View(degerler);
 

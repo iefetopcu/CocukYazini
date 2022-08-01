@@ -90,5 +90,45 @@ namespace CocukYazini.Controllers
             var ad = db.adtables.Where(x => x.reklamstart < DateTime.Now && x.reklamend > DateTime.Now && x.reklamfooter == "true").OrderBy(x => Guid.NewGuid()).FirstOrDefault();
             return PartialView(ad);
         }
+
+        public ActionResult postvitrin()
+        {
+            var postlar = (from s in db.posttables
+                           where s.isaktif == 1 && s.postvitrin == "true"
+                           orderby s.posttime descending
+                           select s).Take(6);
+
+            return PartialView(postlar);
+        }
+
+        public ActionResult postvitrinEN()
+        {
+            var postlar = (from s in db.posttables
+                           where s.isaktif == 3 && s.postvitrin == "true"
+                           orderby s.posttime descending
+                           select s).Take(6);
+
+            return PartialView(postlar);
+        }
+
+        public ActionResult homepopuler()
+        {
+            var postlar = (from s in db.posttables
+                           where s.isaktif == 1 
+                           orderby s.postviewcount descending
+                           select s).Take(4);
+
+            return PartialView(postlar);
+        }
+
+        public ActionResult homepopulerEN()
+        {
+            var postlar = (from s in db.posttables
+                           where s.isaktif == 3
+                           orderby s.postviewcount descending
+                           select s).Take(4);
+
+            return PartialView(postlar);
+        }
     }
 }

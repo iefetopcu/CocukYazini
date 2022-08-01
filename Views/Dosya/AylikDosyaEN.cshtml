@@ -3,107 +3,39 @@
 @using CocukYazini.App_Code
 
 @{
-    ViewBag.Title = "AylikDosyaEN";
-    Layout = "~/Views/Shared/_Layout - EN.cshtml";
+    ViewBag.Title = ViewBag.DosyaAdi + " Agenda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .postbox {
-        box-shadow: 2px 2px #F38356;
-        padding: 5px;
-        border-radius: 20px;
-    }
-
-    .myButton {
-        background-color: #6ccc86;
-        border-radius: 28px;
-        border: 1px solid #278530;
-        display: inline-block;
-        cursor: pointer;
-        color: #ffffff;
-        font-family: Arial;
-        font-size: 12px;
-        padding: 16px 31px;
-        text-decoration: none;
-        text-shadow: 0px 1px 0px #26571e;
-        margin-top: 10px;
-    }
-
-        .myButton:hover {
-            background-color: #9de374;
-        }
-
-        .myButton:active {
-            position: relative;
-            top: 1px;
-        }
-
-    .example_c {
-        color: #494949 !important;
-        text-transform: uppercase;
-        text-decoration: none;
-        background: #ffffff;
-        padding: 10px;
-        border: 2px solid #494949 !important;
-        display: inline-block;
-        transition: all 0.4s ease 0s;
-    }
-
-        .example_c:hover {
-            color: #ffffff !important;
-            background: #f6b93b;
-            border-color: #f6b93b !important;
-            transition: all 0.4s ease 0s;
-        }
 
 
+<section class="utf_latest_new_area pb-bottom-20">
+    <div class="container">
+        <div class="utf_latest_news block color-red">
+            <h3 class="utf_block_title"><span>Agenda : @ViewBag.DosyaAdi </span></h3>
 
-    .postheader {
-        font-size: 25px;
-        font-display: auto;
-        font-style: oblique;
-        margin-top: -54px;
-        margin-left: 50px;
-        color: coral;
-    }
-</style>
-@*<h4 class="postheader">Dosya</h4>*@
-<div class="container" style="margin-top:50px;">
-    <div class="row">
+            <div class="row">
+                @foreach (var post in Model)
+                {
 
-        @foreach (var post in Model)
-        {
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center" style="margin-top:5px; padding:30px;">
-
-                <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})" class="baslik">
-                    <h3 style="height:50px;" class="mobiltitles">@post.posttitle</h3>
-
-                </a>
-
-                <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})" style="text-decoration:none;">
-                    <img src="@post.previewphoto" style="width:100%!important" /><br />
-                </a>
-                <br />
-                <h4 style="color: darkgoldenrod;">@post.usertable.username @post.usertable.usersurname <i style="        color: seagreen">|</i> <i style="color:darkgoldenrod;">@post.posttime.ToString("dd.MM.yyyy")</i></h4>
+                    <div class="col-lg-6">
+                        <div class="utf_post_block_style clearfix">
+                            <div> <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})"><img class="img-fluid" src="@post.previewphoto" alt="" /></a> </div>
+                            <a class="utf_post_cat" href="">@post.categorytable.categoryname</a>
+                            <div class="utf_post_content">
+                                <h2 class="utf_post_title title-medium"> <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})">@post.posttitle</a> </h2>
+                                <p>@post.postspot</p>
+                                <div class="utf_post_meta"> <span class="utf_post_author"><i class="fa fa-user"></i> @post.usertable.username @post.usertable.usersurname</span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> @post.posttime.ToString("dd.MM.yyyy")</span> </div>
+                            </div>
+                        </div>
+                    </div>
+                }
 
 
-                <div class="col-12">
-                    <span style="text-align:justify; font-size:16px; font-family:'Trebuchet MS'; color:#837A78;">@post.postspot...</span>
-
-                </div>
-
-                <div class="pull-right">
-                    <a href="@Url.Action("PostReadEN", "Home", new {id = post.id,baslik=Seo.AdresDuzenle(post.posttitle)})" style="font-family:'Trebuchet MS'; font-size:12pt;">
-                        Read More...
-                    </a>
-
-                </div>
 
             </div>
 
-        }
+
+        </div>
     </div>
-    
-</div>
-
-
+</section>

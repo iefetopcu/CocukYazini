@@ -356,10 +356,11 @@ namespace CocukYazini.Controllers
 
                 if (!String.IsNullOrEmpty(search))
                 {
+                    
                     post = post.Where(s => s.posttitle.Contains(search));
                     
                 }
-
+                ViewBag.Search = search;
                 return View(post.ToList());
             }
             else
@@ -372,7 +373,9 @@ namespace CocukYazini.Controllers
                     post = post.Where(s => s.posttitle.Contains(search) && s.categoryid == kategori);
 
                 }
+                
 
+                ViewBag.Search = search;
                 return View(post.ToList());
 
             }
@@ -392,7 +395,7 @@ namespace CocukYazini.Controllers
                     post = post.Where(s => s.posttitle.Contains(search));
 
                 }
-
+                ViewBag.Search = search;
                 return View(post.ToList());
             }
             else
@@ -405,7 +408,7 @@ namespace CocukYazini.Controllers
                     post = post.Where(s => s.posttitle.Contains(search) && s.categoryid == kategori);
 
                 }
-
+                ViewBag.Search = search;
                 return View(post.ToList());
 
             }
@@ -419,6 +422,11 @@ namespace CocukYazini.Controllers
             ViewBag.login = TempData["login"];
             var post = db.posttables.Include(a => a.comenttables).FirstOrDefault(a => a.id == id);
             var yorumlar = db.posttables.Include(a => a.comenttables);
+
+            post.postviewcount += 1;
+            db.SaveChanges();
+
+
             if (post == null)
             {
                 return RedirectToAction("Hata", "Home");
@@ -428,11 +436,7 @@ namespace CocukYazini.Controllers
             {
                 return View("PostRead", post);
             }
-            //var userotherpost = from s in db.posttables
-            //                    where s.userid == post.userid
-            //                    orderby s.posttime
-            //                    descending
-            //                    select s;
+           
 
             
         }
@@ -461,6 +465,13 @@ namespace CocukYazini.Controllers
                            where s.userid == id && s.isaktif == 1
                            orderby s.posttime descending
                            select s;
+
+
+            var user = (from x in db.usertables
+                            where x.id == id
+                            select x).FirstOrDefault();
+
+            ViewBag.UserName = user.username+" "+user.usersurname;
 
             return View("UserPosts", userposts);
 

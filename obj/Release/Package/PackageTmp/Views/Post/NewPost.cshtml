@@ -20,50 +20,56 @@
 </div>
 
     
-    <form method="post" enctype="multipart/form-data" class="form-group">
-        <label>Başlık</label>
-        <input type="text" name="posttitle" required="required" class="form-control" /><br />
-        <label>İçerik</label><br />
+<form method="post" enctype="multipart/form-data" class="form-group">
+    <label>Başlık</label>
+    <input type="text" name="posttitle" required="required" class="form-control" /><br />
+    <label>İçerik</label><br />
 
-        <textarea name="postcontent" class="form-control"></textarea><br /><br />
-        <script>
-            CKEDITOR.replace('postcontent');
-        </script>
-        <label>Spot Metni</label>
+    <textarea name="postcontent" class="form-control"></textarea><br /><br />
+    <script>
+        CKEDITOR.replace('postcontent');
+    </script>
+    <label>Spot Metni</label>
 
-        <textarea name="postspot" maxlength="250" placeholder="SPOT" cols="100" required="required" rows="4" class="form-control"></textarea><br /><br />
-        <label>Kategori Seç</label>
-        @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat, new { @class = "form-control" })<br />
-        <label>Dosya Adı Seç</label>
-        @Html.DropDownListFor(m => m.monthid, (List<SelectListItem>)ViewBag.mon, new { @class = "form-control" })<br />
-        <p>"Dosya adı sadece soruşturma kategorisi seçildiğinde seçilmelidir"</p>
-        <label>Soruşturma Adı Seç</label>
-        @Html.DropDownListFor(m => m.sorusturmaid, (List<SelectListItem>)ViewBag.srstrma, new { @class = "form-control" }) <p>"Soruşturma adı sadece soruşturma kategorisi seçildiğinde seçilmelidir"</p><br />
+    <textarea name="postspot" maxlength="250" placeholder="SPOT" cols="100" required="required" rows="4" class="form-control"></textarea><br /><br />
+    <label>Kategori Seç</label>
+    @Html.DropDownListFor(m => m.categoryid, (List<SelectListItem>)ViewBag.cat, new { @class = "form-control" })<br />
+    <label>Dosya Adı Seç</label>
+    @Html.DropDownListFor(m => m.monthid, (List<SelectListItem>)ViewBag.mon, new { @class = "form-control" })<br />
+    <p>"Dosya adı sadece soruşturma kategorisi seçildiğinde seçilmelidir"</p>
+    <label>Soruşturma Adı Seç</label>
+    @Html.DropDownListFor(m => m.sorusturmaid, (List<SelectListItem>)ViewBag.srstrma, new { @class = "form-control" }) <p>"Soruşturma adı sadece soruşturma kategorisi seçildiğinde seçilmelidir"</p><br />
 
-        <br />
-        <label>İçerik Fotoğrafı</label>
-        <input type="file" name="postphoto" id="postphoto" style="margin-left:200px;" /><br />
-        <label>Küçük Fotoğraf</label>
-        <input type="file" name="previewphoto" id="previewphoto" style="margin-left:200px;" /><h6>(Küçük fotoğraf yüksekliği 250 genişliği 500 px veya katları olmalıdır.)</h6><br />
-        <label>İçerik Durumu</label>
-        <select name="isaktif" class="form-control">
-            <option value="1">Aktif İçerik</option>
-            <option value="2">Pasif İçerik</option>
-            <option value="3">İngilizce Aktif İçerik</option>
-            <option value="4">İngilizce Pasif İçerik</option>
-        </select><br />
-        <br />
-        <label>İçerik Zamanı</label>
-        <input type="text" id="datepicker" name="posttime" required="required" class="form-control"><br />
-        <label>Kim Yazdı?</label>
-        @Html.DropDownListFor(m => m.userid, (List<SelectListItem>)ViewBag.usr, new { @class="form-control"})
+    <br />
+    <label>İçerik Fotoğrafı</label>
+    <input type="file" name="postphoto" id="postphoto" style="margin-left:200px;" /><br />
+    <label>Küçük Fotoğraf</label>
+    <input type="file" name="previewphoto" id="previewphoto" style="margin-left:200px;" /><h6>(Küçük fotoğraf yüksekliği 250 genişliği 500 px veya katları olmalıdır.)</h6><br />
+
+    <br />
+    <label>Vitrinde Gözüksün Mü?</label>
+    <input type="checkbox" value="true" name="postvitrin" /><br />
+    <label>İçerik Durumu</label>
+    <select name="isaktif" class="form-control">
+        <option value="1">Aktif İçerik</option>
+        <option value="2">Pasif İçerik</option>
+        <option value="3">İngilizce Aktif İçerik</option>
+        <option value="4">İngilizce Pasif İçerik</option>
+    </select><br />
 
 
-        <div style="margin-top: 15px">
-            <label></label> <button class="btn btn-info">İçerik Ekle</button>
-        </div>
+    <br />
+    <label>İçerik Zamanı</label>
+    <input type="text" id="datepicker" name="posttime" required="required" class="form-control"><br />
+    <label>Kim Yazdı?</label>
+    @Html.DropDownListFor(m => m.userid, (List<SelectListItem>)ViewBag.usr, new { @class = "form-control" })
 
-    </form>
+
+    <div style="margin-top: 15px">
+        <label></label> <button class="btn btn-info">İçerik Ekle</button>
+    </div>
+
+</form>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>

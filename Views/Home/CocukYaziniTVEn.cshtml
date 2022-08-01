@@ -4,25 +4,26 @@
     Layout = "~/Views/Shared/_Layout - EN.cshtml";
 }
 
-<style>
-    iframe {
-        width: 100% !important;
-    }
-</style>
-<div class="container">
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-lg-6 text-center" style="min-height:480px;">
-                <h4 style="margin-top:20px; min-height:40px;"><b>@item.videotitle</b></h4>
-                @Html.Raw(item.videourl)
-                <h5 style="margin-top:10px;">@item.videodescription</h5>
+<section class="utf_latest_new_area pb-bottom-20">
+    <div class="container">
+        <div class="utf_latest_news block color-red">
+            <h3 class="utf_block_title"><span>Çocuk Yazını TV </span></h3>
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-6 text-center" style="min-height:480px;">
+                        <h4 style="margin-top:20px; min-height:40px;"><b>@item.videotitle</b></h4>
+                        @Html.Raw(item.videourl)
+                        <h5 style="margin-top:10px;">@item.videodescription</h5>
+                    </div>
+
+                }
+
+
             </div>
 
-        }
 
-
+        </div>
     </div>
-</div>
-
-
+</section>

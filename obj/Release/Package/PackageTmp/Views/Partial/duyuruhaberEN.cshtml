@@ -1,18 +1,19 @@
 ﻿@using CocukYazini.Models.Entity
 @using CocukYazini.App_Code
 
+
 @foreach (var footerhaber in Model)
 {
-    <div class="media">
-        <div class="media-left">
 
-        </div>
-        <div class="media-body">
-            <a href="@Url.Action("PostReadEN", "Home", new {id = footerhaber.id,baslik=Seo.AdresDuzenle(footerhaber.posttitle)})" class="footerurl"><span><h4>@footerhaber.posttitle</h4></span></a>
 
-            <span><h4 style="color:dimgrey">@footerhaber.categorytable.categoryname</h4></span>
-            <i><span><b>@footerhaber.usertable.username @footerhaber.usertable.usersurname</b></span><br /></i>
+    <li class="clearfix">
+        <div class="utf_post_block_style post-float clearfix">
+            <div class="utf_post_thumb"> <a href="@Url.Action("PostReadEN", "Home", new {id = footerhaber.id,baslik=Seo.AdresDuzenle(footerhaber.posttitle)})"> <img class="img-fluid" src="@footerhaber.previewphoto" alt="" /> </a> </div>
+            <div class="utf_post_content">
+                <h2 class="utf_post_title title-small"> <a href="@Url.Action("PostReadEN", "Home", new {id = footerhaber.id,baslik=Seo.AdresDuzenle(footerhaber.posttitle)})">@footerhaber.posttitle</a> </h2>
+                <div class="utf_post_meta"> <span class="utf_post_date"><i class="fa fa-arrow-circle-right"></i> @footerhaber.categorytable.categoryname</span> </div>
+            </div>
         </div>
-    </div>
+    </li>
 
 }

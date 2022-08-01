@@ -24,339 +24,157 @@
     <meta name="author" content="Arte Dijital">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Çocuk Yazını -  @ViewBag.Title </title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+   
 
-    <style type="text/css">
-        .footerlinks a {
-            color: white !important;
-        }
+    
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
-        .footerlinks {
-            font-size: 14px;
-        }
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/animate.css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/assets/css/colorbox.css">
 
-        .baslik {
-            color: #B45A30;
-            text-decoration: none;
-        }
-
-        .postspot {
-            text-align: justify !important;
-            height: 200px;
-        }
-
-        .baslik:hover {
-            color: coral;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: Verdana !important;
-            background-color: #F5F4ED !important;
-        }
-
-        .nav-link {
-            font-size: 22px;
-            margin-left: 4px;
-            color: dimgrey;
-        }
-
-
-
-
-        .modal-login {
-            color: #636363;
-            width: 350px !important;
-        }
-
-            .modal-login .modal-content {
-                padding: 20px;
-                border-radius: 5px;
-                border: none;
-            }
-
-            .modal-login .modal-header {
-                border-bottom: none;
-                position: relative;
-                justify-content: center;
-            }
-
-            .modal-login h4 {
-                text-align: center;
-                font-size: 26px;
-            }
-
-            .modal-login .form-group {
-                position: relative;
-            }
-
-            .modal-login i {
-                position: absolute;
-                left: 13px;
-                top: 11px;
-                font-size: 18px;
-            }
-
-            .modal-login .form-control {
-                padding-left: 40px;
-            }
-
-                .modal-login .form-control:focus {
-                    border-color: #3EBEE1;
-                }
-
-            .modal-login .form-control, .modal-login .btn {
-                min-height: 40px;
-                border-radius: 3px;
-            }
-
-            .modal-login .hint-text {
-                text-align: center;
-                padding-top: 10px;
-            }
-
-            .modal-login .close {
-                position: absolute;
-                top: -5px;
-                right: -5px;
-            }
-
-            .modal-login .btn {
-                background: #59E0F0;
-                border: none;
-                line-height: normal;
-            }
-
-                .modal-login .btn:hover, .modal-login .btn:focus {
-                    background: #3EBEE1;
-                }
-
-            .modal-login .modal-footer {
-                background: #ecf0f1;
-                border-color: #dee4e7;
-                text-align: center;
-                margin: 0 -20px -20px;
-                border-radius: 5px;
-                font-size: 13px;
-                justify-content: center;
-            }
-
-                .modal-login .modal-footer a {
-                    color: #F36F55;
-                }
-
-        .trigger-btn {
-            display: inline-block;
-            margin: 100px auto;
-        }
-
-        footer .social {
-            text-decoration: none;
-            list-style-type: none;
-        }
-
-            footer .social li {
-                float: left;
-                margin: 8px;
-            }
-
-
-
-
-        .sessionlink {
-            text-decoration: none;
-            color: black;
-            margin-right: 12px;
-            font-size: 25px;
-            text-transform: uppercase;
-        }
-
-            .sessionlink:hover {
-                color: chocolate;
-            }
-
-        @@media only screen and (max-width: 600px) {
-            .userphoto {
-                width: 0px;
-            }
-
-            .postspot {
-                text-align: justify !important;
-                display: inline-block;
-            }
-
-            .headerlogo {
-                margin: 0 !important;
-            }
-
-            .mobiltitles {
-                display: inline-block;
-            }
-
-            .headerlogo {
-                width: 75px !important;
-                margin: 20px !important;
-            }
-
-            .mobillogin {
-                display: none;
-            }
-        }
-
-        .backgroundbannertop {
-            /*background-image: url("../../Photos/sliderphotos/bgtest3.jpg");*/
-            background-color: #FCE076;
-            margin-top: -50px;
-        }
-    </style>
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700,800&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-    <div class="container-fluid backgroundbannertop">
-        <div class="row">
-
-            <div class="col-6" style="margin-bottom:-50px;">
-                <a href="#"><img src="~/Photos/logo/cocuk.png" width="150px" style="margin-left:40px; margin-top:20px;" class="headerlogo" /></a>
+    <!-- Preloader Start -->
+    @*<div class="preloader">
+            <div class="utf-preloader">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+        </div>*@
+    <!-- Preloader End -->
+   
+    <div class="body-inner">
+        <!-- Topbar Start -->
+        <div id="top-bar" class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ul class="unstyled top-nav">
+                            <li><a data-toggle="modal" data-target="#myModal" class="text-white">Giriş Yap & Üye Ol</a></li>
+                            
+                        </ul>
 
-            <div class="col-6 mobillogin">
-                <div class="pull-right">
-
-                    @if (Session["MySessionUser"] != null)
-                    {
-
-                        <a href='@Url.Action("ShowUser", "Home" )' class="sessionlink">
-                            <span class="glyphicon glyphicon-pencil mobilloginicon"></span>
-                        </a>
-                        <a href='@Url.Action("Logout", "Home")' class="sessionlink">
-                            <span class="glyphicon glyphicon-log-out"></span>
-                        </a>
-                        <a href='#SearchModal' data-toggle="modal" class="sessionlink">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </a>
-
-
-
-                        <h4>
-                            <img src="@(((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).userphoto )" height="40" width="40" style=" border: 1px solid #999;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;" class="userphoto" />
-
-                            @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).username : "")
-                            @(Session["MySessionUser"] != null ? ((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).usersurname : "")
-                        </h4>
-                    }
-                    else
-                    {
-                        <a href='#myModalNewLogin' data-toggle="modal" class="sessionlink">
-                            <span class="glyphicon glyphicon-user"> </span>
-                        </a>
-                        <a href='#myModal' data-toggle="modal" class="sessionlink">
-                            <span class="glyphicon glyphicon-log-in"> </span>
-                        </a>
-                        <a href='#SearchModal' data-toggle="modal" class="sessionlink">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </a>
-                    }
-
-
-
+                    </div>
+                    <div class="col-md-4 top-social text-lg-right text-md-center">
+                        <ul class="unstyled">
+                            <li>
+                                <a title="Facebook" href="https://www.facebook.com/cocukyaziniwebsite/" target="_blank"> <span class="social-icon"><i class="fa fa-facebook"></i></span> </a>
+                                <a title="Twitter" href="https://twitter.com/cocuk_yazini" target="_blank"> <span class="social-icon"><i class="fa fa-twitter"></i></span> </a>
+                                <a title="Instagram" href="https://www.instagram.com/cocukyazini/" target="_blank"> <span class="social-icon"><i class="fa fa-instagram"></i></span> </a>
+                                <a title="Linkdin" href="https://www.youtube.com/channel/UCEFxedCZbBncrDYAuaRKzsQ" target="_blank"> <span class="social-icon"><i class="fa fa-youtube"></i></span> </a>
+                                @if (Session["MySessionUser"] != null)
+                                {<li><a href=@Url.Action("LogOut","Home")> X </a></li>}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-
-
-        <nav class="navbar navbar-light navbar-expand-lg sticky-top pull-right">
-            <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#NavbarContentID" area-expanded="false" aria-label="toggler Button" aria-controls="NavbarContentID"> <span class="navbar-toggler-icon"></span></button>
-
-            <div class="row pull-right">
-                <div id="NavbarContentID" class="collapse navbar-collapse ml-auto" style="font-size:18px;">
-                    <ul class="navbar-nav ml-auto text-right">
-                        <li class="nav-item"><a href="@Url.Action("Index", "Home")" class="nav-link"><b>Anasayfa</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index", "About")" class="nav-link"><b>Hakkımızda</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index", "Dosya")" class="nav-link"><b>Dosya</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index", "Kritik")" class="nav-link"><b>Kritik</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index", "Sinemasal")" class="nav-link"><b>SineMasal</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index", "Sorusturma")" class="nav-link"><b>Soruşturma</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("Index", "Roportaj")" class="nav-link"><b>Röportaj</b></a></li>
-                        <li class="nav-item"><a href="@Url.Action("IndexEN", "Home")" class="nav-link"><img src="https://i4.hurimg.com/i/hurriyet/75/750x422/55ea65fdf018fbb8f87d5486.jpg" alt="Switch English Langugae" height="20" /></a></li>
-
-                        @{
-                            if (Session["MySessionUser"] != null)
-                            {
-                                if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
-                                {
-                                    <li class="nav-item"><a href="@Url.Action("Index", "Admin")" class="nav-link"><span class="glyphicon glyphicon-wrench"></span></a></li>
-                                }
-                            }
-                            else
-                            {
-
-                            }
-                        }
-
-
-
-
-                    </ul>
+        <!-- Topbar End -->
+        <!-- Header start -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <div class="logo"> <a href=@Url.Action("Index","Home")> <img src="~/Photos/logo/cocuk2022logo.png" alt="" style="width:140px;"> </a> </div>
+                    </div>
                 </div>
-
             </div>
+        </header>
+        <!-- Header End -->
+        <!-- Main Nav Start -->
+        <div class="utf_main_nav_area clearfix utf_sticky">
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg col">
+                        <div class="utf_site_nav_inner float-left">
 
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"> 
+                            <span class="navbar-toggler-icon"></span> 
+                            </button>
+                            
+                            <div id="navbarSupportedContent" class="collapse navbar-collapse navbar-responsive-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <a href=@Url.Action("Index", "Home")>ANASAYFA</a> </li>
+                                    <li> <a href=@Url.Action("Index", "About")>HAKKIMIZDA</a> </li>
+                                    <li> <a href=@Url.Action("Index", "Dosya")>DOSYA</a> </li>
+                                    <li> <a href=@Url.Action("Index", "Kritik")>KRİTİK</a> </li>
+                                    <li> <a href=@Url.Action("Index", "Sinemasal")>SİNEMASAL</a> </li>
+                                    <li> <a href=@Url.Action("Index", "Sorusturma")>SORUŞTURMA</a> </li>
+                                    <li> <a href=@Url.Action("Index", "Roportaj")>RÖPORTAJ</a> </li>
+                                    @{
+                                        if (Session["MySessionUser"] != null)
+                                        {
+                                            if (((CocukYazini.Models.Entity.usertable)Session["MySessionUser"]).authority == 1)
+                                            {
+                                                <li> <a href=@Url.Action("Index", "Admin")>Panel</a> </li>
+                                                
+                                            }
+                                        }
+                                        else
+                                        {
 
-
-
-        </nav>
-
-    </div>
-
-
-
-    @RenderBody()
-    <hr />
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                @{Html.RenderAction("footerreklam", "Partial");}
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <a href="#SearchModal" data-toggle="modal"><div class="utf_nav_search"> <span><i class="fa fa-search"></i></span> </div></a>
+                    
+                </div>
             </div>
         </div>
-    </div>
-    
-
-    <div class="container-fluid">
-
+        @RenderBody()
+        <!-- Footer Start -->
         @{Html.RenderAction("footer", "Partial");}
-        <div class="row footerlinks" style="background-color:dimgray; color:white;">
-            <div class="col-lg-8">
-                Bu web sitesi <a href="https://www.artedijital.com/">Artedijital </a> tarafından yapılmıştır.
-            </div>
-            <div class="col-lg-4">
-                <a href='#contactModal' data-toggle="modal" class="pull-right">İletişim</a>
+        <!-- Footer End -->
+        <!-- Copyright Start -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 text-center">
+                        <div class="utf_copyright_info"> <span>Tüm Hakları Saklıdır. © 2022</span> </div>
+                    </div>
+                </div>
+                <div id="back-to-top" class="back-to-top">
+                    <button class="btn btn-primary" title="Back to Top"> <i class="fa fa-angle-up"></i> </button>
+                </div>
             </div>
         </div>
+        <!-- Copyright End -->
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!-- Javascript Files -->
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/jquery.colorbox.js"></script>
+    <script src="~/assets/js/smoothscroll.js"></script>
+    <script src="~/assets/js/custom_script.js"></script>
+    <script>
+        /* Loading Js*/
+        $(window).on('load', function () {
+            setTimeout(function () {
+                $(".preloader").delay(700).fadeOut(700).addClass('loaded');
+            }, 800);
+        });
+    </script>
 </body>
 </html>
 
-@*<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Modal HTML -->
 <div id="myModal" class="modal fade">
     <div class="modal-dialog modal-login">
@@ -370,11 +188,11 @@
 
                 <form action="@Url.Action("Login", "Home")" method="post">
                     <div class="form-group">
-                        <i class="fa fa-user"></i>
+                       
                         <input type="email" class="form-control" placeholder="E-Posta" required="required" name="usermail">
                     </div>
                     <div class="form-group">
-                        <i class="fa fa-lock"></i>
+                        
                         <input type="password" class="form-control" placeholder="Şifre" required="required" name="password">
                     </div>
                     <div class="form-group">
@@ -391,7 +209,8 @@
                 }
             </div>
             <div class="modal-footer">
-                <a href="@Url.Action("ForgetPassword", "Home")">Şifremi Unuttum</a>
+                <a href="#myModalNewLogin" data-toggle="modal">Kayıt Ol</a>
+                <a href="@Url.Action("ForgetPasswordEN", "Home")">Şifremi Unuttum</a>
             </div>
         </div>
     </div>
@@ -411,20 +230,20 @@
 
                 <form action="@Url.Action("NewUser", "Home")" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <i class="fa fa-user"></i>
+                       
                         <input type="text" class="form-control" placeholder="İsim" required="required" name="username">
                     </div>
                     <div class="form-group">
-                        <i class="fa fa-user"></i>
+                        
                         <input type="text" class="form-control" placeholder="Soyisim" required="required" name="usersurname">
                     </div>
                     <div class="form-group">
-                        <i class="fa fa-user"></i>
+                       
                         <input type="email" class="form-control" placeholder="E-Posta" required="required" name="usermail">
                     </div>
 
                     <div class="form-group">
-                        <i class="fa fa-lock"></i>
+                        
                         <input type="password" class="form-control" placeholder="Şifre" required="required" name="password">
                     </div>
                     <div class="form-group">
@@ -458,7 +277,7 @@
 
                 <form action="@Url.Action("Search", "Home")" method="post">
                     <div class="form-group">
-                        <i class="fa fa-search"></i>
+                        
                         <input type="text" class="form-control" placeholder="Aranacak Kelime" required="required" name="search">
                     </div>
                     <div class="form-group">
@@ -549,8 +368,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                
-                
+
+
 
             </div>
         </div>
@@ -622,3 +441,17 @@
      }
             });
 </script>
+
+
+<!--<body>-->
+@*<div class="preloader">
+        <div class="utf-preloader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>*@
+
+
+
+

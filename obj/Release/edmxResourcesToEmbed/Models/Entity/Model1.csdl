@@ -85,6 +85,8 @@
     <Property Name="monthid" Type="Int64" />
     <Property Name="sorusturmaid" Type="Int64" />
     <Property Name="postspot" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="postviewcount" Type="Int64" />
+    <Property Name="postvitrin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="categorytable" Relationship="Self.FK_posttable_categorytable" FromRole="posttable" ToRole="categorytable" />
     <NavigationProperty Name="comenttables" Relationship="Self.FK_comenttable_posttable" FromRole="posttable" ToRole="comenttable" />
     <NavigationProperty Name="monthtable" Relationship="Self.FK_posttable_monthtable" FromRole="posttable" ToRole="monthtable" />

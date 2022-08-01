@@ -6,8 +6,8 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\Projeler\Çocuk Yazını Publish\v30</_PublishTargetUrl>
-    <History>True|2021-12-12T19:24:32.3740722Z;True|2021-10-11T23:44:00.7341637+03:00;True|2021-06-30T00:35:37.0592498+03:00;True|2021-06-28T01:34:49.8932578+03:00;</History>
+    <_PublishTargetUrl>C:\Users\EfeTopcu\Desktop\Projeler\Çocuk Yazını Publish\v31</_PublishTargetUrl>
+    <History>True|2022-06-15T01:10:43.0932951Z;True|2022-06-14T02:17:33.1720822+03:00;True|2021-12-12T22:24:32.3740722+03:00;True|2021-10-11T23:44:00.7341637+03:00;True|2021-06-30T00:35:37.0592498+03:00;True|2021-06-28T01:34:49.8932578+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="adminscripts/app/app-blog-new-post.1.1.0.js">
@@ -193,6 +193,231 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="App_Code/Seo.cs">
       <publishTime>12/12/2020 04:36:33</publishTime>
     </File>
+    <File Include="assets/css/animate.css">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/css/bootstrap.min.css">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/css/colorbox.css">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/css/font-awesome.min.css">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/css/owl.carousel.min.css">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/css/owl.theme.default.min.css">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/css/responsive.css">
+      <publishTime>06/15/2022 03:43:51</publishTime>
+    </File>
+    <File Include="assets/css/style.css">
+      <publishTime>06/15/2022 03:45:45</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont5b62.eot">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont5b62.svg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont5b62.ttf">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont5b62.woff">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfont5b62.woff2">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/fonts/fontawesome-webfontd41d.eot">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/banner-ads/ad-content-one.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/banner-ads/ad-content-two.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/banner-ads/ad-sidebar.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/banner-ads/ad-top-header.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/controls.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/favicon.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/footer_bg.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/logo.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/nav_btn.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/author.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/architecture1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/architecture2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/architecture3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/architecture4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/food1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/food2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/food3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/food4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/health1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/health2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/health3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/health4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/health5.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/travel1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/travel2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/travel3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/travel4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/lifestyle/travel5.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/news-details1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/review/review1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/review/review2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/review/review3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/review/review4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/gadget1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/gadget2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/gadget3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/gadget4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/gadget5.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/game1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/game2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/game3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/game4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/game5.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/robot1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/robot2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/robot3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/robot4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/tech/robot5.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/user1.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/user2.png">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/video/video1.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/video/video2.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/video/video3.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/images/news/video/video4.jpg">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/js/bootstrap.min.js">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/js/custom_script.js">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/js/jquery-3.2.1.min.js">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/js/jquery.colorbox.js">
+      <publishTime>06/13/2022 00:27:37</publishTime>
+    </File>
+    <File Include="assets/js/owl.carousel.min.js">
+      <publishTime>06/13/2022 00:27:38</publishTime>
+    </File>
+    <File Include="assets/js/popper.min.js">
+      <publishTime>06/13/2022 00:27:38</publishTime>
+    </File>
+    <File Include="assets/js/smoothscroll.js">
+      <publishTime>06/13/2022 00:27:38</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
@@ -200,10 +425,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/CocukYazini.dll">
-      <publishTime>12/12/2021 22:24:30</publishTime>
+      <publishTime>06/15/2022 04:10:41</publishTime>
     </File>
     <File Include="bin/CocukYazini.pdb">
-      <publishTime>12/12/2021 22:24:30</publishTime>
+      <publishTime>06/15/2022 04:10:41</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -965,7 +1190,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Models/Entity/Model1.edmx.diagram">
-      <publishTime>10/09/2021 16:09:45</publishTime>
+      <publishTime>06/13/2022 19:24:53</publishTime>
     </File>
     <File Include="Photos/aboutphotos/azra.jpg">
       <publishTime>04/20/2020 20:08:54</publishTime>
@@ -990,6 +1215,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Photos/logo/cocuk.png">
       <publishTime>04/15/2020 18:11:29</publishTime>
+    </File>
+    <File Include="Photos/logo/cocuk2022logo.png">
+      <publishTime>06/15/2022 03:50:50</publishTime>
+    </File>
+    <File Include="Photos/logo/cocukcircle.png">
+      <publishTime>06/15/2022 03:50:50</publishTime>
     </File>
     <File Include="Photos/logo/cocukyazinitv.png">
       <publishTime>10/10/2021 00:55:09</publishTime>
@@ -1340,10 +1571,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:08</publishTime>
     </File>
     <File Include="Views/About/Index.cshtml">
-      <publishTime>07/30/2020 22:17:15</publishTime>
+      <publishTime>06/14/2022 01:15:41</publishTime>
     </File>
     <File Include="Views/About/IndexEN.cshtml">
-      <publishTime>12/07/2020 00:18:13</publishTime>
+      <publishTime>06/14/2022 01:15:56</publishTime>
     </File>
     <File Include="Views/Admin/Bulten.cshtml">
       <publishTime>10/09/2021 22:40:30</publishTime>
@@ -1355,7 +1586,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/10/2021 03:44:42</publishTime>
     </File>
     <File Include="Views/Admin/Dosyaadi.cshtml">
-      <publishTime>10/09/2021 18:42:38</publishTime>
+      <publishTime>06/13/2022 03:20:22</publishTime>
     </File>
     <File Include="Views/Admin/DosyaUpdate.cshtml">
       <publishTime>06/27/2020 03:22:26</publishTime>
@@ -1376,7 +1607,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/09/2021 18:42:04</publishTime>
     </File>
     <File Include="Views/Admin/Sorusturma.cshtml">
-      <publishTime>10/09/2021 19:02:28</publishTime>
+      <publishTime>06/13/2022 03:20:37</publishTime>
     </File>
     <File Include="Views/Admin/SorusturmaUpdate.cshtml">
       <publishTime>06/27/2020 03:24:08</publishTime>
@@ -1406,16 +1637,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2021 00:29:01</publishTime>
     </File>
     <File Include="Views/Dosya/AylikDosya.cshtml">
-      <publishTime>06/25/2021 00:31:19</publishTime>
+      <publishTime>06/14/2022 01:24:04</publishTime>
     </File>
     <File Include="Views/Dosya/AylikDosyaEN.cshtml">
-      <publishTime>06/25/2021 00:31:55</publishTime>
+      <publishTime>06/14/2022 01:23:44</publishTime>
     </File>
     <File Include="Views/Dosya/Index.cshtml">
-      <publishTime>07/10/2020 14:02:08</publishTime>
+      <publishTime>06/14/2022 01:32:51</publishTime>
     </File>
     <File Include="Views/Dosya/IndexEN.cshtml">
-      <publishTime>12/07/2020 03:10:44</publishTime>
+      <publishTime>06/14/2022 01:38:08</publishTime>
     </File>
     <File Include="Views/Duyuruhaber/Index.cshtml">
       <publishTime>12/12/2020 04:54:02</publishTime>
@@ -1424,46 +1655,46 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2021 00:32:39</publishTime>
     </File>
     <File Include="Views/Home/CocukYaziniTV.cshtml">
-      <publishTime>10/10/2021 03:53:28</publishTime>
+      <publishTime>06/15/2022 04:04:57</publishTime>
     </File>
     <File Include="Views/Home/CocukYaziniTVEn.cshtml">
-      <publishTime>10/10/2021 10:50:56</publishTime>
+      <publishTime>06/15/2022 04:05:15</publishTime>
     </File>
     <File Include="Views/Home/Error.cshtml">
       <publishTime>10/09/2021 18:08:53</publishTime>
     </File>
     <File Include="Views/Home/ForgetPassword.cshtml">
-      <publishTime>12/08/2020 00:41:47</publishTime>
+      <publishTime>06/15/2022 04:08:02</publishTime>
     </File>
     <File Include="Views/Home/ForgetPasswordEN.cshtml">
-      <publishTime>12/08/2020 01:16:18</publishTime>
+      <publishTime>06/15/2022 04:09:30</publishTime>
     </File>
     <File Include="Views/Home/Hata.cshtml">
       <publishTime>10/09/2021 18:09:15</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>11/20/2021 15:09:55</publishTime>
+      <publishTime>06/14/2022 00:36:59</publishTime>
     </File>
     <File Include="Views/Home/IndexEN.cshtml">
-      <publishTime>10/10/2021 10:49:28</publishTime>
+      <publishTime>06/14/2022 00:37:35</publishTime>
     </File>
     <File Include="Views/Home/PostRead.cshtml">
-      <publishTime>10/09/2021 17:43:25</publishTime>
+      <publishTime>06/14/2022 02:01:46</publishTime>
     </File>
     <File Include="Views/Home/PostReadEN.cshtml">
-      <publishTime>10/09/2021 17:44:42</publishTime>
+      <publishTime>06/14/2022 02:03:10</publishTime>
     </File>
     <File Include="Views/Home/Search.cshtml">
-      <publishTime>12/12/2020 05:26:10</publishTime>
+      <publishTime>06/15/2022 04:01:23</publishTime>
     </File>
     <File Include="Views/Home/SearchEN.cshtml">
-      <publishTime>06/25/2021 00:33:17</publishTime>
+      <publishTime>06/15/2022 04:02:16</publishTime>
     </File>
     <File Include="Views/Home/ShowUser.cshtml">
       <publishTime>12/16/2020 01:28:41</publishTime>
     </File>
     <File Include="Views/Home/UserPosts.cshtml">
-      <publishTime>01/02/2021 01:54:20</publishTime>
+      <publishTime>06/14/2022 02:07:09</publishTime>
     </File>
     <File Include="Views/Home/UserPostsEN.cshtml">
       <publishTime>06/25/2021 00:35:22</publishTime>
@@ -1472,10 +1703,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2020 01:04:45</publishTime>
     </File>
     <File Include="Views/Kritik/Index.cshtml">
-      <publishTime>12/12/2020 04:54:58</publishTime>
+      <publishTime>06/14/2022 01:35:43</publishTime>
     </File>
     <File Include="Views/Kritik/IndexEN.cshtml">
-      <publishTime>06/25/2021 00:32:47</publishTime>
+      <publishTime>06/14/2022 01:36:10</publishTime>
     </File>
     <File Include="Views/Messages/Index.cshtml">
       <publishTime>10/03/2021 00:40:14</publishTime>
@@ -1484,31 +1715,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2021 00:41:00</publishTime>
     </File>
     <File Include="Views/Partial/duyuruhaber.cshtml">
-      <publishTime>12/12/2020 05:02:36</publishTime>
+      <publishTime>06/13/2022 00:58:00</publishTime>
     </File>
     <File Include="Views/Partial/duyuruhaberEN.cshtml">
-      <publishTime>12/12/2020 05:02:10</publishTime>
+      <publishTime>06/14/2022 01:25:03</publishTime>
     </File>
     <File Include="Views/Partial/footer.cshtml">
-      <publishTime>10/09/2021 16:41:52</publishTime>
+      <publishTime>06/15/2022 03:54:17</publishTime>
     </File>
     <File Include="Views/Partial/footerEN.cshtml">
-      <publishTime>10/09/2021 17:26:00</publishTime>
+      <publishTime>06/15/2022 03:54:36</publishTime>
     </File>
     <File Include="Views/Partial/footerreklam.cshtml">
       <publishTime>10/10/2021 10:44:37</publishTime>
     </File>
+    <File Include="Views/Partial/homepopuler.cshtml">
+      <publishTime>06/15/2022 03:57:06</publishTime>
+    </File>
+    <File Include="Views/Partial/homepopulerEN.cshtml">
+      <publishTime>06/15/2022 03:57:35</publishTime>
+    </File>
     <File Include="Views/Partial/homepost.cshtml">
-      <publishTime>12/12/2020 05:10:39</publishTime>
+      <publishTime>06/14/2022 00:42:12</publishTime>
     </File>
     <File Include="Views/Partial/homepostEN.cshtml">
-      <publishTime>06/25/2021 00:32:08</publishTime>
+      <publishTime>06/14/2022 01:24:56</publishTime>
     </File>
     <File Include="Views/Partial/Index.cshtml">
       <publishTime>04/19/2020 20:04:26</publishTime>
     </File>
     <File Include="Views/Partial/menuler.cshtml">
       <publishTime>05/05/2020 04:01:15</publishTime>
+    </File>
+    <File Include="Views/Partial/postvitrin.cshtml">
+      <publishTime>06/14/2022 00:42:19</publishTime>
+    </File>
+    <File Include="Views/Partial/postvitrinEN.cshtml">
+      <publishTime>06/15/2022 03:55:56</publishTime>
     </File>
     <File Include="Views/Partial/sidebarreklam.cshtml">
       <publishTime>10/10/2021 10:34:40</publishTime>
@@ -1520,22 +1763,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2021 00:30:31</publishTime>
     </File>
     <File Include="Views/Post/NewPost.cshtml">
-      <publishTime>10/09/2021 23:09:40</publishTime>
+      <publishTime>06/13/2022 19:29:24</publishTime>
     </File>
     <File Include="Views/Post/PostRead.cshtml">
       <publishTime>10/03/2021 00:16:43</publishTime>
     </File>
     <File Include="Views/Post/PostUpdate.cshtml">
-      <publishTime>10/09/2021 18:37:46</publishTime>
+      <publishTime>06/13/2022 19:35:47</publishTime>
     </File>
     <File Include="Views/Post/Search.cshtml">
       <publishTime>06/28/2020 05:05:56</publishTime>
     </File>
     <File Include="Views/Roportaj/Index.cshtml">
-      <publishTime>12/12/2020 04:55:36</publishTime>
+      <publishTime>06/14/2022 01:46:32</publishTime>
     </File>
     <File Include="Views/Roportaj/IndexEN.cshtml">
-      <publishTime>06/25/2021 00:32:55</publishTime>
+      <publishTime>06/14/2022 01:46:59</publishTime>
     </File>
     <File Include="Views/Shared/AdminLayout.cshtml">
       <publishTime>10/10/2021 11:42:35</publishTime>
@@ -1544,31 +1787,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout - EN.cshtml">
-      <publishTime>10/10/2021 11:25:03</publishTime>
+      <publishTime>06/15/2022 03:52:17</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/10/2021 11:24:11</publishTime>
+      <publishTime>06/15/2022 03:52:44</publishTime>
     </File>
     <File Include="Views/Sinemasal/Index.cshtml">
-      <publishTime>12/12/2020 04:56:02</publishTime>
+      <publishTime>06/14/2022 01:37:00</publishTime>
     </File>
     <File Include="Views/Sinemasal/IndexEN.cshtml">
-      <publishTime>06/25/2021 00:33:04</publishTime>
+      <publishTime>06/14/2022 01:37:41</publishTime>
     </File>
     <File Include="Views/Sinemasal/PostRead.cshtml">
       <publishTime>12/15/2020 23:48:11</publishTime>
     </File>
     <File Include="Views/Sorusturma/Index.cshtml">
-      <publishTime>07/29/2020 01:38:08</publishTime>
+      <publishTime>06/14/2022 01:40:50</publishTime>
     </File>
     <File Include="Views/Sorusturma/IndexEN.cshtml">
-      <publishTime>12/07/2020 03:23:36</publishTime>
+      <publishTime>06/14/2022 01:42:01</publishTime>
     </File>
     <File Include="Views/Sorusturma/Sorusturmalar.cshtml">
-      <publishTime>12/12/2020 05:12:50</publishTime>
+      <publishTime>06/14/2022 01:45:33</publishTime>
     </File>
     <File Include="Views/Sorusturma/SorusturmalarEN.cshtml">
-      <publishTime>06/25/2021 00:33:26</publishTime>
+      <publishTime>06/14/2022 01:45:22</publishTime>
     </File>
     <File Include="Views/Users/Index.cshtml">
       <publishTime>10/03/2021 00:36:12</publishTime>
@@ -1580,7 +1823,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/10/2021 00:17:08</publishTime>
     </File>
     <File Include="Views/Users/ShowUser.cshtml">
-      <publishTime>12/07/2020 04:18:11</publishTime>
+      <publishTime>06/13/2022 03:41:06</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>05/13/2020 14:23:49</publishTime>
@@ -1589,7 +1832,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/15/2020 16:06:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/11/2021 23:43:59</publishTime>
+      <publishTime>06/14/2022 02:17:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

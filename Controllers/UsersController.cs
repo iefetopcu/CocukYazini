@@ -88,21 +88,10 @@ namespace CocukYazini.Controllers
 
         }
         [HttpPost]
-        public ActionResult UpdateUser(usertable p1)
+        public ActionResult UpdateUser(usertable p1, int authority)
         {
             var kullanici = db.usertables.Find(p1.id);
-            //var ekle = new usertable
-            //{
-            //    id = id,
-            //    username = username,
-            //    usersurname = usersurname,
-            //    password = password,
-            //    usermail = usermail,
-            //    authority = authority,
-            //    isaktif = isaktif,
-                
-                
-            //};
+            
             if (p1.userphoto != null)
             {
                 var image = Request.Files[0];
@@ -122,7 +111,7 @@ namespace CocukYazini.Controllers
                 kullanici.userphoto = filePath;
             }
 
-            kullanici.authority = p1.authority;
+            kullanici.authority = authority;
             kullanici.usermail = p1.usermail;
             kullanici.isaktif = p1.isaktif;
             kullanici.password = p1.password;

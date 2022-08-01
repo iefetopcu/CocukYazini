@@ -69,7 +69,7 @@ namespace CocukYazini.Controllers
         [HttpPost]
         [ValidateInput(false)]
 
-        public ActionResult NewPost(string posttitle, string postcontent, int categoryid, int userid, int isaktif, string previewphoto, string postphoto, string posttime, int monthid, int sorusturmaid, string postspot)
+        public ActionResult NewPost(string posttitle, string postcontent, int categoryid, int userid, int isaktif, string previewphoto, string postphoto, string posttime, int monthid, int sorusturmaid, string postspot, string postvitrin)
         {
             string zaman = posttime;
 
@@ -86,6 +86,8 @@ namespace CocukYazini.Controllers
                 monthid = monthid,
                 sorusturmaid = sorusturmaid,
                 postspot = postspot,
+                postvitrin = postvitrin,
+                postviewcount = 0
             };
 
             if (postphoto != null)
@@ -234,6 +236,7 @@ namespace CocukYazini.Controllers
             post.posttitle = p1.posttitle;
             post.postspot = p1.postspot;
             post.isaktif = p1.isaktif;
+            post.postvitrin = p1.postvitrin;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

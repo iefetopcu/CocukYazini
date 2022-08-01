@@ -48,6 +48,18 @@
                 <input type="checkbox" name="nopwphoto" value="sil" id="nopwphoto"> Küçük Fotoğrafı Sil
                 <input type="file" name="previewphoto" id="previewphoto" style="margin-left:200px;" /><br />
             </div>
+            <label>Vitrinde Gözüksün Mü?</label>
+            if (Model.postvitrin == "true")
+            {
+
+
+                <input type="checkbox" value="true" name="postvitrin" checked/><br />
+            }
+            else
+            {
+                <input type="checkbox" value="true" name="postvitrin" /><br />
+            }
+
             <label>Dil ve Durum</label>
             @Html.DropDownListFor(m => m.isaktif, new List<SelectListItem>
             { new SelectListItem{Text="Türkçe", Value="1"},

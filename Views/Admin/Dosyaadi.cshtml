@@ -25,7 +25,7 @@
                     <td>@dosya.datetime</td>
 
                     <td>
-                        <a href="@Url.Action("DosyaUpdate", "Admin" , new {id = dosya.id})">
+                        <a href="@Url.Action("DosyaUpdate", "Admin" , new {id = dosya.id})"></a>
                             <i class="fa fa-pen" aria-hidden="true"></i>
                             <a href="@Url.Action("DosyaAdiSil", "Admin" , new {id = dosya.id})" onclick="return confirm('Bu Dosyayı Silmek İstediğinize Emin Misiniz?')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     </td>

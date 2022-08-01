@@ -94,7 +94,6 @@ C:\CocukYazini\CocukYazini\bin\System.Web.WebPages.Razor.xml
 C:\CocukYazini\CocukYazini\bin\Newtonsoft.Json.xml
 C:\CocukYazini\CocukYazini\bin\Antlr3.Runtime.pdb
 C:\CocukYazini\CocukYazini\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csprojAssemblyReference.cache
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csproj.CopyComplete
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.dll
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.pdb
@@ -105,3 +104,4 @@ C:\CocukYazini\CocukYazini\bin\PagedList.Mvc.dll
 C:\CocukYazini\CocukYazini\bin\PagedList.xml
 C:\CocukYazini\CocukYazini\bin\PagedList.Mvc.xml
 C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csproj.CoreCompileInputs.cache
+C:\CocukYazini\CocukYazini\obj\Release\CocukYazini.csproj.AssemblyReference.cache

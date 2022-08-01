@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="cocukyaziniModelStoreContainer" CdmEntityContainer="cocukyaziniEntities">
+    <EntitySetMapping Name="adtables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.adtable">
+        <MappingFragment StoreEntitySet="adtable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reklamstart" ColumnName="reklamstart" />
+          <ScalarProperty Name="reklamend" ColumnName="reklamend" />
+          <ScalarProperty Name="reklamurl" ColumnName="reklamurl" />
+          <ScalarProperty Name="reklamphotourl" ColumnName="reklamphotourl" />
+          <ScalarProperty Name="reklamfooter" ColumnName="reklamfooter" />
+          <ScalarProperty Name="reklamside" ColumnName="reklamside" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="categorytables">
       <EntityTypeMapping TypeName="cocukyaziniModel.categorytable">
         <MappingFragment StoreEntitySet="categorytable">
@@ -38,6 +51,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ebultens">
+      <EntityTypeMapping TypeName="cocukyaziniModel.ebulten">
+        <MappingFragment StoreEntitySet="ebulten">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ebultenemail" ColumnName="ebultenemail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="monthtables">
       <EntityTypeMapping TypeName="cocukyaziniModel.monthtable">
         <MappingFragment StoreEntitySet="monthtable">
@@ -45,6 +66,7 @@
           <ScalarProperty Name="monthname" ColumnName="monthname" />
           <ScalarProperty Name="datetime" ColumnName="datetime" />
           <ScalarProperty Name="monthphotourl" ColumnName="monthphotourl" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -62,6 +84,10 @@
           <ScalarProperty Name="isaktif" ColumnName="isaktif" />
           <ScalarProperty Name="posttime" ColumnName="posttime" />
           <ScalarProperty Name="monthid" ColumnName="monthid" />
+          <ScalarProperty Name="sorusturmaid" ColumnName="sorusturmaid" />
+          <ScalarProperty Name="postspot" ColumnName="postspot" />
+          <ScalarProperty Name="postviewcount" ColumnName="postviewcount" />
+          <ScalarProperty Name="postvitrin" ColumnName="postvitrin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -71,6 +97,18 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="sliderpath" ColumnName="sliderpath" />
           <ScalarProperty Name="sliderurl" ColumnName="sliderurl" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sorusturmas">
+      <EntityTypeMapping TypeName="cocukyaziniModel.sorusturma">
+        <MappingFragment StoreEntitySet="sorusturma">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sorusturmaname" ColumnName="sorusturmaname" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="sorusturmaphotourl" ColumnName="sorusturmaphotourl" />
+          <ScalarProperty Name="isaktif" ColumnName="isaktif" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -85,6 +123,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="uploadtables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.uploadtable">
+        <MappingFragment StoreEntitySet="uploadtable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="uploadname" ColumnName="uploadname" />
+          <ScalarProperty Name="uploadlink" ColumnName="uploadlink" />
+          <ScalarProperty Name="uploadurl" ColumnName="uploadurl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="usertables">
       <EntityTypeMapping TypeName="cocukyaziniModel.usertable">
         <MappingFragment StoreEntitySet="usertable">
@@ -96,6 +144,17 @@
           <ScalarProperty Name="userphoto" ColumnName="userphoto" />
           <ScalarProperty Name="authority" ColumnName="authority" />
           <ScalarProperty Name="isaktif" ColumnName="isaktif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="videotables">
+      <EntityTypeMapping TypeName="cocukyaziniModel.videotable">
+        <MappingFragment StoreEntitySet="videotable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="videotitle" ColumnName="videotitle" />
+          <ScalarProperty Name="videodescription" ColumnName="videodescription" />
+          <ScalarProperty Name="videourl" ColumnName="videourl" />
+          <ScalarProperty Name="videotime" ColumnName="videotime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

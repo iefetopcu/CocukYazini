@@ -33,6 +33,8 @@ namespace CocukYazini.Models.Entity
         public Nullable<long> monthid { get; set; }
         public Nullable<long> sorusturmaid { get; set; }
         public string postspot { get; set; }
+        public Nullable<long> postviewcount { get; set; }
+        public string postvitrin { get; set; }
     
         public virtual categorytable categorytable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

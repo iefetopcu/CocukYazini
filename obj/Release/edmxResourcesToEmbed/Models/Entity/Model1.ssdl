@@ -80,6 +80,8 @@
     <Property Name="monthid" Type="bigint" />
     <Property Name="sorusturmaid" Type="bigint" />
     <Property Name="postspot" Type="varchar(max)" />
+    <Property Name="postviewcount" Type="bigint" />
+    <Property Name="postvitrin" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="slidertable">
     <Key>

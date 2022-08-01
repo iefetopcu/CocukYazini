@@ -86,6 +86,8 @@
           <ScalarProperty Name="monthid" ColumnName="monthid" />
           <ScalarProperty Name="sorusturmaid" ColumnName="sorusturmaid" />
           <ScalarProperty Name="postspot" ColumnName="postspot" />
+          <ScalarProperty Name="postviewcount" ColumnName="postviewcount" />
+          <ScalarProperty Name="postvitrin" ColumnName="postvitrin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
